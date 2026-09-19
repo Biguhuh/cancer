@@ -18,14 +18,15 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
 
 ### Inserm, 2021 — Expertise collective "Pesticides et effets sur la santé" {#inserm-2021}
 - Référence : Inserm, 2021. Expertise collective *Pesticides et effets sur la santé*, synthèse.
-- Lien : inserm.fr (page de synthèse de l'expertise collective 2021)
+- Lien : https://www.inserm.fr/expertise-collective/pesticides-et-sante-nouvelles-donnees-2021/
 - Constat : classification de référence utilisée pour regrouper les cancers du registre en
   présomption de lien "forte" ou "moyenne" avec l'exposition aux pesticides. Établit aussi un
   lien avec six familles de troubles non cancéreux (voir plus bas).
 
 ### Natura Sciences — synthèse de l'expertise Inserm {#natura-sciences-inserm}
 - Référence : "L'Inserm établit des liens entre les pesticides et six maladies graves".
-- Lien : natura-sciences.com
+- Lien : https://www.natura-sciences.com/comprendre/inserm-pesticides-maladies-graves-cancer-parkinson.html
+- Lien : https://www.franceinfo.fr/environnement/transition-ecologique-de-l-agriculture/pesticides/glyphosate/sante-le-lien-avec-les-pesticides-se-precise-pour-six-maladies-graves_4684467.html
 - Constat : article de synthèse grand public de l'expertise Inserm 2021, repris pour la liste des
   troubles non cancéreux reconnus (Parkinson et troubles neurodégénératifs, troubles cognitifs,
   digestifs, respiratoires dont BPCO, troubles hormonaux et de la reproduction, troubles du
@@ -34,18 +35,22 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
   en cas d'exposition parentale avant la naissance).
 
 ### CIRC-OMS / Lancet Oncology, 2018 — incidence des cancers de l'enfant en Europe {#circ-oms-2018}
-- Référence : Registre européen des cancers de l'enfant, période 1991–2010, publié dans
-  *Lancet Oncology*, 2018.
-- Constat : incidence en hausse de +0,5 %/an chez les 0–14 ans et +1 %/an chez les 15–19 ans sur
-  la période étudiée.
+- Référence : Steliarova-Foucher et al., 2018. Changing geographical patterns and trends in cancer
+  incidence in children and adolescents in Europe, 1991–2010 (Automated Childhood Cancer
+  Information System). *Lancet Oncology*.
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC6120055/
+- Constat : sur 165 173 cas issus de 53 registres dans 19 pays, incidence en hausse de +0,54 %/an
+  chez les 0–14 ans sur la période étudiée (arrondi à +0,5 %/an dans ce site).
 
 ### Registre national des cancers de l'enfant (France) {#registre-national-enfant}
-- Référence : Registre national des cancers de l'enfant, France.
+- Référence : Registre national des cancers de l'enfant (RNCE), Inserm.
+- Lien : https://rnce.inserm.fr/statistics/
 - Constat : incidence stable depuis 2000, environ 1 700 cas par an, soit 1 enfant sur 440 touché
   avant l'âge de 15 ans.
 
 ### Santé publique France, INCa, Francim — cancers des 15–39 ans, mars 2025 {#spf-inca-francim-2025}
 - Référence : Santé publique France, Institut national du cancer (INCa), Francim, mars 2025.
+- Lien : https://www.santepubliquefrance.fr/en/press/incidence-cancer-among-adolescents-and-young-adults-aged-15-39-and-trends-between-2000-and
 - Constat : chez les 15–39 ans, incidence en hausse de +1,62 %/an entre 2000 et 2014, puis en
   baisse de -0,79 %/an entre 2015 et 2020.
 
@@ -78,6 +83,7 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
 ### U.S. EPA, 2006 — évaluation cumulative du risque, organophosphorés {#epa-2006}
 - Référence : U.S. Environmental Protection Agency, 2006, Cumulative Risk Assessment for
   Organophosphorus Pesticides.
+- Lien : https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/cumulative-assessment-risk-pesticides
 - Constat : identifie l'alimentation comme voie d'exposition principale aux organophosphorés
   (cité dans l'étude MESA ci-dessus).
 
@@ -143,13 +149,6 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
   sur plusieurs cohortes, de la grossesse à l'âge adulte. Projet en cours : pas de résultats
   définitifs publiés à ce jour.
 
-### Absence de preuve directe : perturbateurs endocriniens et fatigue {#pe-fatigue-absence}
-- Constat : aucune étude identifiée n'établit de lien direct entre exposition aux perturbateurs
-  endocriniens (ou aux pesticides) et fatigue chronique. Un lien reste plausible via un
-  dérèglement thyroïdien, mais ce n'est qu'une hypothèse mécanistique, pas un résultat démontré.
-  Mentionné ici par souci de rigueur : l'absence de preuve n'est pas la preuve d'une absence
-  d'effet, mais elle ne doit pas non plus être présentée comme une confirmation.
-
 ## Alimentation biologique et réduction de l'exposition, focus enfants
 
 ### Bradman et al., 2015 — intervention bio chez l'enfant {#bradman-2015}
@@ -167,10 +166,52 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
 
 ### Loi EGalim — bio en restauration collective {#egalim}
 - Référence : loi EGalim (2018) et ses décrets d'application.
+- Lien : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037547946
 - Constat : depuis 2022, la restauration collective publique doit atteindre 20 % de produits
   biologiques et 50 % de produits durables ou sous signe de qualité ; l'obligation est étendue à
   toute la restauration collective depuis 2024. En pratique, la part de bio observée en 2023 était
   de 12,1 % en moyenne, en dessous de l'objectif légal.
+
+## Labels alimentaires : ce qu'ils garantissent (ou non) sur les pesticides
+
+### ADEME — ce que garantit le label bio (AB / Eurofeuille) {#ademe-label-bio}
+- Référence : ADEME (Agence de la transition écologique), fiche "Agriculture biologique".
+- Lien : https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/mieux-choisir/labels-environnementaux/alimentation/aliments-boissons-agriculture-biologique
+- Constat : le label bio européen (Eurofeuille, équivalent du label français AB depuis 2009) repose
+  sur un règlement européen qui interdit les engrais chimiques de synthèse, les pesticides et
+  herbicides de synthèse, ainsi que les OGM. C'est une interdiction de méthode, vérifiée par des
+  organismes certificateurs indépendants et des contrôles sur l'exploitation.
+
+### Agence Bio — les traitements naturels autorisés en bio ne sont pas nuls {#agence-bio-naturels}
+- Référence : Agence Bio (établissement public), FAQ "Les traitements naturels utilisés en
+  agriculture biologique sont-ils toxiques ?".
+- Lien : https://www.agencebio.org/questions/les-traitements-naturels-utilises-en-agriculture-biologique-sont-ils-toxiques/
+- Constat : le bio autorise environ 35 substances actives d'origine naturelle ou des produits de
+  biocontrôle (cuivre, soufre, extraits végétaux, micro-organismes, phéromones...). La plupart se
+  dégradent plus vite dans l'environnement que les pesticides de synthèse, à l'exception notable du
+  cuivre et du soufre, plus rémanents. Le bio garantit donc l'absence de pesticides de synthèse,
+  pas une absence totale et absolue de tout traitement.
+
+### Que Choisir — le label HVE n'interdit pas les pesticides de synthèse {#que-choisir-hve}
+- Référence : UFC-Que Choisir, "Label Haute Valeur Environnementale — Greenwashing de l'agriculture
+  intensive ?".
+- Lien : https://www.quechoisir.org/actualite-label-haute-valeur-environnementale-greenwashing-de-l-agriculture-intensive-n87083/
+- Constat : contrairement au bio, le label d'État HVE n'interdit pas les pesticides de synthèse. Il
+  repose sur un système de points répartis sur 4 thématiques (biodiversité, stratégie
+  phytosanitaire, fertilisation, irrigation) ; un score faible sur les pesticides peut être
+  compensé par de bons scores ailleurs. France Nature Environnement, Agir pour l'environnement, la
+  Confédération paysanne et Synabio ont dénoncé un risque de confusion avec le bio pour les
+  consommateurs.
+
+### Générations Futures — le label privé "Zéro Résidu de Pesticides" {#generations-futures-zrp}
+- Référence : Générations Futures, FAQ "Qu'est-ce que le Zéro Résidu de Pesticides ?".
+- Lien : https://www.generations-futures.fr/faq/quest-ce-que-le-zero-residus-de-pesticides/
+- Constat : label privé créé en 2018 (Collectif Nouveaux Champs), non officiel, sans contrôle
+  indépendant obligatoire ni référentiel public. Il fixe une obligation de résultat (résidus non
+  détectables au seuil de 0,01 mg/kg à la récolte) et non de méthode : les pesticides de synthèse
+  restent autorisés pendant la culture. Contrairement au bio, il ne protège donc pas les sols,
+  l'eau, l'air ni la biodiversité de l'exposition aux pesticides pendant la production — seul le
+  produit fini est concerné.
 
 ## Limites méthodologiques de l'étude statistique de ce site
 

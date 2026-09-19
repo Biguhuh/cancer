@@ -6,6 +6,7 @@ on:
     paths:
       - "scripts/build_site.py"
       - "scripts/site_style.css"
+      - "scripts/site_tabs.js"
       - "data/site_stats.json"
       - "data/*.png"
       - "docs/SOURCES.md"

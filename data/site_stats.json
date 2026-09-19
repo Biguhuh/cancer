@@ -35,6 +35,26 @@
       "significativite": "baisse significative"
     }
   },
+  "groupes_23_cancers_taux_brut": {
+    "lies_pesticides": {
+      "n": 15,
+      "pente": 1.4985,
+      "IC95_bas": 1.2331,
+      "IC95_haut": 1.764,
+      "p_value": 0.0,
+      "r2": 0.9196,
+      "significativite": "hausse significative"
+    },
+    "non_lies_pesticides": {
+      "n": 15,
+      "pente": 0.396,
+      "IC95_bas": -0.0392,
+      "IC95_haut": 0.8311,
+      "p_value": 0.0711,
+      "r2": 0.2291,
+      "significativite": "non significatif"
+    }
+  },
   "cancers": [
     {
       "nom": "LLC / Lymphome lymphocytique",

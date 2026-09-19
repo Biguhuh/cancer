@@ -72,18 +72,29 @@ body {
 /* ---------- Onglet Synthèse (conclusion) ---------- */
 
 .panel-synthese { padding-top: 6px; }
-.hero-headline {
+.site-intro {
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  max-width: var(--max-w);
+  margin: 0 0 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+/* Deux classes (.tab-panel .hero-headline) pour battre en spécificité les règles génériques
+   .tab-panel h2/h3, utilisées quand ce style est réappliqué hors de l'onglet Synthèse (ex. le
+   même rappel chiffré repris en haut de l'onglet Détail par cancer). */
+.tab-panel .hero-headline {
   font-size: clamp(1.4rem, 1.05rem + 1.4vw, 2rem);
   line-height: 1.2;
   color: var(--warn);
   margin: 0 0 16px;
-  max-width: 900px;
+  max-width: var(--max-w);
   border-bottom: none;
   padding-bottom: 0;
 }
-.hero-lede {
+.tab-panel .hero-lede {
   font-size: 1.08rem;
-  max-width: 760px;
+  max-width: var(--max-w);
   margin: 0 0 24px;
 }
 .hero-figure {
@@ -91,7 +102,7 @@ body {
   background: var(--bg-alt);
   padding: 14px;
   border-radius: 8px;
-  max-width: var(--max-w-wide);
+  max-width: var(--max-w);
 }
 .hero-figure img { display: block; width: 100%; height: auto; border-radius: 4px; }
 .hero-figure figcaption { font-size: 0.85rem; color: var(--ink-soft); margin-top: 8px; }
@@ -101,7 +112,7 @@ body {
   border-left: 4px solid var(--accent);
   border-radius: 4px;
   padding: 18px 22px;
-  max-width: var(--max-w-wide);
+  max-width: var(--max-w);
 }
 .method-block h3 { margin: 0 0 10px; color: var(--accent); font-size: 1.02rem; }
 .method-block p { margin: 0 0 12px; max-width: none; }
@@ -161,11 +172,15 @@ main { padding: 36px 0 60px; }
   margin-top: 0;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--line);
+  max-width: var(--max-w);
 }
-.tab-panel h3 { font-size: 1.08rem; color: var(--accent); margin-top: 30px; }
+.tab-panel h3 { font-size: 1.08rem; color: var(--accent); margin-top: 30px; max-width: var(--max-w); }
 
-.tab-panel p { max-width: 780px; }
-#panel-sources p, #panel-detail p, #panel-methodologie p { max-width: 800px; }
+.tab-panel p {
+  max-width: var(--max-w);
+  text-align: justify;
+  hyphens: auto;
+}
 
 /* ---------- Formulas (onglet Étude statistique) ---------- */
 
@@ -205,12 +220,12 @@ figure {
   background: var(--bg-alt);
   padding: 12px;
   border-radius: 6px;
-  max-width: var(--max-w-wide);
+  max-width: var(--max-w);
 }
 figure img { display: block; width: 100%; height: auto; border-radius: 3px; }
 figcaption { font-size: 0.85rem; color: var(--ink-soft); margin-top: 8px; }
 
-.table-scroll { overflow-x: auto; margin: 16px 0; }
+.table-scroll { overflow-x: auto; margin: 16px 0; max-width: var(--max-w); }
 .data-table {
   border-collapse: collapse;
   width: 100%;
@@ -236,29 +251,31 @@ figcaption { font-size: 0.85rem; color: var(--ink-soft); margin-top: 8px; }
   list-style: none;
   padding: 0;
   margin: 0 0 32px;
-  counter-reset: biblio;
+  max-width: var(--max-w);
 }
 .biblio-list li {
-  counter-increment: biblio;
   position: relative;
   padding: 10px 0 10px 34px;
   border-bottom: 1px solid var(--line);
   scroll-margin-top: 70px;
 }
-.biblio-list li::before {
-  content: counter(biblio) ".";
+.biblio-list .num {
   position: absolute;
   left: 0;
+  top: 10px;
   color: var(--accent);
   font-weight: 600;
 }
 .biblio-list .ref { margin: 0 0 4px; font-weight: 600; }
 .biblio-list .lien { margin: 0 0 4px; font-size: 0.88rem; word-break: break-all; }
 .biblio-list .lien a { color: var(--down); }
-.biblio-list .constat { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+.biblio-list .constat { margin: 0; color: var(--ink-soft); font-size: 0.92rem; text-align: justify; hyphens: auto; }
+.biblio-list .backlink { margin: 6px 0 0; font-size: 0.82rem; }
+.biblio-list .backlink a { color: var(--accent); text-decoration: none; margin-right: 6px; }
+.biblio-list .backlink a:hover { text-decoration: underline; }
 
-.limites-list { padding-left: 20px; color: var(--ink-soft); max-width: 780px; }
-.limites-list li { margin-bottom: 10px; }
+.limites-list { padding-left: 20px; color: var(--ink-soft); max-width: var(--max-w); }
+.limites-list li { margin-bottom: 10px; text-align: justify; hyphens: auto; }
 
 .site-footer {
   background: var(--bg-alt);

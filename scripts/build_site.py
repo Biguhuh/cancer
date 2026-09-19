@@ -12,6 +12,7 @@ Usage :
 import json
 import re
 import shutil
+from collections import defaultdict
 from html import escape
 from pathlib import Path
 
@@ -22,6 +23,7 @@ SITE = ROOT / "site"
 
 CHART_FILES = [
     "comparaison_indice_base100.png",
+    "comparaison_indice_base100_taux_brut.png",
     "graphes_indicateurs_complets.png",
 ]
 
@@ -99,10 +101,21 @@ def parse_sources(path):
                 label, sep, rest = line[2:].partition(" : ")
                 if sep:
                     field = label.strip()
-                    entry["fields"][field] = rest.strip()
+                    value = rest.strip()
+                    if field == "Lien":
+                        # Une source peut citer plusieurs liens (ex. deux articles de synthèse
+                        # d'une même expertise) : chaque "- Lien : ..." s'ajoute à une liste,
+                        # plutôt que d'écraser le précédent.
+                        entry["fields"].setdefault("Lien", []).append(value)
+                    else:
+                        entry["fields"][field] = value
                 continue
             if line.startswith("  ") and field:
-                entry["fields"][field] += " " + line.strip()
+                current = entry["fields"].get(field)
+                if isinstance(current, list):
+                    current[-1] += " " + line.strip()
+                else:
+                    entry["fields"][field] = (current or "") + " " + line.strip()
                 continue
 
     push_entry()
@@ -160,30 +173,54 @@ def build_cancer_table(cancers):
     return "\n".join(trs)
 
 
-def build_bibliography(sections):
+def build_bibliography(sections, citation_locations):
     parts = []
     for title, entries in sections:
-        parts.append(f'    <h3>{escape(title)}</h3>\n    <ol class="biblio-list">')
+        parts.append(f'    <h3>{escape(title)}</h3>\n    <ul class="biblio-list">')
         for e in entries:
             f = e["fields"]
             ref = md_inline(f.get("Référence", ""))
-            lien = f.get("Lien")
+            liens = f.get("Lien", [])
             constat = md_inline(f.get("Constat", ""))
-            lien_html = ""
-            if lien:
+            lien_htmls = []
+            for lien in liens:
                 if lien.startswith("http"):
-                    lien_html = (
+                    lien_htmls.append(
                         f'<p class="lien"><a href="{escape(lien)}" target="_blank" '
                         f'rel="noopener">{escape(lien)}</a></p>'
                     )
                 else:
-                    lien_html = f'<p class="lien">{md_inline(lien)}</p>'
+                    lien_htmls.append(f'<p class="lien">{md_inline(lien)}</p>')
+            lien_html = "\n        ".join(lien_htmls)
+
+            # Lien(s) de retour vers le ou les endroits du texte où cette source est citée. Une
+            # source citée plusieurs fois obtient un lien numéroté par occurrence ; une source
+            # jamais citée (à vérifier au cas par cas) n'affiche rien.
+            anchors = citation_locations.get(e["slug"], [])
+            if not anchors:
+                back_html = ""
+            elif len(anchors) == 1:
+                back_html = (
+                    f'<p class="backlink"><a href="#{anchors[0]}">↩ Voir dans le texte</a></p>'
+                )
+            else:
+                links = " ".join(
+                    f'<a href="#{a}" title="Occurrence {i} dans le texte">↩{i}</a>'
+                    for i, a in enumerate(anchors, start=1)
+                )
+                back_html = f'<p class="backlink">Voir dans le texte : {links}</p>'
+
+            # Le numéro affiché ici doit être identique à celui produit par cite() : les deux
+            # viennent de e["n"], assigné une seule fois dans main(). Ne pas le recalculer via un
+            # compteur CSS (ça redémarre à 1 à chaque <ul>, un thème = une liste = un décalage).
             parts.append(f"""      <li id="src-{e['slug']}">
+        <span class="num">{e['n']}.</span>
         <p class="ref">{ref}</p>
         {lien_html}
         <p class="constat">{constat}</p>
+        {back_html}
       </li>""")
-        parts.append("    </ol>")
+        parts.append("    </ul>")
     return "\n".join(parts)
 
 
@@ -199,20 +236,25 @@ def build_limites(limites):
 def panel_synthese(stats, cite):
     y0, y1 = stats["annees"]["min"], stats["annees"]["max"]
     g23 = stats["groupes_23_cancers"]
+    g23_brut = stats["groupes_23_cancers_taux_brut"]
     lies = [c for c in stats["cancers"] if c["presomption"] != "Non liée"]
     n_lies = len(lies)
-    n_hausse = sum(1 for c in lies if c["significativite"] == "hausse significative")
+    n_non_lies = len(stats["cancers"]) - n_lies
 
     return f"""
   <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" tabindex="0">
-    <h2 class="hero-headline">{n_hausse} cancers liés aux pesticides en hausse significative,
-      contre un seul en baisse</h2>
-    <p class="hero-lede">Sur les {n_lies} cancers pour lesquels l'Inserm documente une présomption
-      de lien avec les pesticides, <strong>{n_hausse} présentent une hausse d'incidence
-      statistiquement significative</strong> depuis {y0} sur le registre de Poitou-Charentes.
-      Un seul est en baisse significative. Ce déséquilibre est inquiétant&nbsp;: il justifie d'en
-      informer la population, pour agir par prévention plutôt que d'attendre une démonstration
-      causale définitive.</p>
+    <p class="site-intro">Ce site présente les résultats d'une étude statistique menée à partir
+      des données du registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Il
+      explique les liens entre pesticides, maladies — dont les cancers — et alimentation. Les
+      résultats de cette étude montrent l'importance d'une alimentation biologique, seul label
+      garantissant l'absence de pesticides de synthèse (voir l'onglet Labels).</p>
+
+    <h2 class="hero-headline">Les cancers liés aux pesticides progressent, les autres reculent</h2>
+    <p class="hero-lede">L'incidence des cancers liés aux pesticides croît de façon certaine sur la
+      période étudiée. Dans le même temps, l'incidence des cancers non liés aux pesticides
+      décroît. Ce constat est inquiétant&nbsp;: il justifie d'en informer la population, afin
+      d'agir par prévention plutôt que d'attendre une hypothétique démonstration causale
+      définitive.</p>
 
     <figure class="hero-figure">
       <img src="assets/img/comparaison_indice_base100.png" alt="Comparaison indexée base 100 des cancers à présomption forte/moyenne vs non liés, {y0}-{y1}" loading="lazy">
@@ -228,17 +270,56 @@ def panel_synthese(stats, cite):
       <ul class="stat-list">
         <li><strong>Cancers à présomption forte ou moyenne ({n_lies})</strong> :
           {fmt_trend(g23['lies_pesticides'], unit="points d'indice/an")}</li>
-        <li><strong>Cancers non documentés ({len(stats['cancers']) - n_lies})</strong> :
+        <li><strong>Cancers non documentés ({n_non_lies})</strong> :
           {fmt_trend(g23['non_lies_pesticides'], unit="points d'indice/an")}</li>
       </ul>
+
+      <h3>Qu'est-ce qu'un taux standardisé ?</h3>
+      <p>Le taux <em>standardisé (Europe)</em> utilisé ci-dessus neutralise l'effet du
+        vieillissement de la population&nbsp;: il recalcule l'incidence que l'on observerait si la
+        pyramide des âges de Poitou-Charentes était identique à celle de la population européenne
+        de référence. Sans cette correction, une hausse de taux peut simplement refléter une
+        population plus âgée — pas un risque individuel plus élevé.</p>
+      <p>Cette correction change-t-elle la conclusion&nbsp;? On refait le même calcul avec le taux
+        brut, non corrigé de l'âge&nbsp;:</p>
+      <ul class="stat-list">
+        <li><strong>Cancers à présomption forte ou moyenne ({n_lies}), taux brut</strong> :
+          {fmt_trend(g23_brut['lies_pesticides'], unit="points d'indice/an")}</li>
+        <li><strong>Cancers non documentés ({n_non_lies}), taux brut</strong> :
+          {fmt_trend(g23_brut['non_lies_pesticides'], unit="points d'indice/an")}</li>
+      </ul>
+      <p>Sur le taux brut, la hausse des cancers liés aux pesticides est encore plus marquée. En
+        revanche, la baisse des cancers non liés disparaît&nbsp;: elle n'est plus significative.
+        C'est cohérent avec l'effet du vieillissement de la population&nbsp;: sans la correction
+        par âge, une population plus âgée masque une baisse de risque réelle par une hausse
+        mécanique des cas. La standardisation ne fabrique donc pas la baisse observée chez les
+        cancers non liés — elle la révèle.</p>
     </div>
+
+    <figure class="hero-figure">
+      <img src="assets/img/comparaison_indice_base100_taux_brut.png" alt="Même comparaison indexée base 100, taux brut non standardisé, {y0}-{y1}" loading="lazy">
+      <figcaption>Même comparaison, taux brut (non standardisé par âge).</figcaption>
+    </figure>
   </section>"""
 
 
 def panel_detail(stats, cancer_table_html):
+    y0 = stats["annees"]["min"]
+    lies = [c for c in stats["cancers"] if c["presomption"] != "Non liée"]
+    n_lies = len(lies)
+    n_hausse = sum(1 for c in lies if c["significativite"] == "hausse significative")
+
     return f"""
   <section id="panel-detail" class="tab-panel" role="tabpanel" aria-labelledby="tab-detail" data-tab="detail" hidden>
     <h2>Détail par cancer</h2>
+
+    <h3 class="hero-headline">{n_hausse} cancers liés aux pesticides en hausse significative,
+      contre un seul en baisse</h3>
+    <p class="hero-lede">Sur les {n_lies} cancers pour lesquels l'Inserm documente une présomption
+      de lien avec les pesticides, <strong>{n_hausse} présentent une hausse d'incidence
+      statistiquement significative</strong> depuis {y0} sur le registre de Poitou-Charentes.
+      Un seul est en baisse significative.</p>
+
     <p>Tendance individuelle des <strong>{len(stats['cancers'])} cancers</strong> suivis par le
       registre, triés par niveau de présomption Inserm 2021 puis par p-value. La colonne "Note
       bibliographique" reprend des repères issus de la littérature spécifique à chaque cancer ; ce
@@ -275,6 +356,18 @@ def panel_methodologie(stats):
     <p><em>a</em> (la pente) et <em>b</em> (l'ordonnée à l'origine) sont ajustés par la
       <strong>méthode des moindres carrés</strong>, qui minimise la somme des carrés des écarts
       entre les points observés et la droite.</p>
+
+    <h3>Pourquoi une droite, et pas une courbe plus complexe ?</h3>
+    <p>Avec seulement {n} points de données par cancer (une valeur par an), un modèle plus
+      complexe qu'une droite — polynôme, exponentielle, ajustement local — demanderait d'estimer
+      davantage de paramètres à partir de la même poignée de points. Le risque de surapprentissage
+      (coller au bruit d'échantillonnage plutôt qu'à une tendance réelle) dépasse vite le bénéfice
+      d'un ajustement apparent meilleur. Une droite n'utilise que deux paramètres (pente et
+      ordonnée à l'origine), laisse un maximum de degrés de liberté pour le test statistique, et
+      donne un résultat directement interprétable en points de taux par an — c'est aussi la
+      convention standard pour détecter une tendance monotone dans une série temporelle courte. Un
+      modèle plus complexe se justifierait avec davantage d'années de données, ou s'il existait une
+      raison de s'attendre à une rupture nette (un changement réglementaire précis, par exemple).</p>
 
     <h3>La p-value : la pente est-elle réelle, ou due au hasard ?</h3>
     <p>On teste l'<strong>hypothèse nulle H₀</strong>&nbsp;: la vraie pente est nulle, il n'y a pas
@@ -370,7 +463,7 @@ def panel_endocriniens(cite):
 def panel_alimentation(cite):
     return f"""
   <section id="panel-alimentation" class="tab-panel" role="tabpanel" aria-labelledby="tab-alimentation" data-tab="alimentation" hidden>
-    <h2>Alimentation, agriculture conventionnelle et bio : quel impact pour les enfants ?</h2>
+    <h2>Alimentation, agriculture conventionnelle et bio : impacts, notamment pour les enfants</h2>
 
     <p>Plusieurs travaux convergents, sur des populations et des méthodes différentes,
       identifient <strong>l'alimentation comme la voie d'exposition dominante aux
@@ -401,6 +494,52 @@ def panel_alimentation(cite):
   </section>"""
 
 
+def panel_labels(cite):
+    return f"""
+  <section id="panel-labels" class="tab-panel" role="tabpanel" aria-labelledby="tab-labels" data-tab="labels" hidden>
+    <h2>Labels alimentaires : pourquoi le bio est le seul qui compte face aux pesticides</h2>
+
+    <p>Plusieurs labels affichés en rayon parlent d'environnement ou de qualité, mais tous ne
+      disent pas la même chose sur les pesticides. Voici les trois que l'on croise le plus souvent,
+      et ce qu'ils garantissent réellement.</p>
+
+    <h3>Bio (AB / Eurofeuille) : une interdiction de méthode</h3>
+    <p>Le label bio européen {cite('ademe-label-bio')} repose sur un règlement qui
+      <strong>interdit les pesticides et engrais de synthèse ainsi que les OGM</strong>, vérifié
+      par des organismes certificateurs indépendants qui contrôlent l'exploitation elle-même — pas
+      seulement le produit fini. Nuance à ne pas perdre de vue&nbsp;: le bio autorise encore une
+      trentaine de substances naturelles ou de biocontrôle (cuivre, soufre, extraits végétaux,
+      micro-organismes) {cite('agence-bio-naturels')}. <strong>Le bio garantit l'absence de
+      pesticides de synthèse, pas une absence totale et absolue de tout traitement</strong> — mais
+      c'est aujourd'hui le seul label à interdire la méthode elle-même plutôt qu'à mesurer un
+      résultat.</p>
+
+    <h3>HVE (Haute Valeur Environnementale) : un score, pas une interdiction</h3>
+    <p>Le label d'État HVE {cite('que-choisir-hve')} <strong>n'interdit pas les pesticides de
+      synthèse</strong>. Il note l'exploitation sur quatre thématiques (biodiversité, stratégie
+      phytosanitaire, fertilisation, irrigation) : un score faible sur les pesticides peut être
+      compensé par de bons scores ailleurs. Plusieurs associations (France Nature Environnement,
+      Agir pour l'environnement, Confédération paysanne, Synabio) alertent sur une confusion
+      fréquente avec le bio dans l'esprit des consommateurs, alors que les deux labels ne
+      garantissent pas la même chose.</p>
+
+    <h3>Zéro Résidu de Pesticides : un résultat, pas une méthode</h3>
+    <p>Ce label privé {cite('generations-futures-zrp')}, non officiel et sans contrôle indépendant
+      obligatoire, fonctionne à l'inverse du bio&nbsp;: <strong>les pesticides de synthèse restent
+      autorisés pendant la culture</strong>, à condition qu'il n'en reste pas de trace détectable
+      (seuil de 0,01 mg/kg) au moment de la récolte. Concrètement, les sols, l'eau, l'air et la
+      biodiversité restent exposés pendant la production&nbsp;; seul le produit acheté est
+      concerné.</p>
+
+    <h3>Ce que ça change concrètement</h3>
+    <p>Sur les trois, <strong>seul le bio interdit l'usage de pesticides de synthèse par
+      construction</strong>, plutôt que de mesurer un résultat après coup ou de compenser un usage
+      par d'autres critères. C'est la raison pour laquelle ce site le mentionne comme le repère le
+      plus fiable pour un consommateur qui veut réduire son exposition alimentaire aux pesticides
+      — cf. l'onglet Alimentation pour l'effet mesuré de ce choix, y compris chez l'enfant.</p>
+  </section>"""
+
+
 def panel_sources(biblio_html):
     return f"""
   <section id="panel-sources" class="tab-panel" role="tabpanel" aria-labelledby="tab-sources" data-tab="sources" hidden>
@@ -425,6 +564,7 @@ TABS = [
     ("methodologie", "Étude statistique"),
     ("endocriniens", "Perturbateurs endocriniens"),
     ("alimentation", "Alimentation"),
+    ("labels", "Labels"),
     ("sources", "Sources"),
     ("limites", "Limites méthodologiques"),
 ]
@@ -434,7 +574,7 @@ TABS = [
 # 5. Page principale
 # ---------------------------------------------------------------------------
 
-def build_page(stats, cite, cancer_table_html, biblio_html, limites_html):
+def build_page(stats, panels):
     y0, y1 = stats["annees"]["min"], stats["annees"]["max"]
 
     tabs_nav = "\n".join(
@@ -442,16 +582,6 @@ def build_page(stats, cite, cancer_table_html, biblio_html, limites_html):
         f'aria-controls="panel-{key}" tabindex="{0 if i == 0 else -1}" data-tab="{key}">{label}</button>'
         for i, (key, label) in enumerate(TABS)
     )
-
-    panels = "\n".join([
-        panel_synthese(stats, cite),
-        panel_detail(stats, cancer_table_html),
-        panel_methodologie(stats),
-        panel_endocriniens(cite),
-        panel_alimentation(cite),
-        panel_sources(biblio_html),
-        panel_limites(limites_html),
-    ])
 
     return f"""<!doctype html>
 <html lang="fr">
@@ -514,20 +644,44 @@ def main():
         e["n"] = i
     slug_to_entry = {e["slug"]: e for e in all_entries}
 
+    # citation_locations relie chaque source aux ancres de ses citations dans le texte, pour que
+    # la bibliographie puisse offrir un lien de retour. Rempli par cite() au fil de la
+    # construction des onglets ci-dessous — c'est pourquoi la bibliographie doit être construite
+    # après, pas avant.
+    citation_locations = defaultdict(list)
+    citation_counter = defaultdict(int)
+
     def cite(*slugs):
-        marks = [f'<a href="#src-{slug_to_entry[s]["slug"]}">{slug_to_entry[s]["n"]}</a>' for s in slugs]
+        marks = []
+        for s in slugs:
+            citation_counter[s] += 1
+            anchor_id = f"cite-{s}-{citation_counter[s]}"
+            citation_locations[s].append(anchor_id)
+            marks.append(f'<a href="#src-{s}" id="{anchor_id}">{slug_to_entry[s]["n"]}</a>')
         return f'<sup class="cite">[{", ".join(marks)}]</sup>'
 
     cancer_table_html = build_cancer_table(stats["cancers"])
-    biblio_html = build_bibliography(sections)
     limites_html = build_limites(limites)
+
+    panel_htmls = [
+        panel_synthese(stats, cite),
+        panel_detail(stats, cancer_table_html),
+        panel_methodologie(stats),
+        panel_endocriniens(cite),
+        panel_alimentation(cite),
+        panel_labels(cite),
+    ]
+    biblio_html = build_bibliography(sections, citation_locations)
+    panel_htmls.append(panel_sources(biblio_html))
+    panel_htmls.append(panel_limites(limites_html))
+    panels = "\n".join(panel_htmls)
 
     SITE.mkdir(exist_ok=True)
     (SITE / "assets" / "img").mkdir(parents=True, exist_ok=True)
     for name in CHART_FILES:
         shutil.copy(DATA / name, SITE / "assets" / "img" / name)
 
-    html = build_page(stats, cite, cancer_table_html, biblio_html, limites_html)
+    html = build_page(stats, panels)
     (SITE / "index.html").write_text(html, encoding="utf-8")
 
     scripts_dir = Path(__file__).parent
