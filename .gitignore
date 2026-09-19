@@ -5,3 +5,11 @@ __pycache__/
 venv/
 *.egg-info/
 .DS_Store
+
+# généré par scripts/build_site.py, reconstruit par la CI à chaque déploiement
+/site/
+
+# documents de travail internes, non destinés à publication (docs/SOURCES.md reste public)
+/docs/etude-cancers.md
+/docs/*.pptx
+/docs/Li 2022 ExpositionPesticides.pdf
