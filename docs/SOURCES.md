@@ -54,6 +54,118 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
 - Constat : chez les 15–39 ans, incidence en hausse de +1,62 %/an entre 2000 et 2014, puis en
   baisse de -0,79 %/an entre 2015 et 2020.
 
+## Cancers spécifiques : littérature complémentaire par localisation
+
+Sources citées dans la colonne "Note bibliographique" du tableau des 33 cancers (onglet Détail),
+en complément de la classification générale de l'expertise Inserm 2021 ci-dessus.
+
+### Bonner et al., 2017 — pesticides et cancer du poumon, Agricultural Health Study {#ahs-lung-cancer-2017}
+- Référence : Bonner, M.R. et al., 2017. Occupational Exposure to Pesticides and the Incidence of
+  Lung Cancer in the Agricultural Health Study. *Environmental Health Perspectives*, 125(4), 544–551.
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC5381995/
+- Constat : sur 49 812 applicateurs de pesticides suivis environ 15 ans (654 cas de cancer du
+  poumon), associations positives observées pour plusieurs pesticides (pendiméthaline, dieldrine,
+  parathion, chlorimuron-éthyle), sans gradient dose-réponse univoque pour l'ensemble d'entre eux.
+
+### Fondation ARC — pesticides et cancer, cancers du poumon et de l'ovaire {#arc-pesticides-cancers}
+- Référence : Fondation ARC pour la recherche sur le cancer, "Quels sont les liens entre les
+  pesticides et le cancer ?".
+- Lien : https://www.fondation-arc.org/facteurs-risque-cancer/pesticides
+- Constat : pour des expositions professionnelles intenses et prolongées, des études rapportent des
+  liens avec les cancers de l'ovaire, du poumon et le mélanome, tout en précisant que ces études
+  demandent à être consolidées.
+
+### Foucault et al., 2021 — pesticides et leucémie aiguë myéloïde, méta-analyse {#foucault-2021-lam}
+- Référence : Foucault, A., Vallet, N., Ravalet, N. et al., 2021. Occupational pesticide exposure
+  increases risk of acute myeloid leukemia: a meta-analysis of case-control studies including 3,955
+  cases and 9,948 controls. *Scientific Reports*, 11, 1751.
+- Lien : https://doi.org/10.1038/s41598-021-81604-x
+- Constat : méta-analyse de 14 études cas-témoins (CHRU de Tours) : l'exposition professionnelle aux
+  pesticides est associée à un risque accru de leucémie aiguë myéloïde chez l'adulte (OR = 1,51,
+  IC95&nbsp;% [1,10 ; 2,08]).
+
+### Bulletin du Cancer, 2023 — facteurs de risque environnementaux du syndrome myélodysplasique {#smd-facteurs-environnementaux-2023}
+- Référence : revue de littérature, 2023. Facteurs de risques environnementaux et professionnels de
+  syndrome myélodysplasique. *Bulletin du Cancer* (ScienceDirect).
+- Lien : https://www.sciencedirect.com/science/article/abs/pii/S0007455123002795
+- Constat : preuve suffisante d'un excès de risque associé aux rayonnements ionisants, au benzène et
+  au tabac ; preuve limitée, faute d'études méthodologiquement solides, pour une association causale
+  entre exposition aux pesticides et syndrome myélodysplasique.
+
+### Talibov et al., 2022 — cancer colorectal dans la cohorte AGRICAN {#agrican-colorectal-2022}
+- Référence : Talibov, M. et al., 2022. Colorectal cancer among farmers in the AGRICAN cohort study.
+  *Revue d'Épidémiologie et de Santé Publique*.
+- Lien : https://www.sciencedirect.com/science/article/abs/pii/S1877782122000303
+- Constat : dans la cohorte AGRICAN (181 842 agriculteurs, 11 régions françaises, 2 609 cas de
+  cancer colorectal entre 2005 et 2015), risque significativement accru chez les producteurs de
+  chevaux, de tournesol et de légumes de plein champ.
+
+### Maas et al., 2026 — empreintes épigénétiques, picloram et cancer colorectal précoce {#picloram-2026}
+- Référence : Maas, S.C.E. et al., 2026. Epigenetic fingerprints link early-onset colon and rectal
+  cancer to pesticide exposure. *Nature Medicine*, 21 avril 2026.
+- Lien : https://doi.org/10.1038/s41591-026-04342-5
+- Constat : à partir d'empreintes de méthylation de l'ADN utilisées comme proxy d'exposition,
+  association entre le picloram (herbicide) et le cancer colorectal précoce (diagnostiqué avant 50
+  ans), répliquée sur une méta-analyse de neuf cohortes. Étude associative : l'exposition
+  individuelle n'a pas été mesurée directement, seulement estimée à partir de données agricoles au
+  niveau des comtés.
+
+### Marks et al., 2025 — agriculture et mélanome en Pennsylvanie {#jco-2025-melanome}
+- Référence : Marks, B.J. et al., 2025. Harvesting Risk: An Ecologic Study of Agricultural Practices
+  and Patterns and Melanoma Incidence in Pennsylvania. *JCO Clinical Cancer Informatics*, 14 novembre
+  2025.
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC12629121/
+- Constat : étude écologique sur 15 comtés agricoles du centre-sud de la Pennsylvanie : risque de
+  mélanome supérieur de 57&nbsp;% chez les 50 ans et plus par rapport au reste de l'État ; chaque
+  hausse de 9&nbsp;% de la surface traitée aux herbicides est associée à une hausse de 14&nbsp;% des
+  cas de mélanome.
+
+### Ligue contre le cancer, 2013 — pesticides facteurs de risque de certains cancers {#ligue-cancer-2013-pesticides}
+- Référence : Ligue contre le cancer, 2013. "Les pesticides facteurs de risque de certains cancers",
+  d'après l'expertise collective Inserm "Pesticides : effets sur la santé".
+- Lien : https://www.ligue-cancer.net/nos-actualites/les-pesticides-facteurs-de-risque-de-certains-cancers
+- Constat : l'expertise collective citée cible 8 localisations de cancer, dont le testicule et le
+  mélanome. Pour ces deux cancers, l'article signale que l'analyse reste difficile : faible
+  incidence pour le testicule, facteur de confusion important pour le mélanome (exposition aux UV,
+  facteur de risque reconnu, plus fréquente en population agricole).
+
+### Cancer Environnement — fiche pesticides {#cancer-environnement-pesticides}
+- Référence : Centre Léon Bérard, Cancer Environnement, "Pesticides et effets sur la santé".
+- Lien : https://www.cancer-environnement.fr/fiches/expositions-environnementales/pesticides/
+- Constat : pour des expositions professionnelles élevées et prolongées, mentionne la survenue de
+  lymphomes non hodgkiniens, de tumeurs cérébrales, et de cancers de la prostate, de l'ovaire, du
+  poumon, ainsi que de mélanomes ; la causalité reste, selon la fiche, à démontrer.
+
+### Brugel, Callon et al., 2024 — PESTIPAC, pesticides organochlorés et pancréas {#pestipac-2024}
+- Référence : Brugel, M., Callon, S. et al., 2024. Association between pancreatic adenocarcinoma
+  risk and concentration of organochlorine pesticides in adipose tissue and urine: a
+  targeted-screening analysis case-control study (PESTIPAC). *United European Gastroenterology
+  Journal*, 12(7), 951–959.
+- Lien : https://doi.org/10.1002/ueg2.12602
+- Constat : étude cas-témoins du CHU de Reims (26 cas d'adénocarcinome du pancréas, 26 témoins) :
+  association, de faible ampleur mais robuste après ajustement, entre plusieurs pesticides
+  organochlorés cumulés et le risque de cancer du pancréas.
+
+### Brugel et al., 2024 — ecoPESTIPAC, étude écologique nationale, pancréas {#ecopestipac-2024}
+- Référence : Brugel, M. et al., 2024. Pesticides et adénocarcinome du pancréas : une étude
+  épidémiologique écologique spatio-temporelle nationale entre 2011 et 2021 (ecoPESTIPAC). *Journal
+  of Epidemiology and Population Health*, 72(S1), article 202205.
+- Lien : https://www.sciencedirect.com/science/article/pii/S2950433324000156
+- Constat : étude écologique sur l'ensemble de la France métropolitaine (5 529 unités spatiales,
+  134 102 cas d'adénocarcinome du pancréas, 2011–2021) : association entre plusieurs pesticides
+  (dont le glyphosate et le mancozèbe) et le risque de cancer du pancréas.
+
+### Rebouillat et al., 2021 — cocktails de pesticides alimentaires et cancer du sein {#rebouillat-2021-sein}
+- Référence : Rebouillat, P. et al., 2021. Prospective association between dietary pesticide
+  exposure profiles and postmenopausal breast-cancer risk in the NutriNet-Santé cohort. *International
+  Journal of Epidemiology*, 50(4), 1184–1198. Étude conjointe Inserm, INRAE, Cnam, Université
+  Sorbonne Paris Nord.
+- Lien : https://doi.org/10.1093/ije/dyab015
+- Constat : dans la cohorte NutriNet-Santé (13 149 femmes ménopausées, 169 cas), l'exposition
+  alimentaire à certains mélanges de pesticides (chlorpyrifos, imazalil, malathion, thiabendazole)
+  est associée à un risque accru de cancer du sein chez les femmes en surpoids ou obèses ; une
+  faible exposition aux pesticides de synthèse est associée à un risque réduit de 43&nbsp;%.
+
 ## Alimentation : voie d'exposition dominante aux pesticides
 
 ### Li, 2022 — modèle d'allocation des voies d'exposition aux pesticides {#li-2022}

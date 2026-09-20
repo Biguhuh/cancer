@@ -37,6 +37,27 @@ SIG_LABELS = {
     "non significatif": "sig-none",
 }
 
+# Relie chaque valeur exacte de source_courte (data/site_stats.json) à une ou plusieurs sources
+# numérotées de docs/SOURCES.md. Une valeur absente de ce dictionnaire, ou associée à une liste
+# vide, reste un texte libre sans lien dans le tableau des 33 cancers (onglet Détail) — c'est le
+# cas des repères de travail non individuellement vérifiés ("Non documenté", "Données
+# insuffisantes...").
+TABLE_SOURCE_SLUGS = {
+    "Inserm 2021, présomption forte": ["inserm-2021"],
+    "Inserm 2021, LNH forte": ["inserm-2021"],
+    "Inserm 2021, fort chez l'enfant": ["inserm-2021"],
+    "Inserm 2021, présomption moyenne": ["inserm-2021"],
+    "Inserm/INRAE/Cnam, cocktails alimentaires": ["rebouillat-2021-sein"],
+    "Agricultural Health Study ; ARC": ["ahs-lung-cancer-2017", "arc-pesticides-cancers"],
+    "Inserm 2021 ; thèse 2021 (OR=1,51 adulte)": ["inserm-2021", "foucault-2021-lam"],
+    "ScienceDirect 2023, preuves limitées": ["smd-facteurs-environnementaux-2023"],
+    "Inserm 2021 (AGRICAN) ; piclorame 2026": ["inserm-2021", "agrican-colorectal-2022", "picloram-2026"],
+    "Ligue contre le cancer ; JCO 2025": ["ligue-cancer-2013-pesticides", "jco-2025-melanome"],
+    "Ligue contre le cancer (Inserm 2021)": ["ligue-cancer-2013-pesticides", "inserm-2021"],
+    "Fondation ARC ; Cancer-Environnement": ["arc-pesticides-cancers", "cancer-environnement-pesticides"],
+    "Études PESTIPAC/EcoPESTIPAC": ["pestipac-2024", "ecopestipac-2024"],
+}
+
 
 # ---------------------------------------------------------------------------
 # 1. Parsing de docs/SOURCES.md
@@ -157,18 +178,22 @@ def fmt_trend(st, unit="points/an"):
 # 3. Construction des blocs HTML
 # ---------------------------------------------------------------------------
 
-def build_cancer_table(cancers):
+def build_cancer_table(cancers, cite):
     order = {"Forte": 0, "Moyenne": 1, "Non liée": 2}
     rows = sorted(cancers, key=lambda c: (order[c["presomption"]], c["p_value"]))
     trs = []
     for c in rows:
+        slugs = TABLE_SOURCE_SLUGS.get(c["source_courte"]) or []
+        src_note = escape(c["source_courte"])
+        if slugs:
+            src_note += cite(*slugs)
         trs.append(f"""        <tr>
           <td>{escape(c['nom'])}</td>
           <td>{escape(c['presomption'])}</td>
           <td>{sig_badge(c['significativite'])}</td>
           <td>{fmt_p(c['p_value'])}</td>
           <td>{fr_num(c['r2'])}</td>
-          <td class="src-note">{escape(c['source_courte'])}</td>
+          <td class="src-note">{src_note}</td>
         </tr>""")
     return "\n".join(trs)
 
@@ -243,11 +268,11 @@ def panel_synthese(stats, cite):
 
     return f"""
   <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" tabindex="0">
-    <p class="site-intro">Ce site présente les résultats d'une étude statistique menée à partir
-      des données du registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Il
-      explique les liens entre pesticides, maladies — dont les cancers — et alimentation. Les
-      résultats de cette étude montrent l'importance d'une alimentation biologique, seul label
-      garantissant l'absence de pesticides de synthèse (voir l'onglet Labels).</p>
+    <p class="site-intro">Cette étude présente ses résultats à partir des données du registre des
+      cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Elle explique les liens entre
+      pesticides, maladies — dont les cancers — et alimentation. Les résultats de cette étude
+      montrent l'importance d'une alimentation biologique, seul label garantissant l'absence de
+      pesticides de synthèse (voir l'onglet Labels).</p>
 
     <h2 class="hero-headline">Les cancers liés aux pesticides progressent, les autres reculent</h2>
     <p class="hero-lede">L'incidence des cancers liés aux pesticides croît de façon certaine sur la
@@ -322,9 +347,10 @@ def panel_detail(stats, cancer_table_html):
 
     <p>Tendance individuelle des <strong>{len(stats['cancers'])} cancers</strong> suivis par le
       registre, triés par niveau de présomption Inserm 2021 puis par p-value. La colonne "Note
-      bibliographique" reprend des repères issus de la littérature spécifique à chaque cancer ; ce
-      sont des notes de travail abrégées, distinctes de la bibliographie numérotée de ce site, et
-      <strong>non individuellement vérifiées</strong> à ce niveau de détail.</p>
+      bibliographique" reprend des repères issus de la littérature spécifique à chaque cancer. La
+      plupart renvoient vers une source vérifiée de l'onglet Sources. Les mentions "Non documenté"
+      et "Données insuffisantes" restent des <strong>repères de travail non individuellement
+      vérifiés</strong>.</p>
     <div class="table-scroll">
       <table class="data-table">
         <thead>
@@ -348,60 +374,45 @@ def panel_methodologie(stats):
     alpha = fr_num(stats["alpha"], 2)
     return f"""
   <section id="panel-methodologie" class="tab-panel" role="tabpanel" aria-labelledby="tab-methodologie" data-tab="methodologie" hidden>
-    <h2>Étude statistique : comment lire la p-value et le R²</h2>
-    <p>Chaque tendance présentée sur ce site vient d'une <strong>régression linéaire simple</strong> :
-      pour un cancer donné, on ajuste une droite entre l'année et le taux standardisé (Europe)
-      correspondant.</p>
-    <div class="formula">taux(année) ≈ a&nbsp;×&nbsp;année&nbsp;+&nbsp;b</div>
-    <p><em>a</em> (la pente) et <em>b</em> (l'ordonnée à l'origine) sont ajustés par la
-      <strong>méthode des moindres carrés</strong>, qui minimise la somme des carrés des écarts
-      entre les points observés et la droite.</p>
+    <h2>Étude statistique : comment lire les résultats</h2>
+    <p>Chaque tendance présentée dans cette étude vient d'une <strong>régression linéaire simple</strong>.
+      Elle relie l'année et le taux standardisé du cancer concerné. Trois indicateurs permettent d'évaluer la qualité du modèle
+     &nbsp;: la p-value, l'intervalle de confiance à 95&nbsp;%, et le R².</p>
 
     <h3>Pourquoi une droite, et pas une courbe plus complexe ?</h3>
-    <p>Avec seulement {n} points de données par cancer (une valeur par an), un modèle plus
-      complexe qu'une droite — polynôme, exponentielle, ajustement local — demanderait d'estimer
-      davantage de paramètres à partir de la même poignée de points. Le risque de surapprentissage
-      (coller au bruit d'échantillonnage plutôt qu'à une tendance réelle) dépasse vite le bénéfice
-      d'un ajustement apparent meilleur. Une droite n'utilise que deux paramètres (pente et
-      ordonnée à l'origine), laisse un maximum de degrés de liberté pour le test statistique, et
-      donne un résultat directement interprétable en points de taux par an — c'est aussi la
-      convention standard pour détecter une tendance monotone dans une série temporelle courte. Un
-      modèle plus complexe se justifierait avec davantage d'années de données, ou s'il existait une
-      raison de s'attendre à une rupture nette (un changement réglementaire précis, par exemple).</p>
+    <p>Cette étude compte seulement {n} points de données par cancer, une valeur par an. Un modèle
+      plus complexe qu'une droite, comme un polynôme, une
+      exponentielle ou un ajustement local, demanderait d'estimer plus de paramètres. Avec aussi peu de points, il y a un risque de surentraînement du modèle,
+      c'est à dire que le modèle colle au bruit d'échantillonnage plutôt qu'à la tendance réelle. Une
+      droite n'utilise que deux paramètres, la pente et l'ordonnée à l'origine. La pente est directement interprétable en évolution du taux d'incidence par an. Par ailleurs,il s'agit de la méthode
+      standard pour détecter une tendance monotone sur une série courte. Un modèle plus complexe se
+      justifierait avec plus d'années de données, ou avec une raison claire d'attendre une rupture
+      nette, comme un changement à grande échelle des dépitages, par exemple.</p>
 
-    <h3>La p-value : la pente est-elle réelle, ou due au hasard ?</h3>
-    <p>On teste l'<strong>hypothèse nulle H₀</strong>&nbsp;: la vraie pente est nulle, il n'y a pas
-      de tendance réelle. La statistique de test est :</p>
-    <div class="formula">t = a / erreur-type(a)</div>
-    <p>Sous H₀, <em>t</em> suit une loi de Student à <em>n</em>−2 degrés de liberté (<em>n</em> =
-      nombre d'années observées, {n} sur ce site). <strong>La p-value est la probabilité
-      d'observer, par pur hasard d'échantillonnage, une valeur de <em>t</em> au moins aussi extrême
-      que celle mesurée</strong> sur les données réelles. Seuil retenu ici&nbsp;:
-      α&nbsp;=&nbsp;{alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la tendance est dite
-      significative</strong>&nbsp;: elle a moins de 5&nbsp;% de chances d'être un simple artefact
-      d'échantillonnage.</p>
+    <h3>La p-value : la tendance est-elle réelle, ou due au hasard ?</h3>
+    <p>La p-value mesure le risque de conclure à tort qu'une tendance existe. Le seuil retenu ici
+      est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la tendance est dite significative</strong>.
+      Elle a moins de 5&nbsp;% de chances d'être due au hasard. Si p&nbsp;≥&nbsp;0,05, les données ne
+      permettent pas d'affirmer qu'une évolution réelle existe.</p>
 
     <h3>L'intervalle de confiance à 95&nbsp;%</h3>
-    <div class="formula">IC95 = a ± t(0,025&nbsp;; n−2) × erreur-type(a)</div>
-    <p>Cette fourchette donne les valeurs plausibles pour la vraie pente, avec 95&nbsp;% de
-      confiance. <strong>Si elle exclut 0, la tendance est significative</strong> — c'est
-      strictement équivalent au test de p-value au seuil de 5&nbsp;%, mais plus lisible&nbsp;: on
-      voit directement l'ampleur possible de l'effet, pas seulement s'il existe.</p>
+    <p>Cet intervalle donne une fourchette de valeurs plausibles pour la pente réelle.
+      <strong>S'il exclut zéro, la tendance est significative</strong>. C'est équivalent à la
+      p-value, mais plus parlant. Il montre en plus l'ampleur possible de l'évolution, pas
+      seulement son existence.</p>
 
     <h3>Le R² : la droite explique-t-elle bien les données ?</h3>
-    <div class="formula">R² = 1 − SS_res / SS_tot</div>
-    <p>avec SS_res&nbsp;=&nbsp;Σ(taux observé − taux prédit)² (ce que la droite ne capture pas) et
-      SS_tot&nbsp;=&nbsp;Σ(taux observé − taux moyen)² (la variation totale du taux d'une année sur
-      l'autre). <strong>R² varie de 0 à 1</strong>&nbsp;: proche de 1, la quasi-totalité de la
-      variation du taux au fil des années suit une évolution linéaire régulière&nbsp;; proche de 0,
-      le taux varie surtout pour d'autres raisons (bruit d'une année sur l'autre, facteurs non
-      modélisés).</p>
+    <p>Le R² dit si le modèle capte bien la variance des mesures. <strong>Il varie de 0 à
+      1</strong>. Proche de 1, le taux suit une évolution régulière d'une année sur l'autre. Proche
+      de 0, le taux varie surtout pour d'autres raisons. Ces raisons peuvent être des écarts d'une
+      année sur l'autre ou des facteurs non pris en compte.</p>
 
     <h3>Une limite qui ne se corrige pas statistiquement</h3>
-    <p>Avec seulement {n} points de données par cancer (une valeur par an), ces tests ont une
-      puissance statistique limitée&nbsp;: <strong>un résultat "non significatif" veut dire "non
-      démontrable avec ces données", pas "absence de lien"</strong>. Le détail complet des limites
-      de cette étude est dans l'onglet <strong>Limites méthodologiques</strong>.</p>
+    <p>Cette étude compte {n} points de données par cancer, une valeur par an. Les tests
+      statistiques ont donc une puissance limitée. <strong>Un résultat "non significatif" veut
+      dire "non démontrable avec ces données"</strong>. Cela ne veut pas dire "absence de lien". Le
+      détail complet des limites de cette étude est dans l'onglet <strong>Limites
+      méthodologiques</strong>.</p>
   </section>"""
 
 
@@ -411,39 +422,44 @@ def panel_endocriniens(cite):
     <h2>Perturbateurs endocriniens</h2>
 
     <p>Un perturbateur endocrinien (PE) est <strong>une substance qui interfère avec le système
-      hormonal</strong>. Toutes les substances de ce type ne sont pas des pesticides&nbsp;:
-      certaines viennent des pesticides (organophosphates, pyréthrinoïdes, 2,4-D, métolachlore),
-      d'autres des plastiques ou des cosmétiques (bisphénol A, phtalates, parabènes, triclosan) et
-      n'ont rien à voir avec l'alimentation issue de l'agriculture. Cette distinction
-      compte&nbsp;: toutes les études sur les PE ne parlent pas de pesticides, et toutes ne
-      relèvent donc pas de l'onglet Alimentation.</p>
+      hormonal</strong>. Toutes les substances de ce type présentes dans notre environnement ne
+      proviennent pas des pesticides&nbsp;: certaines viennent des pesticides (organophosphates,
+      pyréthrinoïdes, 2,4-D, métolachlore), d'autres des plastiques ou des cosmétiques (bisphénol
+      A, phtalates, parabènes, triclosan) et n'ont rien à voir avec l'alimentation. Cette
+      distinction compte&nbsp;: toutes les études sur les PE ne parlent pas de pesticides, et
+      toutes ne relèvent donc pas de l'onglet Alimentation.</p>
 
     <p>L'expertise collective Inserm 2021 {cite('inserm-2021', 'natura-sciences-inserm')} établit
-      un lien entre <strong>l'exposition aux pesticides</strong> et six familles de troubles non
-      cancéreux&nbsp;: <strong>maladie de Parkinson</strong> et autres <strong>troubles
-      neurodégénératifs</strong>, <strong>troubles cognitifs</strong>, <strong>troubles
-      digestifs</strong>, <strong>troubles respiratoires (dont BPCO)</strong>, <strong>troubles
-      hormonaux</strong> et de la <strong>reproduction</strong>, et <strong>troubles du
-      développement neuropsychologique et moteur chez l'enfant exposé in utero</strong>. Elle
-      documente aussi des troubles du comportement de type <strong>anxiété chez l'enfant</strong>,
-      ainsi que des <strong>leucémies aiguës</strong> et <strong>tumeurs cérébrales</strong> chez
-      l'enfant en cas d'exposition parentale avant la naissance.</p>
+      un lien entre <strong>l'exposition aux pesticides</strong> et des <strong>leucémies
+      aiguës</strong> et <strong>tumeurs cérébrales</strong> chez l'enfant en cas d'exposition
+      parentale avant la naissance. L'expertise Inserm 2021 établit aussi un lien entre
+      l'exposition aux pesticides et six familles de troubles non cancéreux&nbsp;: <strong>maladie
+      de Parkinson</strong> et autres <strong>troubles neurodégénératifs</strong>, <strong>troubles
+      cognitifs</strong>, <strong>troubles digestifs</strong>, <strong>troubles respiratoires (dont
+      BPCO)</strong>, <strong>troubles hormonaux</strong> et de la <strong>reproduction</strong>,
+      et <strong>troubles du développement neuropsychologique et moteur chez l'enfant exposé in
+      utero</strong>. Elle documente aussi des troubles du comportement de type <strong>anxiété
+      chez l'enfant</strong>. La présente étude se concentre sur les cancers en
+      Poitou-Charentes. Ainsi, les effets des expositions aux pesticides sont plus vastes que ce
+      que cette étude suggère.</p>
 
     <p>Une étude américaine sur la cohorte NHANES {cite('quiros-alcala-2019')} constate un impact
-      concret&nbsp;: chez les garçons asthmatiques, une exposition urinaire aux parabènes dix fois
-      plus élevée est associée à un quasi-doublement du risque de recours aux urgences pour crise
-      d'asthme — un effet non observé chez les filles. Les parabènes ne sont pas des pesticides
-      (ils viennent des cosmétiques), mais cette association illustre que les PE peuvent perturber
-      l'immunité. Une revue de l'Inrae {cite('inrae-review')} explique le mécanisme biologique
-      sous-jacent&nbsp;: elle synthétise comment <strong>les perturbateurs endocriniens affectent
-      le développement du système immunitaire pendant la période périnatale (grossesse et petite
-      enfance), une fenêtre où ce système est particulièrement vulnérable</strong>.</p>
+      concret&nbsp;: chez les garçons asthmatiques, une concentration de parabènes dans les urines
+      dix fois plus élevée est associée à un quasi-doublement du risque de recours aux urgences
+      pour crise d'asthme — un effet non observé chez les filles. Les parabènes sont présents dans
+      les cosmétiques, pas dans les pesticides. Cependant cette association illustre que les PE
+      peuvent perturber le système immunitaire. Une revue de l'Inrae {cite('inrae-review')}
+      explique le mécanisme biologique sous-jacent&nbsp;: elle synthétise comment <strong>les
+      perturbateurs endocriniens affectent le développement du système immunitaire pendant la
+      grossesse et la petite enfance, une période où ce système est particulièrement
+      vulnérable</strong>.</p>
 
-    <p>Sur le terrain, une étude du CHU de Bordeaux menée en zone viticole (281 enfants de
-      Gironde) {cite('chu-bordeaux')} relève <strong>15,8&nbsp;% d'asthme et 35&nbsp;% de rhinite
-      allergique</strong> chez les enfants suivis, avec un <strong>biomarqueur urinaire de
-      fongicide (ETU) plus élevé en période estivale de traitement des vignes</strong> — un exemple
-      français reliant directement exposition agricole et santé de l'enfant.</p>
+    <p>Sur le terrain, une étude du CHU de Bordeaux {cite('chu-bordeaux')} a été menée sur 281
+      enfants de Gironde en zone viticole. Elle relève <strong>15,8&nbsp;% d'asthme et 35&nbsp;%
+      de rhinite allergique</strong> chez les enfants suivis, avec un <strong>biomarqueur
+      urinaire de fongicide (ETU) plus élevé en période estivale de traitement des
+      vignes</strong> — un exemple reliant directement exposition agricole et santé de
+      l'enfant.</p>
 
     <p>Les pesticides peuvent atteindre <strong>le fœtus lui-même</strong>. Une étude suédoise
       {cite('bjorvang-2021')} a recherché 22 polluants organiques persistants dans les organes de
@@ -455,8 +471,8 @@ def panel_endocriniens(cite):
 
     <p>Le projet européen ENDOMIX (2024–2027, Inserm-Irset Rennes) {cite('endomix')} étudie
       spécifiquement l'effet de mélanges de perturbateurs endocriniens sur le système immunitaire,
-      sur plusieurs cohortes de la grossesse à l'âge adulte&nbsp;; ses résultats définitifs ne sont
-      pas encore publiés.</p>
+      sur plusieurs cohortes de la grossesse à l'âge adulte. Nous suivrons ses résultats
+      définitifs, qui ne sont pas encore publiés.</p>
   </section>"""
 
 
@@ -489,8 +505,8 @@ def panel_alimentation(cite):
       bio et 50&nbsp;% de produits durables dans la restauration collective publique, étendue à
       l'ensemble de la restauration collective depuis 2024. En pratique, <strong>la part de bio
       observée en 2023 était de 12,1&nbsp;% en moyenne — sous l'objectif légal</strong>, ce qui
-      laisse une marge de progression directement actionnable localement (cantines scolaires
-      notamment).</p>
+      laisse une marge de progression directement actionnable localement, notamment via les
+      cantines scolaires.</p>
   </section>"""
 
 
@@ -508,8 +524,8 @@ def panel_labels(cite):
       <strong>interdit les pesticides et engrais de synthèse ainsi que les OGM</strong>, vérifié
       par des organismes certificateurs indépendants qui contrôlent l'exploitation elle-même — pas
       seulement le produit fini. Nuance à ne pas perdre de vue&nbsp;: le bio autorise encore une
-      trentaine de substances naturelles ou de biocontrôle (cuivre, soufre, extraits végétaux,
-      micro-organismes) {cite('agence-bio-naturels')}. <strong>Le bio garantit l'absence de
+      trentaine de substances naturelles ou de biocontrôle, comme le cuivre, le soufre, les
+      extraits végétaux et les micro-organismes {cite('agence-bio-naturels')}. <strong>Le bio garantit l'absence de
       pesticides de synthèse, pas une absence totale et absolue de tout traitement</strong> — mais
       c'est aujourd'hui le seul label à interdire la méthode elle-même plutôt qu'à mesurer un
       résultat.</p>
@@ -518,10 +534,10 @@ def panel_labels(cite):
     <p>Le label d'État HVE {cite('que-choisir-hve')} <strong>n'interdit pas les pesticides de
       synthèse</strong>. Il note l'exploitation sur quatre thématiques (biodiversité, stratégie
       phytosanitaire, fertilisation, irrigation) : un score faible sur les pesticides peut être
-      compensé par de bons scores ailleurs. Plusieurs associations (France Nature Environnement,
-      Agir pour l'environnement, Confédération paysanne, Synabio) alertent sur une confusion
-      fréquente avec le bio dans l'esprit des consommateurs, alors que les deux labels ne
-      garantissent pas la même chose.</p>
+      compensé par de bons scores ailleurs. France Nature Environnement, Agir pour
+      l'environnement, la Confédération paysanne et Synabio alertent sur une confusion fréquente
+      avec le bio dans l'esprit des consommateurs, alors que les deux labels ne garantissent pas
+      la même chose.</p>
 
     <h3>Zéro Résidu de Pesticides : un résultat, pas une méthode</h3>
     <p>Ce label privé {cite('generations-futures-zrp')}, non officiel et sans contrôle indépendant
@@ -534,7 +550,7 @@ def panel_labels(cite):
     <h3>Ce que ça change concrètement</h3>
     <p>Sur les trois, <strong>seul le bio interdit l'usage de pesticides de synthèse par
       construction</strong>, plutôt que de mesurer un résultat après coup ou de compenser un usage
-      par d'autres critères. C'est la raison pour laquelle ce site le mentionne comme le repère le
+      par d'autres critères. C'est la raison pour laquelle nous le mentionnons comme le repère le
       plus fiable pour un consommateur qui veut réduire son exposition alimentaire aux pesticides
       — cf. l'onglet Alimentation pour l'effet mesuré de ce choix, y compris chez l'enfant.</p>
   </section>"""
@@ -660,7 +676,7 @@ def main():
             marks.append(f'<a href="#src-{s}" id="{anchor_id}">{slug_to_entry[s]["n"]}</a>')
         return f'<sup class="cite">[{", ".join(marks)}]</sup>'
 
-    cancer_table_html = build_cancer_table(stats["cancers"])
+    cancer_table_html = build_cancer_table(stats["cancers"], cite)
     limites_html = build_limites(limites)
 
     panel_htmls = [
