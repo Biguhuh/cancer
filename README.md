@@ -1,6 +1,6 @@
 # Cancers, pesticides et alimentation
 
-Étude statistique de l'évolution des cancers en Poitou-Charentes (2008–2022) et de son lien
+Étude statistique de l'évolution des cancers en Poitou-Charentes (2008–2023) et de son lien
 éventuel avec l'exposition aux pesticides, complétée par une revue de littérature sur les
 perturbateurs endocriniens et l'alimentation (conventionnelle vs biologique), avec un focus sur
 les enfants. Réalisé pour Santé des Territoires Aigondigné.
@@ -24,13 +24,19 @@ les enfants. Réalisé pour Santé des Territoires Aigondigné.
 
 ## Mettre à jour l'étude avec de nouvelles données (ex. année 2023)
 
-1. Déposer le nouveau PDF du registre dans `data/tous/`, `data/femmes/` et `data/hommes/`.
-2. Réexécuter `notebooks/exploration_tous.ipynb` pour régénérer `data/table_*.xlsx` et
+1. Figer la version publiée avant de toucher aux données : copier `data/site_stats.json` et
+   `data/table_tous.xlsx` dans `data/v1/` (à renommer selon la version). L'onglet "Mise à jour"
+   du site compare les nouveaux résultats à cette version figée.
+2. Télécharger **toutes** les années depuis la page "Les chiffres" du registre, pas seulement la
+   nouvelle : le registre republie les années passées avec des effectifs révisés. Les déposer dans
+   `data/tous/`, `data/femmes/` et `data/hommes/`, et mettre à jour `REGISTRE_MAJ` dans
+   `scripts/build_site.py`.
+3. Réexécuter `notebooks/exploration_tous.ipynb` pour régénérer `data/table_*.xlsx` et
    `data/combined_tables.xlsx`.
-3. Réexécuter `notebooks/exploration_tous_v2.ipynb` : toutes les statistiques (régressions,
+4. Réexécuter `notebooks/exploration_tous_v2.ipynb` : toutes les statistiques (régressions,
    comparaisons de groupes) se recalculent automatiquement sur la période étendue, sans
    modification de code. Regénère aussi `data/site_stats.json` et les graphiques PNG du site.
-4. Committer les fichiers `data/*.xlsx`, `data/*.png` et `data/site_stats.json` mis à jour, puis
+5. Committer les fichiers `data/*.xlsx`, `data/*.png` et `data/site_stats.json` mis à jour, puis
    pousser sur `master` : la CI régénère et republie le site automatiquement.
 
 ## Installation
@@ -43,8 +49,8 @@ PDF :
 
 ## Site
 
-    python scripts/build_site.py
-    python -m http.server --directory site
+    python3 scripts/build_site.py
+    python3 -m http.server --directory site
 
 Publication GitHub Pages : dans les paramètres du dépôt GitHub, Pages → Source → "GitHub
 Actions". Le workflow se déclenche ensuite automatiquement à chaque push pertinent sur `master`.

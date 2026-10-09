@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-09-19",
+  "generated_at": "2026-10-09",
   "variable_etudiee": "Taux standardisés (Europe)",
   "alpha": 0.05,
   "annees": {
     "min": 2008,
-    "max": 2022
+    "max": 2023
   },
   "total": {
-    "n": 15,
-    "pente": 0.6,
-    "IC95_bas": -0.2584,
-    "IC95_haut": 1.4584,
-    "p_value": 0.155,
-    "r2": 0.1492,
-    "significativite": "non significatif"
+    "n": 16,
+    "pente": 0.7521,
+    "IC95_bas": 0.0294,
+    "IC95_haut": 1.4747,
+    "p_value": 0.0425,
+    "r2": 0.2625,
+    "significativite": "hausse significative"
   },
   "groupes_23_cancers": {
     "lies_pesticides": {
-      "n": 15,
-      "pente": 0.2355,
-      "IC95_bas": 0.0308,
-      "IC95_haut": 0.4402,
-      "p_value": 0.0274,
-      "r2": 0.322,
+      "n": 16,
+      "pente": 0.2608,
+      "IC95_bas": 0.0832,
+      "IC95_haut": 0.4384,
+      "p_value": 0.0071,
+      "r2": 0.4146,
       "significativite": "hausse significative"
     },
     "non_lies_pesticides": {
-      "n": 15,
-      "pente": -0.5357,
-      "IC95_bas": -0.9667,
-      "IC95_haut": -0.1047,
-      "p_value": 0.0187,
-      "r2": 0.3568,
+      "n": 16,
+      "pente": -0.4373,
+      "IC95_bas": -0.8121,
+      "IC95_haut": -0.0625,
+      "p_value": 0.0253,
+      "r2": 0.3091,
       "significativite": "baisse significative"
     }
   },
   "groupes_23_cancers_taux_brut": {
     "lies_pesticides": {
-      "n": 15,
-      "pente": 1.4985,
-      "IC95_bas": 1.2331,
-      "IC95_haut": 1.764,
+      "n": 16,
+      "pente": 1.5259,
+      "IC95_bas": 1.2945,
+      "IC95_haut": 1.7574,
       "p_value": 0.0,
-      "r2": 0.9196,
+      "r2": 0.9346,
       "significativite": "hausse significative"
     },
     "non_lies_pesticides": {
-      "n": 15,
-      "pente": 0.396,
-      "IC95_bas": -0.0392,
-      "IC95_haut": 0.8311,
-      "p_value": 0.0711,
-      "r2": 0.2291,
-      "significativite": "non significatif"
+      "n": 16,
+      "pente": 0.5712,
+      "IC95_bas": 0.1767,
+      "IC95_haut": 0.9657,
+      "p_value": 0.0077,
+      "r2": 0.4079,
+      "significativite": "hausse significative"
     }
   },
   "cancers": [
@@ -60,397 +60,1508 @@
       "nom": "LLC / Lymphome lymphocytique",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": 0.0393,
-      "IC95_bas": -0.0139,
-      "IC95_haut": 0.0925,
-      "p_value": 0.1347,
-      "r2": 0.1637,
+      "n": 16,
+      "pente": 0.0282,
+      "IC95_bas": -0.0214,
+      "IC95_haut": 0.0778,
+      "p_value": 0.2423,
+      "r2": 0.0962,
       "significativite": "non significatif"
     },
     {
       "nom": "Leucémie/lymphome lymphoblastique à cellules précurseurs (B, T ou SAI)",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, fort chez l'enfant",
-      "n": 15,
-      "pente": 0.0096,
-      "IC95_bas": -0.023,
-      "IC95_haut": 0.0423,
-      "p_value": 0.5345,
-      "r2": 0.0304,
+      "n": 16,
+      "pente": 0.0068,
+      "IC95_bas": -0.0231,
+      "IC95_haut": 0.0366,
+      "p_value": 0.6344,
+      "r2": 0.0166,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome T/NK à cellules matures",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": 0.0264,
-      "IC95_bas": -0.0118,
-      "IC95_haut": 0.0646,
-      "p_value": 0.1588,
-      "r2": 0.1467,
+      "n": 16,
+      "pente": 0.0321,
+      "IC95_bas": -0.0018,
+      "IC95_haut": 0.0659,
+      "p_value": 0.0619,
+      "r2": 0.2273,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome de la zone marginale",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": -0.0168,
-      "IC95_bas": -0.0934,
-      "IC95_haut": 0.0599,
-      "p_value": 0.6439,
-      "r2": 0.0169,
+      "n": 16,
+      "pente": -0.0279,
+      "IC95_bas": -0.0959,
+      "IC95_haut": 0.04,
+      "p_value": 0.3924,
+      "r2": 0.0527,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome diffus à grandes cellules B",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": 0.0654,
-      "IC95_bas": 0.0149,
-      "IC95_haut": 0.1158,
-      "p_value": 0.015,
-      "r2": 0.3761,
+      "n": 16,
+      "pente": 0.0518,
+      "IC95_bas": 0.0043,
+      "IC95_haut": 0.0992,
+      "p_value": 0.0346,
+      "r2": 0.2812,
       "significativite": "hausse significative"
     },
     {
       "nom": "Lymphome folliculaire",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": 0.0211,
-      "IC95_bas": -0.0529,
-      "IC95_haut": 0.0951,
-      "p_value": 0.5492,
-      "r2": 0.0283,
+      "n": 16,
+      "pente": 0.0109,
+      "IC95_bas": -0.0541,
+      "IC95_haut": 0.0759,
+      "p_value": 0.7248,
+      "r2": 0.0091,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome lympho-plasmocytaire / Macroglobulinémie de Waldenström",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": 0.0089,
-      "IC95_bas": -0.0318,
-      "IC95_haut": 0.0497,
-      "p_value": 0.6436,
-      "r2": 0.017,
+      "n": 16,
+      "pente": 0.0191,
+      "IC95_bas": -0.0168,
+      "IC95_haut": 0.055,
+      "p_value": 0.2729,
+      "r2": 0.0851,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome à cellules du manteau",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, LNH forte",
-      "n": 15,
-      "pente": -0.0004,
-      "IC95_bas": -0.028,
-      "IC95_haut": 0.0273,
-      "p_value": 0.9782,
-      "r2": 0.0001,
+      "n": 16,
+      "pente": 0.0009,
+      "IC95_bas": -0.0232,
+      "IC95_haut": 0.025,
+      "p_value": 0.9385,
+      "r2": 0.0004,
       "significativite": "non significatif"
     },
     {
       "nom": "Myélome multiple et plasmocytome",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, présomption forte",
-      "n": 15,
-      "pente": 0.0529,
-      "IC95_bas": 0.0015,
-      "IC95_haut": 0.1042,
-      "p_value": 0.0446,
-      "r2": 0.2755,
-      "significativite": "hausse significative"
+      "n": 16,
+      "pente": 0.0359,
+      "IC95_bas": -0.0162,
+      "IC95_haut": 0.0879,
+      "p_value": 0.1613,
+      "r2": 0.1351,
+      "significativite": "non significatif"
     },
     {
       "nom": "Prostate",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, présomption forte",
-      "n": 15,
-      "pente": -0.3496,
-      "IC95_bas": -1.0998,
-      "IC95_haut": 0.4005,
-      "p_value": 0.3324,
-      "r2": 0.0723,
+      "n": 16,
+      "pente": -0.2293,
+      "IC95_bas": -0.8931,
+      "IC95_haut": 0.4346,
+      "p_value": 0.4711,
+      "r2": 0.0377,
       "significativite": "non significatif"
     },
     {
       "nom": "Système nerveux central",
       "presomption": "Forte",
       "source_courte": "Inserm 2021, fort chez l'enfant",
-      "n": 15,
-      "pente": -0.0339,
-      "IC95_bas": -0.0963,
-      "IC95_haut": 0.0285,
-      "p_value": 0.2611,
-      "r2": 0.096,
+      "n": 16,
+      "pente": -0.0288,
+      "IC95_bas": -0.0817,
+      "IC95_haut": 0.0241,
+      "p_value": 0.262,
+      "r2": 0.0889,
       "significativite": "non significatif"
     },
     {
       "nom": "Colon rectum",
       "presomption": "Moyenne",
-      "source_courte": "Inserm 2021 (AGRICAN) ; piclorame 2026",
-      "n": 15,
-      "pente": -0.5496,
-      "IC95_bas": -0.7671,
-      "IC95_haut": -0.3322,
+      "source_courte": "Inserm 2021, AGRICAN ; piclorame 2026",
+      "n": 16,
+      "pente": -0.5144,
+      "IC95_bas": -0.7072,
+      "IC95_haut": -0.3216,
       "p_value": 0.0001,
-      "r2": 0.6965,
+      "r2": 0.7005,
       "significativite": "baisse significative"
     },
     {
       "nom": "Leucémie aiguë myéloïde",
       "presomption": "Moyenne",
-      "source_courte": "Inserm 2021 ; thèse 2021 (OR=1,51 adulte)",
-      "n": 15,
-      "pente": 0.1396,
-      "IC95_bas": 0.0976,
-      "IC95_haut": 0.1817,
+      "source_courte": "Inserm 2021 ; thèse 2021, OR = 1,51 chez l'adulte",
+      "n": 16,
+      "pente": 0.1225,
+      "IC95_bas": 0.0811,
+      "IC95_haut": 0.1639,
       "p_value": 0.0,
-      "r2": 0.7983,
+      "r2": 0.7422,
       "significativite": "hausse significative"
     },
     {
       "nom": "Mélanome de la peau",
       "presomption": "Moyenne",
       "source_courte": "Ligue contre le cancer ; JCO 2025",
-      "n": 15,
-      "pente": 0.1461,
-      "IC95_bas": -0.007,
-      "IC95_haut": 0.2991,
-      "p_value": 0.0598,
-      "r2": 0.2464,
-      "significativite": "non significatif"
+      "n": 16,
+      "pente": 0.1353,
+      "IC95_bas": 0.0012,
+      "IC95_haut": 0.2694,
+      "p_value": 0.0482,
+      "r2": 0.2507,
+      "significativite": "hausse significative"
     },
     {
       "nom": "Ovaire",
       "presomption": "Moyenne",
       "source_courte": "Fondation ARC ; Cancer-Environnement",
-      "n": 15,
-      "pente": -0.06,
-      "IC95_bas": -0.1271,
-      "IC95_haut": 0.0071,
-      "p_value": 0.0754,
-      "r2": 0.2232,
-      "significativite": "non significatif"
+      "n": 16,
+      "pente": -0.0832,
+      "IC95_bas": -0.1482,
+      "IC95_haut": -0.0183,
+      "p_value": 0.0157,
+      "r2": 0.3507,
+      "significativite": "baisse significative"
     },
     {
       "nom": "Pancréas",
       "presomption": "Moyenne",
       "source_courte": "Études PESTIPAC/EcoPESTIPAC",
-      "n": 15,
-      "pente": 0.2321,
-      "IC95_bas": 0.1397,
-      "IC95_haut": 0.3246,
-      "p_value": 0.0001,
-      "r2": 0.6935,
+      "n": 16,
+      "pente": 0.2312,
+      "IC95_bas": 0.1529,
+      "IC95_haut": 0.3095,
+      "p_value": 0.0,
+      "r2": 0.7411,
       "significativite": "hausse significative"
     },
     {
       "nom": "Poumon, bronche et trachée",
       "presomption": "Moyenne",
       "source_courte": "Agricultural Health Study ; ARC",
-      "n": 15,
-      "pente": 0.4257,
-      "IC95_bas": 0.2524,
-      "IC95_haut": 0.599,
-      "p_value": 0.0001,
-      "r2": 0.6841,
+      "n": 16,
+      "pente": 0.4434,
+      "IC95_bas": 0.2936,
+      "IC95_haut": 0.5931,
+      "p_value": 0.0,
+      "r2": 0.7423,
       "significativite": "hausse significative"
     },
     {
       "nom": "Rein",
       "presomption": "Moyenne",
       "source_courte": "Inserm 2021, présomption moyenne",
-      "n": 15,
-      "pente": 0.1757,
-      "IC95_bas": 0.0454,
-      "IC95_haut": 0.306,
-      "p_value": 0.0121,
-      "r2": 0.395,
+      "n": 16,
+      "pente": 0.174,
+      "IC95_bas": 0.0598,
+      "IC95_haut": 0.2882,
+      "p_value": 0.0056,
+      "r2": 0.4326,
       "significativite": "hausse significative"
     },
     {
       "nom": "Sein",
       "presomption": "Moyenne",
       "source_courte": "Inserm/INRAE/Cnam, cocktails alimentaires",
-      "n": 15,
-      "pente": 0.3321,
-      "IC95_bas": 0.0577,
-      "IC95_haut": 0.6066,
-      "p_value": 0.0214,
-      "r2": 0.3447,
+      "n": 16,
+      "pente": 0.4009,
+      "IC95_bas": 0.1518,
+      "IC95_haut": 0.6499,
+      "p_value": 0.0039,
+      "r2": 0.4598,
       "significativite": "hausse significative"
     },
     {
       "nom": "Syndrome myélodysplasique",
       "presomption": "Moyenne",
       "source_courte": "ScienceDirect 2023, preuves limitées",
-      "n": 15,
-      "pente": 0.0443,
-      "IC95_bas": -0.0272,
-      "IC95_haut": 0.1157,
-      "p_value": 0.2034,
-      "r2": 0.1212,
+      "n": 16,
+      "pente": 0.0303,
+      "IC95_bas": -0.0326,
+      "IC95_haut": 0.0932,
+      "p_value": 0.3194,
+      "r2": 0.0708,
       "significativite": "non significatif"
     },
     {
       "nom": "Testicule",
       "presomption": "Moyenne",
-      "source_courte": "Ligue contre le cancer (Inserm 2021)",
-      "n": 15,
-      "pente": 0.0757,
-      "IC95_bas": -0.0103,
-      "IC95_haut": 0.1617,
-      "p_value": 0.0795,
-      "r2": 0.2178,
+      "source_courte": "Ligue contre le cancer, d'après Inserm 2021",
+      "n": 16,
+      "pente": 0.0616,
+      "IC95_bas": -0.0153,
+      "IC95_haut": 0.1385,
+      "p_value": 0.1078,
+      "r2": 0.1741,
       "significativite": "non significatif"
     },
     {
       "nom": "Thyroïde",
       "presomption": "Moyenne",
       "source_courte": "Inserm 2021, présomption moyenne",
-      "n": 15,
-      "pente": 0.0389,
-      "IC95_bas": -0.1704,
-      "IC95_haut": 0.2483,
-      "p_value": 0.6944,
-      "r2": 0.0123,
+      "n": 16,
+      "pente": -0.0212,
+      "IC95_bas": -0.2172,
+      "IC95_haut": 0.1749,
+      "p_value": 0.8202,
+      "r2": 0.0038,
       "significativite": "non significatif"
     },
     {
       "nom": "Vessie",
       "presomption": "Moyenne",
       "source_courte": "Inserm 2021, présomption moyenne",
-      "n": 15,
-      "pente": -0.0271,
-      "IC95_bas": -0.1002,
-      "IC95_haut": 0.0459,
-      "p_value": 0.4363,
-      "r2": 0.0473,
+      "n": 16,
+      "pente": 0.0021,
+      "IC95_bas": -0.0699,
+      "IC95_haut": 0.074,
+      "p_value": 0.9519,
+      "r2": 0.0003,
       "significativite": "non significatif"
     },
     {
       "nom": "Col de l'utérus",
       "presomption": "Non liée",
       "source_courte": "Non documenté",
-      "n": 15,
-      "pente": 0.0518,
-      "IC95_bas": -0.0046,
-      "IC95_haut": 0.1082,
-      "p_value": 0.0687,
-      "r2": 0.2325,
+      "n": 16,
+      "pente": 0.0491,
+      "IC95_bas": -0.0002,
+      "IC95_haut": 0.0984,
+      "p_value": 0.0508,
+      "r2": 0.2458,
       "significativite": "non significatif"
     },
     {
       "nom": "Corps de l'utérus",
       "presomption": "Non liée",
       "source_courte": "Non documenté",
-      "n": 15,
-      "pente": -0.1004,
-      "IC95_bas": -0.1812,
-      "IC95_haut": -0.0195,
-      "p_value": 0.0188,
-      "r2": 0.3562,
+      "n": 16,
+      "pente": -0.0772,
+      "IC95_bas": -0.153,
+      "IC95_haut": -0.0014,
+      "p_value": 0.0465,
+      "r2": 0.2541,
       "significativite": "baisse significative"
     },
     {
       "nom": "Estomac",
       "presomption": "Non liée",
-      "source_courte": "Données insuffisantes (Inserm)",
-      "n": 15,
-      "pente": -0.1661,
-      "IC95_bas": -0.2781,
-      "IC95_haut": -0.0541,
-      "p_value": 0.0069,
-      "r2": 0.4412,
+      "source_courte": "Données insuffisantes, Inserm",
+      "n": 16,
+      "pente": -0.1321,
+      "IC95_bas": -0.2373,
+      "IC95_haut": -0.0268,
+      "p_value": 0.0176,
+      "r2": 0.3408,
       "significativite": "baisse significative"
     },
     {
       "nom": "Foie",
       "presomption": "Non liée",
-      "source_courte": "Données insuffisantes (Inserm)",
-      "n": 15,
-      "pente": 0.0018,
-      "IC95_bas": -0.0914,
-      "IC95_haut": 0.095,
-      "p_value": 0.9676,
-      "r2": 0.0001,
+      "source_courte": "Données insuffisantes, Inserm",
+      "n": 16,
+      "pente": -0.0081,
+      "IC95_bas": -0.0913,
+      "IC95_haut": 0.0752,
+      "p_value": 0.8379,
+      "r2": 0.0031,
       "significativite": "non significatif"
     },
     {
       "nom": "Larynx",
       "presomption": "Non liée",
       "source_courte": "Non documenté",
-      "n": 15,
-      "pente": -0.0829,
-      "IC95_bas": -0.1472,
-      "IC95_haut": -0.0185,
-      "p_value": 0.0156,
-      "r2": 0.373,
+      "n": 16,
+      "pente": -0.0934,
+      "IC95_bas": -0.1496,
+      "IC95_haut": -0.0371,
+      "p_value": 0.0031,
+      "r2": 0.4752,
       "significativite": "baisse significative"
     },
     {
       "nom": "Leucémie myéloïde chronique (LMC)",
       "presomption": "Non liée",
       "source_courte": "Non documenté",
-      "n": 15,
-      "pente": 0.0304,
-      "IC95_bas": -0.008,
-      "IC95_haut": 0.0687,
-      "p_value": 0.1108,
-      "r2": 0.1838,
+      "n": 16,
+      "pente": 0.0346,
+      "IC95_bas": -0.0,
+      "IC95_haut": 0.0692,
+      "p_value": 0.0502,
+      "r2": 0.2469,
       "significativite": "non significatif"
     },
     {
       "nom": "Lymphome de Hodgkin",
       "presomption": "Non liée",
-      "source_courte": "Non documenté (vs LNH)",
-      "n": 15,
-      "pente": 0.0589,
-      "IC95_bas": -0.0021,
-      "IC95_haut": 0.12,
-      "p_value": 0.0573,
-      "r2": 0.2508,
-      "significativite": "non significatif"
+      "source_courte": "Non documenté, contrairement aux LNH",
+      "n": 16,
+      "pente": 0.0606,
+      "IC95_bas": 0.0076,
+      "IC95_haut": 0.1136,
+      "p_value": 0.028,
+      "r2": 0.3002,
+      "significativite": "hausse significative"
     },
     {
       "nom": "Lèvre-cavité orale-pharynx",
       "presomption": "Non liée",
-      "source_courte": "Données insuffisantes (ORL)",
-      "n": 15,
-      "pente": -0.2157,
-      "IC95_bas": -0.3502,
-      "IC95_haut": -0.0813,
-      "p_value": 0.0042,
-      "r2": 0.4803,
+      "source_courte": "Données insuffisantes, cancers ORL",
+      "n": 16,
+      "pente": -0.2176,
+      "IC95_bas": -0.3331,
+      "IC95_haut": -0.1022,
+      "p_value": 0.0012,
+      "r2": 0.5387,
       "significativite": "baisse significative"
     },
     {
       "nom": "OEsophage",
       "presomption": "Non liée",
-      "source_courte": "Données insuffisantes (Inserm)",
-      "n": 15,
-      "pente": -0.0529,
-      "IC95_bas": -0.1059,
-      "IC95_haut": 0.0002,
-      "p_value": 0.0507,
-      "r2": 0.2627,
+      "source_courte": "Données insuffisantes, Inserm",
+      "n": 16,
+      "pente": -0.0446,
+      "IC95_bas": -0.0917,
+      "IC95_haut": 0.0026,
+      "p_value": 0.0624,
+      "r2": 0.2266,
       "significativite": "non significatif"
     },
     {
       "nom": "Syndrome myéloprolifératif chronique, autre que LMC",
       "presomption": "Non liée",
       "source_courte": "Non documenté",
-      "n": 15,
-      "pente": 0.1461,
-      "IC95_bas": 0.0654,
-      "IC95_haut": 0.2267,
-      "p_value": 0.0018,
-      "r2": 0.5407,
+      "n": 16,
+      "pente": 0.1601,
+      "IC95_bas": 0.089,
+      "IC95_haut": 0.2313,
+      "p_value": 0.0003,
+      "r2": 0.6249,
       "significativite": "hausse significative"
     }
-  ]
+  ],
+  "comparaison_v1": {
+    "annees_v1": {
+      "min": 2008,
+      "max": 2022
+    },
+    "donnees": {
+      "n_effectifs": 510,
+      "n_effectifs_modifies": 197,
+      "ecart_median_cas": 1.0,
+      "totaux": [
+        {
+          "annee": 2008,
+          "v1": 11048,
+          "v2": 11054
+        },
+        {
+          "annee": 2009,
+          "v1": 11035,
+          "v2": 11042
+        },
+        {
+          "annee": 2010,
+          "v1": 11325,
+          "v2": 11333
+        },
+        {
+          "annee": 2011,
+          "v1": 11546,
+          "v2": 11559
+        },
+        {
+          "annee": 2012,
+          "v1": 11669,
+          "v2": 11674
+        },
+        {
+          "annee": 2013,
+          "v1": 11497,
+          "v2": 11516
+        },
+        {
+          "annee": 2014,
+          "v1": 11919,
+          "v2": 11932
+        },
+        {
+          "annee": 2015,
+          "v1": 12543,
+          "v2": 12545
+        },
+        {
+          "annee": 2016,
+          "v1": 12837,
+          "v2": 12846
+        },
+        {
+          "annee": 2017,
+          "v1": 12861,
+          "v2": 12868
+        },
+        {
+          "annee": 2018,
+          "v1": 13215,
+          "v2": 13226
+        },
+        {
+          "annee": 2019,
+          "v1": 13448,
+          "v2": 13476
+        },
+        {
+          "annee": 2020,
+          "v1": 13270,
+          "v2": 13282
+        },
+        {
+          "annee": 2021,
+          "v1": 14094,
+          "v2": 14121
+        },
+        {
+          "annee": 2022,
+          "v1": 13987,
+          "v2": 14133
+        }
+      ]
+    },
+    "v1": {
+      "groupes": {
+        "lies_pesticides": {
+          "n": 15,
+          "pente": 0.2355,
+          "IC95_bas": 0.0308,
+          "IC95_haut": 0.4402,
+          "p_value": 0.0274,
+          "r2": 0.322,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 15,
+          "pente": -0.5357,
+          "IC95_bas": -0.9667,
+          "IC95_haut": -0.1047,
+          "p_value": 0.0187,
+          "r2": 0.3568,
+          "significativite": "baisse significative"
+        }
+      },
+      "groupes_taux_brut": {
+        "lies_pesticides": {
+          "n": 15,
+          "pente": 1.4985,
+          "IC95_bas": 1.2331,
+          "IC95_haut": 1.764,
+          "p_value": 0.0,
+          "r2": 0.9196,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 15,
+          "pente": 0.396,
+          "IC95_bas": -0.0392,
+          "IC95_haut": 0.8311,
+          "p_value": 0.0711,
+          "r2": 0.2291,
+          "significativite": "non significatif"
+        }
+      },
+      "cancers": {
+        "LLC / Lymphome lymphocytique": {
+          "n": 15,
+          "pente": 0.0393,
+          "IC95_bas": -0.0139,
+          "IC95_haut": 0.0925,
+          "p_value": 0.1347,
+          "r2": 0.1637,
+          "significativite": "non significatif"
+        },
+        "Leucémie/lymphome lymphoblastique à cellules précurseurs (B, T ou SAI)": {
+          "n": 15,
+          "pente": 0.0096,
+          "IC95_bas": -0.023,
+          "IC95_haut": 0.0423,
+          "p_value": 0.5345,
+          "r2": 0.0304,
+          "significativite": "non significatif"
+        },
+        "Lymphome T/NK à cellules matures": {
+          "n": 15,
+          "pente": 0.0264,
+          "IC95_bas": -0.0118,
+          "IC95_haut": 0.0646,
+          "p_value": 0.1588,
+          "r2": 0.1467,
+          "significativite": "non significatif"
+        },
+        "Lymphome de la zone marginale": {
+          "n": 15,
+          "pente": -0.0168,
+          "IC95_bas": -0.0934,
+          "IC95_haut": 0.0599,
+          "p_value": 0.6439,
+          "r2": 0.0169,
+          "significativite": "non significatif"
+        },
+        "Lymphome diffus à grandes cellules B": {
+          "n": 15,
+          "pente": 0.0654,
+          "IC95_bas": 0.0149,
+          "IC95_haut": 0.1158,
+          "p_value": 0.015,
+          "r2": 0.3761,
+          "significativite": "hausse significative"
+        },
+        "Lymphome folliculaire": {
+          "n": 15,
+          "pente": 0.0211,
+          "IC95_bas": -0.0529,
+          "IC95_haut": 0.0951,
+          "p_value": 0.5492,
+          "r2": 0.0283,
+          "significativite": "non significatif"
+        },
+        "Lymphome lympho-plasmocytaire / Macroglobulinémie de Waldenström": {
+          "n": 15,
+          "pente": 0.0089,
+          "IC95_bas": -0.0318,
+          "IC95_haut": 0.0497,
+          "p_value": 0.6436,
+          "r2": 0.017,
+          "significativite": "non significatif"
+        },
+        "Lymphome à cellules du manteau": {
+          "n": 15,
+          "pente": -0.0004,
+          "IC95_bas": -0.028,
+          "IC95_haut": 0.0273,
+          "p_value": 0.9782,
+          "r2": 0.0001,
+          "significativite": "non significatif"
+        },
+        "Myélome multiple et plasmocytome": {
+          "n": 15,
+          "pente": 0.0529,
+          "IC95_bas": 0.0015,
+          "IC95_haut": 0.1042,
+          "p_value": 0.0446,
+          "r2": 0.2755,
+          "significativite": "hausse significative"
+        },
+        "Prostate": {
+          "n": 15,
+          "pente": -0.3496,
+          "IC95_bas": -1.0998,
+          "IC95_haut": 0.4005,
+          "p_value": 0.3324,
+          "r2": 0.0723,
+          "significativite": "non significatif"
+        },
+        "Système nerveux central": {
+          "n": 15,
+          "pente": -0.0339,
+          "IC95_bas": -0.0963,
+          "IC95_haut": 0.0285,
+          "p_value": 0.2611,
+          "r2": 0.096,
+          "significativite": "non significatif"
+        },
+        "Colon rectum": {
+          "n": 15,
+          "pente": -0.5496,
+          "IC95_bas": -0.7671,
+          "IC95_haut": -0.3322,
+          "p_value": 0.0001,
+          "r2": 0.6965,
+          "significativite": "baisse significative"
+        },
+        "Leucémie aiguë myéloïde": {
+          "n": 15,
+          "pente": 0.1396,
+          "IC95_bas": 0.0976,
+          "IC95_haut": 0.1817,
+          "p_value": 0.0,
+          "r2": 0.7983,
+          "significativite": "hausse significative"
+        },
+        "Mélanome de la peau": {
+          "n": 15,
+          "pente": 0.1461,
+          "IC95_bas": -0.007,
+          "IC95_haut": 0.2991,
+          "p_value": 0.0598,
+          "r2": 0.2464,
+          "significativite": "non significatif"
+        },
+        "Ovaire": {
+          "n": 15,
+          "pente": -0.06,
+          "IC95_bas": -0.1271,
+          "IC95_haut": 0.0071,
+          "p_value": 0.0754,
+          "r2": 0.2232,
+          "significativite": "non significatif"
+        },
+        "Pancréas": {
+          "n": 15,
+          "pente": 0.2321,
+          "IC95_bas": 0.1397,
+          "IC95_haut": 0.3246,
+          "p_value": 0.0001,
+          "r2": 0.6935,
+          "significativite": "hausse significative"
+        },
+        "Poumon, bronche et trachée": {
+          "n": 15,
+          "pente": 0.4257,
+          "IC95_bas": 0.2524,
+          "IC95_haut": 0.599,
+          "p_value": 0.0001,
+          "r2": 0.6841,
+          "significativite": "hausse significative"
+        },
+        "Rein": {
+          "n": 15,
+          "pente": 0.1757,
+          "IC95_bas": 0.0454,
+          "IC95_haut": 0.306,
+          "p_value": 0.0121,
+          "r2": 0.395,
+          "significativite": "hausse significative"
+        },
+        "Sein": {
+          "n": 15,
+          "pente": 0.3321,
+          "IC95_bas": 0.0577,
+          "IC95_haut": 0.6066,
+          "p_value": 0.0214,
+          "r2": 0.3447,
+          "significativite": "hausse significative"
+        },
+        "Syndrome myélodysplasique": {
+          "n": 15,
+          "pente": 0.0443,
+          "IC95_bas": -0.0272,
+          "IC95_haut": 0.1157,
+          "p_value": 0.2034,
+          "r2": 0.1212,
+          "significativite": "non significatif"
+        },
+        "Testicule": {
+          "n": 15,
+          "pente": 0.0757,
+          "IC95_bas": -0.0103,
+          "IC95_haut": 0.1617,
+          "p_value": 0.0795,
+          "r2": 0.2178,
+          "significativite": "non significatif"
+        },
+        "Thyroïde": {
+          "n": 15,
+          "pente": 0.0389,
+          "IC95_bas": -0.1704,
+          "IC95_haut": 0.2483,
+          "p_value": 0.6944,
+          "r2": 0.0123,
+          "significativite": "non significatif"
+        },
+        "Vessie": {
+          "n": 15,
+          "pente": -0.0271,
+          "IC95_bas": -0.1002,
+          "IC95_haut": 0.0459,
+          "p_value": 0.4363,
+          "r2": 0.0473,
+          "significativite": "non significatif"
+        },
+        "Col de l'utérus": {
+          "n": 15,
+          "pente": 0.0518,
+          "IC95_bas": -0.0046,
+          "IC95_haut": 0.1082,
+          "p_value": 0.0687,
+          "r2": 0.2325,
+          "significativite": "non significatif"
+        },
+        "Corps de l'utérus": {
+          "n": 15,
+          "pente": -0.1004,
+          "IC95_bas": -0.1812,
+          "IC95_haut": -0.0195,
+          "p_value": 0.0188,
+          "r2": 0.3562,
+          "significativite": "baisse significative"
+        },
+        "Estomac": {
+          "n": 15,
+          "pente": -0.1661,
+          "IC95_bas": -0.2781,
+          "IC95_haut": -0.0541,
+          "p_value": 0.0069,
+          "r2": 0.4412,
+          "significativite": "baisse significative"
+        },
+        "Foie": {
+          "n": 15,
+          "pente": 0.0018,
+          "IC95_bas": -0.0914,
+          "IC95_haut": 0.095,
+          "p_value": 0.9676,
+          "r2": 0.0001,
+          "significativite": "non significatif"
+        },
+        "Larynx": {
+          "n": 15,
+          "pente": -0.0829,
+          "IC95_bas": -0.1472,
+          "IC95_haut": -0.0185,
+          "p_value": 0.0156,
+          "r2": 0.373,
+          "significativite": "baisse significative"
+        },
+        "Leucémie myéloïde chronique (LMC)": {
+          "n": 15,
+          "pente": 0.0304,
+          "IC95_bas": -0.008,
+          "IC95_haut": 0.0687,
+          "p_value": 0.1108,
+          "r2": 0.1838,
+          "significativite": "non significatif"
+        },
+        "Lymphome de Hodgkin": {
+          "n": 15,
+          "pente": 0.0589,
+          "IC95_bas": -0.0021,
+          "IC95_haut": 0.12,
+          "p_value": 0.0573,
+          "r2": 0.2508,
+          "significativite": "non significatif"
+        },
+        "Lèvre-cavité orale-pharynx": {
+          "n": 15,
+          "pente": -0.2157,
+          "IC95_bas": -0.3502,
+          "IC95_haut": -0.0813,
+          "p_value": 0.0042,
+          "r2": 0.4803,
+          "significativite": "baisse significative"
+        },
+        "OEsophage": {
+          "n": 15,
+          "pente": -0.0529,
+          "IC95_bas": -0.1059,
+          "IC95_haut": 0.0002,
+          "p_value": 0.0507,
+          "r2": 0.2627,
+          "significativite": "non significatif"
+        },
+        "Syndrome myéloprolifératif chronique, autre que LMC": {
+          "n": 15,
+          "pente": 0.1461,
+          "IC95_bas": 0.0654,
+          "IC95_haut": 0.2267,
+          "p_value": 0.0018,
+          "r2": 0.5407,
+          "significativite": "hausse significative"
+        }
+      }
+    },
+    "revisees_periode_v1": {
+      "groupes": {
+        "lies_pesticides": {
+          "n": 15,
+          "pente": 0.2621,
+          "IC95_bas": 0.0575,
+          "IC95_haut": 0.4667,
+          "p_value": 0.016,
+          "r2": 0.3708,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 15,
+          "pente": -0.5084,
+          "IC95_bas": -0.928,
+          "IC95_haut": -0.0887,
+          "p_value": 0.0213,
+          "r2": 0.3451,
+          "significativite": "baisse significative"
+        }
+      },
+      "groupes_taux_brut": {
+        "lies_pesticides": {
+          "n": 15,
+          "pente": 1.5265,
+          "IC95_bas": 1.2599,
+          "IC95_haut": 1.7931,
+          "p_value": 0.0,
+          "r2": 0.9217,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 15,
+          "pente": 0.4539,
+          "IC95_bas": 0.0314,
+          "IC95_haut": 0.8763,
+          "p_value": 0.0372,
+          "r2": 0.293,
+          "significativite": "hausse significative"
+        }
+      },
+      "cancers": {
+        "Col de l'utérus": {
+          "n": 15,
+          "pente": 0.0543,
+          "IC95_bas": -0.002,
+          "IC95_haut": 0.1106,
+          "p_value": 0.0577,
+          "r2": 0.25,
+          "significativite": "non significatif"
+        },
+        "Colon rectum": {
+          "n": 15,
+          "pente": -0.5418,
+          "IC95_bas": -0.7604,
+          "IC95_haut": -0.3232,
+          "p_value": 0.0001,
+          "r2": 0.6879,
+          "significativite": "baisse significative"
+        },
+        "Corps de l'utérus": {
+          "n": 15,
+          "pente": -0.1004,
+          "IC95_bas": -0.1812,
+          "IC95_haut": -0.0195,
+          "p_value": 0.0188,
+          "r2": 0.3562,
+          "significativite": "baisse significative"
+        },
+        "Estomac": {
+          "n": 15,
+          "pente": -0.165,
+          "IC95_bas": -0.2768,
+          "IC95_haut": -0.0532,
+          "p_value": 0.0071,
+          "r2": 0.4389,
+          "significativite": "baisse significative"
+        },
+        "Foie": {
+          "n": 15,
+          "pente": 0.0179,
+          "IC95_bas": -0.0706,
+          "IC95_haut": 0.1063,
+          "p_value": 0.6699,
+          "r2": 0.0144,
+          "significativite": "non significatif"
+        },
+        "LLC / Lymphome lymphocytique": {
+          "n": 15,
+          "pente": 0.0432,
+          "IC95_bas": -0.0098,
+          "IC95_haut": 0.0962,
+          "p_value": 0.1016,
+          "r2": 0.1927,
+          "significativite": "non significatif"
+        },
+        "Larynx": {
+          "n": 15,
+          "pente": -0.0861,
+          "IC95_bas": -0.15,
+          "IC95_haut": -0.0221,
+          "p_value": 0.0122,
+          "r2": 0.3941,
+          "significativite": "baisse significative"
+        },
+        "Leucémie aiguë myéloïde": {
+          "n": 15,
+          "pente": 0.1382,
+          "IC95_bas": 0.0961,
+          "IC95_haut": 0.1803,
+          "p_value": 0.0,
+          "r2": 0.7949,
+          "significativite": "hausse significative"
+        },
+        "Leucémie myéloïde chronique (LMC)": {
+          "n": 15,
+          "pente": 0.0311,
+          "IC95_bas": -0.0085,
+          "IC95_haut": 0.0706,
+          "p_value": 0.1133,
+          "r2": 0.1815,
+          "significativite": "non significatif"
+        },
+        "Leucémie/lymphome lymphoblastique à cellules précurseurs (B, T ou SAI)": {
+          "n": 15,
+          "pente": 0.0107,
+          "IC95_bas": -0.0232,
+          "IC95_haut": 0.0446,
+          "p_value": 0.5069,
+          "r2": 0.0346,
+          "significativite": "non significatif"
+        },
+        "Lymphome T/NK à cellules matures": {
+          "n": 15,
+          "pente": 0.0264,
+          "IC95_bas": -0.0118,
+          "IC95_haut": 0.0646,
+          "p_value": 0.1588,
+          "r2": 0.1467,
+          "significativite": "non significatif"
+        },
+        "Lymphome de Hodgkin": {
+          "n": 15,
+          "pente": 0.0589,
+          "IC95_bas": -0.0021,
+          "IC95_haut": 0.12,
+          "p_value": 0.0573,
+          "r2": 0.2508,
+          "significativite": "non significatif"
+        },
+        "Lymphome de la zone marginale": {
+          "n": 15,
+          "pente": -0.015,
+          "IC95_bas": -0.091,
+          "IC95_haut": 0.061,
+          "p_value": 0.6769,
+          "r2": 0.0138,
+          "significativite": "non significatif"
+        },
+        "Lymphome diffus à grandes cellules B": {
+          "n": 15,
+          "pente": 0.0657,
+          "IC95_bas": 0.0148,
+          "IC95_haut": 0.1166,
+          "p_value": 0.0153,
+          "r2": 0.3744,
+          "significativite": "hausse significative"
+        },
+        "Lymphome folliculaire": {
+          "n": 15,
+          "pente": 0.0225,
+          "IC95_bas": -0.0505,
+          "IC95_haut": 0.0955,
+          "p_value": 0.5171,
+          "r2": 0.033,
+          "significativite": "non significatif"
+        },
+        "Lymphome lympho-plasmocytaire / Macroglobulinémie de Waldenström": {
+          "n": 15,
+          "pente": 0.0118,
+          "IC95_bas": -0.0283,
+          "IC95_haut": 0.0518,
+          "p_value": 0.5359,
+          "r2": 0.0302,
+          "significativite": "non significatif"
+        },
+        "Lymphome à cellules du manteau": {
+          "n": 15,
+          "pente": -0.0004,
+          "IC95_bas": -0.028,
+          "IC95_haut": 0.0273,
+          "p_value": 0.9782,
+          "r2": 0.0001,
+          "significativite": "non significatif"
+        },
+        "Lèvre-cavité orale-pharynx": {
+          "n": 15,
+          "pente": -0.2168,
+          "IC95_bas": -0.3498,
+          "IC95_haut": -0.0838,
+          "p_value": 0.0038,
+          "r2": 0.4883,
+          "significativite": "baisse significative"
+        },
+        "Myélome multiple et plasmocytome": {
+          "n": 15,
+          "pente": 0.0521,
+          "IC95_bas": -0.0031,
+          "IC95_haut": 0.1074,
+          "p_value": 0.0624,
+          "r2": 0.2421,
+          "significativite": "non significatif"
+        },
+        "Mélanome de la peau": {
+          "n": 15,
+          "pente": 0.1571,
+          "IC95_bas": 0.0059,
+          "IC95_haut": 0.3084,
+          "p_value": 0.0428,
+          "r2": 0.2793,
+          "significativite": "hausse significative"
+        },
+        "OEsophage": {
+          "n": 15,
+          "pente": -0.0529,
+          "IC95_bas": -0.1059,
+          "IC95_haut": 0.0002,
+          "p_value": 0.0507,
+          "r2": 0.2627,
+          "significativite": "non significatif"
+        },
+        "Ovaire": {
+          "n": 15,
+          "pente": -0.0571,
+          "IC95_bas": -0.122,
+          "IC95_haut": 0.0077,
+          "p_value": 0.0794,
+          "r2": 0.2179,
+          "significativite": "non significatif"
+        },
+        "Pancréas": {
+          "n": 15,
+          "pente": 0.2325,
+          "IC95_bas": 0.1423,
+          "IC95_haut": 0.3227,
+          "p_value": 0.0001,
+          "r2": 0.7046,
+          "significativite": "hausse significative"
+        },
+        "Poumon, bronche et trachée": {
+          "n": 15,
+          "pente": 0.4386,
+          "IC95_bas": 0.2662,
+          "IC95_haut": 0.6109,
+          "p_value": 0.0001,
+          "r2": 0.6992,
+          "significativite": "hausse significative"
+        },
+        "Prostate": {
+          "n": 15,
+          "pente": -0.3368,
+          "IC95_bas": -1.0859,
+          "IC95_haut": 0.4123,
+          "p_value": 0.3491,
+          "r2": 0.0677,
+          "significativite": "non significatif"
+        },
+        "Rein": {
+          "n": 15,
+          "pente": 0.1829,
+          "IC95_bas": 0.0519,
+          "IC95_haut": 0.3138,
+          "p_value": 0.0099,
+          "r2": 0.4118,
+          "significativite": "hausse significative"
+        },
+        "Sein": {
+          "n": 15,
+          "pente": 0.3475,
+          "IC95_bas": 0.0709,
+          "IC95_haut": 0.6241,
+          "p_value": 0.0177,
+          "r2": 0.3617,
+          "significativite": "hausse significative"
+        },
+        "Syndrome myélodysplasique": {
+          "n": 15,
+          "pente": 0.0432,
+          "IC95_bas": -0.0269,
+          "IC95_haut": 0.1133,
+          "p_value": 0.2058,
+          "r2": 0.12,
+          "significativite": "non significatif"
+        },
+        "Syndrome myéloprolifératif chronique, autre que LMC": {
+          "n": 15,
+          "pente": 0.1468,
+          "IC95_bas": 0.0671,
+          "IC95_haut": 0.2265,
+          "p_value": 0.0016,
+          "r2": 0.5492,
+          "significativite": "hausse significative"
+        },
+        "Système nerveux central": {
+          "n": 15,
+          "pente": -0.0268,
+          "IC95_bas": -0.0876,
+          "IC95_haut": 0.0341,
+          "p_value": 0.359,
+          "r2": 0.065,
+          "significativite": "non significatif"
+        },
+        "Testicule": {
+          "n": 15,
+          "pente": 0.0757,
+          "IC95_bas": -0.0106,
+          "IC95_haut": 0.162,
+          "p_value": 0.0805,
+          "r2": 0.2165,
+          "significativite": "non significatif"
+        },
+        "Thyroïde": {
+          "n": 15,
+          "pente": 0.0407,
+          "IC95_bas": -0.1672,
+          "IC95_haut": 0.2486,
+          "p_value": 0.6791,
+          "r2": 0.0136,
+          "significativite": "non significatif"
+        },
+        "Vessie": {
+          "n": 15,
+          "pente": -0.0246,
+          "IC95_bas": -0.0983,
+          "IC95_haut": 0.049,
+          "p_value": 0.4824,
+          "r2": 0.0387,
+          "significativite": "non significatif"
+        }
+      }
+    },
+    "v2": {
+      "groupes": {
+        "lies_pesticides": {
+          "n": 16,
+          "pente": 0.2608,
+          "IC95_bas": 0.0832,
+          "IC95_haut": 0.4384,
+          "p_value": 0.0071,
+          "r2": 0.4146,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 16,
+          "pente": -0.4373,
+          "IC95_bas": -0.8121,
+          "IC95_haut": -0.0625,
+          "p_value": 0.0253,
+          "r2": 0.3091,
+          "significativite": "baisse significative"
+        }
+      },
+      "groupes_taux_brut": {
+        "lies_pesticides": {
+          "n": 16,
+          "pente": 1.5259,
+          "IC95_bas": 1.2945,
+          "IC95_haut": 1.7574,
+          "p_value": 0.0,
+          "r2": 0.9346,
+          "significativite": "hausse significative"
+        },
+        "non_lies_pesticides": {
+          "n": 16,
+          "pente": 0.5712,
+          "IC95_bas": 0.1767,
+          "IC95_haut": 0.9657,
+          "p_value": 0.0077,
+          "r2": 0.4079,
+          "significativite": "hausse significative"
+        }
+      },
+      "cancers": {
+        "Col de l'utérus": {
+          "n": 16,
+          "pente": 0.0491,
+          "IC95_bas": -0.0002,
+          "IC95_haut": 0.0984,
+          "p_value": 0.0508,
+          "r2": 0.2458,
+          "significativite": "non significatif"
+        },
+        "Colon rectum": {
+          "n": 16,
+          "pente": -0.5144,
+          "IC95_bas": -0.7072,
+          "IC95_haut": -0.3216,
+          "p_value": 0.0001,
+          "r2": 0.7005,
+          "significativite": "baisse significative"
+        },
+        "Corps de l'utérus": {
+          "n": 16,
+          "pente": -0.0772,
+          "IC95_bas": -0.153,
+          "IC95_haut": -0.0014,
+          "p_value": 0.0465,
+          "r2": 0.2541,
+          "significativite": "baisse significative"
+        },
+        "Estomac": {
+          "n": 16,
+          "pente": -0.1321,
+          "IC95_bas": -0.2373,
+          "IC95_haut": -0.0268,
+          "p_value": 0.0176,
+          "r2": 0.3408,
+          "significativite": "baisse significative"
+        },
+        "Foie": {
+          "n": 16,
+          "pente": -0.0081,
+          "IC95_bas": -0.0913,
+          "IC95_haut": 0.0752,
+          "p_value": 0.8379,
+          "r2": 0.0031,
+          "significativite": "non significatif"
+        },
+        "LLC / Lymphome lymphocytique": {
+          "n": 16,
+          "pente": 0.0282,
+          "IC95_bas": -0.0214,
+          "IC95_haut": 0.0778,
+          "p_value": 0.2423,
+          "r2": 0.0962,
+          "significativite": "non significatif"
+        },
+        "Larynx": {
+          "n": 16,
+          "pente": -0.0934,
+          "IC95_bas": -0.1496,
+          "IC95_haut": -0.0371,
+          "p_value": 0.0031,
+          "r2": 0.4752,
+          "significativite": "baisse significative"
+        },
+        "Leucémie aiguë myéloïde": {
+          "n": 16,
+          "pente": 0.1225,
+          "IC95_bas": 0.0811,
+          "IC95_haut": 0.1639,
+          "p_value": 0.0,
+          "r2": 0.7422,
+          "significativite": "hausse significative"
+        },
+        "Leucémie myéloïde chronique (LMC)": {
+          "n": 16,
+          "pente": 0.0346,
+          "IC95_bas": -0.0,
+          "IC95_haut": 0.0692,
+          "p_value": 0.0502,
+          "r2": 0.2469,
+          "significativite": "non significatif"
+        },
+        "Leucémie/lymphome lymphoblastique à cellules précurseurs (B, T ou SAI)": {
+          "n": 16,
+          "pente": 0.0068,
+          "IC95_bas": -0.0231,
+          "IC95_haut": 0.0366,
+          "p_value": 0.6344,
+          "r2": 0.0166,
+          "significativite": "non significatif"
+        },
+        "Lymphome T/NK à cellules matures": {
+          "n": 16,
+          "pente": 0.0321,
+          "IC95_bas": -0.0018,
+          "IC95_haut": 0.0659,
+          "p_value": 0.0619,
+          "r2": 0.2273,
+          "significativite": "non significatif"
+        },
+        "Lymphome de Hodgkin": {
+          "n": 16,
+          "pente": 0.0606,
+          "IC95_bas": 0.0076,
+          "IC95_haut": 0.1136,
+          "p_value": 0.028,
+          "r2": 0.3002,
+          "significativite": "hausse significative"
+        },
+        "Lymphome de la zone marginale": {
+          "n": 16,
+          "pente": -0.0279,
+          "IC95_bas": -0.0959,
+          "IC95_haut": 0.04,
+          "p_value": 0.3924,
+          "r2": 0.0527,
+          "significativite": "non significatif"
+        },
+        "Lymphome diffus à grandes cellules B": {
+          "n": 16,
+          "pente": 0.0518,
+          "IC95_bas": 0.0043,
+          "IC95_haut": 0.0992,
+          "p_value": 0.0346,
+          "r2": 0.2812,
+          "significativite": "hausse significative"
+        },
+        "Lymphome folliculaire": {
+          "n": 16,
+          "pente": 0.0109,
+          "IC95_bas": -0.0541,
+          "IC95_haut": 0.0759,
+          "p_value": 0.7248,
+          "r2": 0.0091,
+          "significativite": "non significatif"
+        },
+        "Lymphome lympho-plasmocytaire / Macroglobulinémie de Waldenström": {
+          "n": 16,
+          "pente": 0.0191,
+          "IC95_bas": -0.0168,
+          "IC95_haut": 0.055,
+          "p_value": 0.2729,
+          "r2": 0.0851,
+          "significativite": "non significatif"
+        },
+        "Lymphome à cellules du manteau": {
+          "n": 16,
+          "pente": 0.0009,
+          "IC95_bas": -0.0232,
+          "IC95_haut": 0.025,
+          "p_value": 0.9385,
+          "r2": 0.0004,
+          "significativite": "non significatif"
+        },
+        "Lèvre-cavité orale-pharynx": {
+          "n": 16,
+          "pente": -0.2176,
+          "IC95_bas": -0.3331,
+          "IC95_haut": -0.1022,
+          "p_value": 0.0012,
+          "r2": 0.5387,
+          "significativite": "baisse significative"
+        },
+        "Myélome multiple et plasmocytome": {
+          "n": 16,
+          "pente": 0.0359,
+          "IC95_bas": -0.0162,
+          "IC95_haut": 0.0879,
+          "p_value": 0.1613,
+          "r2": 0.1351,
+          "significativite": "non significatif"
+        },
+        "Mélanome de la peau": {
+          "n": 16,
+          "pente": 0.1353,
+          "IC95_bas": 0.0012,
+          "IC95_haut": 0.2694,
+          "p_value": 0.0482,
+          "r2": 0.2507,
+          "significativite": "hausse significative"
+        },
+        "OEsophage": {
+          "n": 16,
+          "pente": -0.0446,
+          "IC95_bas": -0.0917,
+          "IC95_haut": 0.0026,
+          "p_value": 0.0624,
+          "r2": 0.2266,
+          "significativite": "non significatif"
+        },
+        "Ovaire": {
+          "n": 16,
+          "pente": -0.0832,
+          "IC95_bas": -0.1482,
+          "IC95_haut": -0.0183,
+          "p_value": 0.0157,
+          "r2": 0.3507,
+          "significativite": "baisse significative"
+        },
+        "Pancréas": {
+          "n": 16,
+          "pente": 0.2312,
+          "IC95_bas": 0.1529,
+          "IC95_haut": 0.3095,
+          "p_value": 0.0,
+          "r2": 0.7411,
+          "significativite": "hausse significative"
+        },
+        "Poumon, bronche et trachée": {
+          "n": 16,
+          "pente": 0.4434,
+          "IC95_bas": 0.2936,
+          "IC95_haut": 0.5931,
+          "p_value": 0.0,
+          "r2": 0.7423,
+          "significativite": "hausse significative"
+        },
+        "Prostate": {
+          "n": 16,
+          "pente": -0.2293,
+          "IC95_bas": -0.8931,
+          "IC95_haut": 0.4346,
+          "p_value": 0.4711,
+          "r2": 0.0377,
+          "significativite": "non significatif"
+        },
+        "Rein": {
+          "n": 16,
+          "pente": 0.174,
+          "IC95_bas": 0.0598,
+          "IC95_haut": 0.2882,
+          "p_value": 0.0056,
+          "r2": 0.4326,
+          "significativite": "hausse significative"
+        },
+        "Sein": {
+          "n": 16,
+          "pente": 0.4009,
+          "IC95_bas": 0.1518,
+          "IC95_haut": 0.6499,
+          "p_value": 0.0039,
+          "r2": 0.4598,
+          "significativite": "hausse significative"
+        },
+        "Syndrome myélodysplasique": {
+          "n": 16,
+          "pente": 0.0303,
+          "IC95_bas": -0.0326,
+          "IC95_haut": 0.0932,
+          "p_value": 0.3194,
+          "r2": 0.0708,
+          "significativite": "non significatif"
+        },
+        "Syndrome myéloprolifératif chronique, autre que LMC": {
+          "n": 16,
+          "pente": 0.1601,
+          "IC95_bas": 0.089,
+          "IC95_haut": 0.2313,
+          "p_value": 0.0003,
+          "r2": 0.6249,
+          "significativite": "hausse significative"
+        },
+        "Système nerveux central": {
+          "n": 16,
+          "pente": -0.0288,
+          "IC95_bas": -0.0817,
+          "IC95_haut": 0.0241,
+          "p_value": 0.262,
+          "r2": 0.0889,
+          "significativite": "non significatif"
+        },
+        "Testicule": {
+          "n": 16,
+          "pente": 0.0616,
+          "IC95_bas": -0.0153,
+          "IC95_haut": 0.1385,
+          "p_value": 0.1078,
+          "r2": 0.1741,
+          "significativite": "non significatif"
+        },
+        "Thyroïde": {
+          "n": 16,
+          "pente": -0.0212,
+          "IC95_bas": -0.2172,
+          "IC95_haut": 0.1749,
+          "p_value": 0.8202,
+          "r2": 0.0038,
+          "significativite": "non significatif"
+        },
+        "Vessie": {
+          "n": 16,
+          "pente": 0.0021,
+          "IC95_bas": -0.0699,
+          "IC95_haut": 0.074,
+          "p_value": 0.9519,
+          "r2": 0.0003,
+          "significativite": "non significatif"
+        }
+      }
+    }
+  }
 }

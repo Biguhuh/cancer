@@ -182,6 +182,9 @@ main { padding: 36px 0 60px; }
   hyphens: auto;
 }
 
+.text-list { max-width: var(--max-w); padding-left: 20px; }
+.text-list li { margin-bottom: 10px; text-align: justify; hyphens: auto; }
+
 /* ---------- Formulas (onglet Étude statistique) ---------- */
 
 .formula {
