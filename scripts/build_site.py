@@ -617,9 +617,11 @@ def panel_versions(stats, cite):
     return f"""
   <section id="panel-versions" class="tab-panel" role="tabpanel" aria-labelledby="tab-versions" data-tab="versions" hidden>
     <h2>Mise à jour des données&nbsp;: ce qui change entre la v1 et la v2</h2>
-    <p>La v1 de cette étude portait sur les années {y0} à {v1_max}. La v2 porte sur les années
-      {y0} à {y1}. Nous publions ici la comparaison des deux versions, pour que chacun puisse
-      vérifier l'effet de la mise à jour sur les résultats.</p>
+    <p>La première version de ce site, la v1, présentait les données du registre disponibles en
+      février 2026, quand nous avons commencé cette étude. Elles portaient sur les années {y0} à
+      {v1_max}. La v2 présente les données consolidées par le registre en
+      {REGISTRE_MAJ.split(" ", 1)[1]}, sur les années {y0} à {y1}. Nous publions ici la
+      comparaison des deux versions, pour que chacun puisse vérifier l'effet de la mise à jour sur les résultats.</p>
 
     <div class="method-block">
       <h3>En bref</h3>
