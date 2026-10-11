@@ -1,4 +1,4 @@
-# Cancers, pesticides et alimentation
+# Cancers, pesticides et voies d'exposition
 
 Étude statistique de l'évolution des cancers en Poitou-Charentes (2008–2023) et de son lien
 éventuel avec l'exposition aux pesticides, complétée par une revue de littérature sur les

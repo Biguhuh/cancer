@@ -953,8 +953,8 @@ def build_page(stats, panels):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cancers, pesticides et alimentation</title>
-<meta name="description" content="Étude statistique de l'évolution des cancers en Poitou-Charentes de {y0} à {y1} au regard de l'exposition aux pesticides, des perturbateurs endocriniens et de l'alimentation conventionnelle vs biologique.">
+<title>Cancers, pesticides et voies d'exposition</title>
+<meta name="description" content="Étude statistique de l'évolution des cancers en Poitou-Charentes de {y0} à {y1}, et liens entre pesticides, maladies et voies d'exposition&nbsp;: alimentation, air et eau.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -962,7 +962,7 @@ def build_page(stats, panels):
 <header class="site-header">
   <div class="wrap header-inner">
     <div class="header-text">
-      <h1>Cancers, pesticides et alimentation</h1>
+      <h1>Cancers, pesticides et voies d'exposition</h1>
       <p class="subtitle">Étude réalisée à partir du registre des cancers de Poitou-Charentes,
         {y0}–{y1}, et de la littérature scientifique — Santé des Territoires Aigondigné</p>
     </div>

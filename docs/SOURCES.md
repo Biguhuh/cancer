@@ -1,6 +1,6 @@
 # Sources
 
-Bibliographie du site *Cancers, pesticides et alimentation*. Chaque affirmation du site renvoie
+Bibliographie du site *Cancers, pesticides et voies d'exposition*. Chaque affirmation du site renvoie
 à une entrée numérotée de ce document. Les entrées sont classées par thème, dans l'ordre où elles
 apparaissent sur le site.
 
