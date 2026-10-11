@@ -219,6 +219,36 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   dans la plupart des scénarios étudiés, sous les seuils sanitaires de référence, dits HBGV pour Health
   Based Guidance Values. Nuance importante : voie dominante ne veut pas dire dose dangereuse.
 
+## Air, pluie et eau : autres voies d'exposition
+
+### Bianco et al., 2025 — pesticides dans l'eau des nuages {#bianco-2025}
+- Référence : Bianco, A., Nibert, P., Wu, Y., Baray, J.-L., Brigante, M., Mailhot, G.,
+  Deguillaume, L., Vione, D., Cabanes, D. J. E., Méjean, M., Besse-Hoggan, P., 2025. Are Clouds a
+  Neglected Reservoir of Pesticides? *Environmental Science & Technology*, 59, 40, 21579-21588.
+- Lien : https://doi.org/10.1021/acs.est.5c03787
+- Constat : 446 composés recherchés dans six échantillons d'eau de nuage prélevés au puy de Dôme,
+  en fin d'été et au printemps. 32 sont détectés, dont des herbicides, des insecticides et des
+  fongicides. Deux échantillons dépassent 0,5 µg/L de pesticides au total, la limite européenne
+  pour l'eau potable. Les auteurs y voient surtout un transport sur longue distance, y compris de
+  pesticides interdits en France.
+
+### ARS Île-de-France, 2026 — pesticides dans l'eau du robinet {#ars-idf-2026}
+- Référence : Agence régionale de santé Île-de-France, page mise à jour le 7 janvier 2026. *Les
+  pesticides dans les eaux destinées à la consommation humaine : ce qu'il faut savoir*.
+- Lien : https://www.iledefrance.ars.sante.fr/les-pesticides-dans-les-eaux-destinees-la-consommation-humaine-ce-quil-faut-savoir
+- Constat : « les eaux peuvent être contaminées par le lessivage des sols, c'est-à-dire par les
+  pluies ». Les pesticides rejoignent les eaux de surface par ruissellement ou érosion, et les eaux
+  souterraines par infiltration. Leur transfert dépend notamment de leur solubilité dans l'eau.
+
+### SDES, 2023 — pollution des eaux superficielles et souterraines {#sdes-2023}
+- Référence : Service des données et études statistiques, ministère de la Transition écologique,
+  30 novembre 2023. *La pollution des eaux superficielles et souterraines en France. Synthèse des
+  connaissances en 2023*.
+- Lien : https://www.statistiques.developpement-durable.gouv.fr/la-pollution-des-eaux-superficielles-et-souterraines-en-france-synthese-des-connaissances-en-2023
+- Constat : de 2019 à 2021, 588 des 782 pesticides suivis en métropole sont quantifiés au moins
+  une fois dans les eaux souterraines, surtout des herbicides et leurs métabolites. L'eau potable
+  provient d'environ 37 600 captages, dont 36 000 prélèvent dans les eaux souterraines.
+
 ### Anses, 2023 — pesticides et métabolites dans l'eau potable {#anses-eau-2023}
 - Référence : Anses, 6 avril 2023. *Polluants émergents dans l'eau potable : le point sur les
   principaux résultats de la dernière campagne nationale*. Campagne lancée en 2019 avec les ARS

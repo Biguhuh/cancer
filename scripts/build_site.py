@@ -317,11 +317,16 @@ def panel_accueil(stats, cite):
 
     return f"""
   <section id="panel-accueil" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-accueil" data-tab="accueil" tabindex="0">
-    <p class="site-intro">Cette étude présente ses résultats à partir des données du registre des
-      cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Elle explique les liens entre
-      pesticides, maladies, dont les cancers, et voies d'exposition. L'alimentation est la voie
-      dominante pour la population générale {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}.
-      L'air compte aussi, notamment près des parcelles traitées {cite('pestiriv-2025')}, et des
+    <p class="site-intro">Ce site présente les résultats d'une étude statistique des données du
+      registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Il liste les liens
+      entre pesticides, maladies et voies d'exposition, à partir de la littérature scientifique et
+      de sites institutionnels. L'alimentation est la voie dominante pour la population générale
+      {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}. L'air est une autre voie
+      d'exposition, notamment près des parcelles traitées, par les résidus de pesticides qu'il
+      transporte {cite('pestiriv-2025')}. On en retrouve même dans l'eau des nuages
+      {cite('bianco-2025')}. Les pluies lessivent aussi les sols&nbsp;: les pesticides rejoignent
+      les rivières par ruissellement et les nappes par infiltration {cite('ars-idf-2026')}. Or la
+      quasi-totalité des captages d'eau potable puisent dans ces nappes {cite('sdes-2023')}, et des
       résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
       onglets Alimentation, Riverains et Labels détaillent ces points.</p>
 
