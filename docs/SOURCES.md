@@ -219,6 +219,17 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   dans la plupart des scénarios étudiés, sous les seuils sanitaires de référence, dits HBGV pour Health
   Based Guidance Values. Nuance importante : voie dominante ne veut pas dire dose dangereuse.
 
+### Anses, 2023 — pesticides et métabolites dans l'eau potable {#anses-eau-2023}
+- Référence : Anses, 6 avril 2023. *Polluants émergents dans l'eau potable : le point sur les
+  principaux résultats de la dernière campagne nationale*. Campagne lancée en 2019 avec les ARS
+  et la DGS.
+- Lien : https://www.anses.fr/en/content/emerging-pollutants-drinking-water-review-main-findings-latest-national-campaign
+- Constat : 157 pesticides et métabolites recherchés dans des points de captage représentant
+  environ 20 % de l'eau distribuée. Le métabolite R471811 du chlorothalonil, un fongicide interdit
+  en France depuis 2020, est retrouvé dans plus d'un prélèvement sur deux et dépasse la limite de
+  qualité de 0,1 µg/L dans plus d'un sur trois. La campagne ne conclut pas sur un risque pour la
+  santé.
+
 ## Perturbateurs endocriniens
 
 ### Quiros-Alcala et al., 2019 — parabènes et asthme chez l'enfant {#quiros-alcala-2019}

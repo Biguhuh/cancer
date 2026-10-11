@@ -304,9 +304,11 @@ def panel_synthese(stats, cite):
   <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" tabindex="0">
     <p class="site-intro">Cette étude présente ses résultats à partir des données du registre des
       cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Elle explique les liens entre
-      pesticides, maladies — dont les cancers — et alimentation. Les résultats de cette étude
-      montrent l'importance d'une alimentation biologique, seul label garantissant l'absence de
-      pesticides de synthèse, comme le détaille l'onglet Labels.</p>
+      pesticides, maladies, dont les cancers, et voies d'exposition. L'alimentation est la voie
+      dominante pour la population générale {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}.
+      L'air compte aussi, notamment près des parcelles traitées {cite('pestiriv-2025')}, et des
+      résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
+      onglets Alimentation, Riverains et Labels détaillent ces points.</p>
 
     <h2 class="hero-headline">Les cancers liés aux pesticides progressent, les autres reculent</h2>
     <p class="hero-lede">L'incidence des cancers liés aux pesticides croît de façon certaine sur la
