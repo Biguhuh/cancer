@@ -964,7 +964,7 @@ def build_page(stats, panels):
     <div class="header-text">
       <h1>Cancers, pesticides et voies d'exposition</h1>
       <p class="subtitle">Étude réalisée à partir du registre des cancers de Poitou-Charentes,
-        {y0}–{y1}, et de la littérature scientifique — Santé des Territoires Aigondigné</p>
+        {y0}–{y1}, de la littérature scientifique et de sites institutionnels — Santé des Territoires Aigondigné</p>
     </div>
     <p class="pub-date">Publié en {PUB_DATE}</p>
   </div>
