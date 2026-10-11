@@ -285,6 +285,63 @@ def build_limites(limites):
 # 4. Contenu de chaque onglet
 # ---------------------------------------------------------------------------
 
+# Une ligne de présentation par onglet, affichée sur l'Accueil ; le libellé du lien vient de TABS.
+TAB_DESCRIPTIONS = {
+    "synthese": "les deux groupes de cancers comparés depuis {y0}, en graphe, et la méthode de classement.",
+    "detail": "la liste des {n} cancers suivis, avec la tendance de chacun et son niveau de lien "
+              "présumé avec les pesticides.",
+    "methodologie": "comment lire les résultats, avec la p-value, l'intervalle de confiance et le R².",
+    "versions": "ce qui change avec les données du registre consolidées en {registre_mois}.",
+    "endocriniens": "ce que la littérature dit de ces substances, dont certains pesticides.",
+    "alimentation": "l'alimentation comme voie d'exposition dominante, et l'effet d'une "
+                    "alimentation biologique, notamment chez l'enfant.",
+    "riverains": "l'exposition des personnes vivant près des cultures, et les études sur les "
+                 "cancers de l'enfant.",
+    "labels": "ce que garantissent, ou non, les labels alimentaires face aux pesticides.",
+    "sources": "toutes les références citées, avec leurs liens.",
+    "limites": "ce que l'étude ne permet pas de conclure.",
+}
+
+
+def panel_accueil(stats, cite):
+    y0, y1 = stats["annees"]["min"], stats["annees"]["max"]
+    n = len(stats["cancers"])
+    n_lies = sum(1 for c in stats["cancers"] if c["presomption"] != "Non liée")
+    alpha = fr_num(stats["alpha"], 2)
+    registre_mois = REGISTRE_MAJ.split(" ", 1)[1]
+    onglets = "\n".join(
+        f'        <li><a href="#{key}"><strong>{label}</strong></a>&nbsp;: '
+        f'{TAB_DESCRIPTIONS[key].format(y0=y0, n=n, registre_mois=registre_mois)}</li>'
+        for key, label in TABS if key != "accueil"
+    )
+
+    return f"""
+  <section id="panel-accueil" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-accueil" data-tab="accueil" tabindex="0">
+    <p class="site-intro">Cette étude présente ses résultats à partir des données du registre des
+      cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Elle explique les liens entre
+      pesticides, maladies, dont les cancers, et voies d'exposition. L'alimentation est la voie
+      dominante pour la population générale {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}.
+      L'air compte aussi, notamment près des parcelles traitées {cite('pestiriv-2025')}, et des
+      résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
+      onglets Alimentation, Riverains et Labels détaillent ces points.</p>
+
+    <div class="method-block">
+      <h3>Sources et méthode</h3>
+      <p>Les données viennent du registre des cancers de Poitou-Charentes, qui suit {n} cancers de
+        {y0} à {y1}. Pour chaque cancer, l'étude utilise le taux d'incidence standardisé sur l'âge
+        et mesure son évolution par une régression linéaire simple. Une tendance est dite
+        significative si p&nbsp;&lt;&nbsp;{alpha}. Les cancers sont répartis en deux groupes selon
+        l'expertise collective Inserm 2021&nbsp;: {n_lies} cancers à présomption de lien forte ou
+        moyenne avec les pesticides, et {n - n_lies} cancers sans lien documenté.</p>
+    </div>
+
+    <h3>Les onglets</h3>
+    <ul>
+{onglets}
+    </ul>
+  </section>"""
+
+
 def panel_synthese(stats, cite):
     y0, y1 = stats["annees"]["min"], stats["annees"]["max"]
     g23 = stats["groupes_23_cancers"]
@@ -301,15 +358,7 @@ def panel_synthese(stats, cite):
           "la baisse des cancers non liés reste significative sur le taux brut.")
 
     return f"""
-  <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" tabindex="0">
-    <p class="site-intro">Cette étude présente ses résultats à partir des données du registre des
-      cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Elle explique les liens entre
-      pesticides, maladies, dont les cancers, et voies d'exposition. L'alimentation est la voie
-      dominante pour la population générale {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}.
-      L'air compte aussi, notamment près des parcelles traitées {cite('pestiriv-2025')}, et des
-      résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
-      onglets Alimentation, Riverains et Labels détaillent ces points.</p>
-
+  <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" hidden>
     <h2 class="hero-headline">Les cancers liés aux pesticides progressent, les autres reculent</h2>
     <p class="hero-lede">L'incidence des cancers liés aux pesticides croît de façon certaine sur la
       période étudiée. Dans le même temps, l'incidence des cancers non liés aux pesticides
@@ -865,6 +914,7 @@ def panel_limites(limites_html):
 
 
 TABS = [
+    ("accueil", "Accueil"),
     ("synthese", "Synthèse"),
     ("detail", "Détail par cancer"),
     ("methodologie", "Étude statistique"),
@@ -972,6 +1022,7 @@ def main():
     limites_html = build_limites(limites)
 
     panel_htmls = [
+        panel_accueil(stats, cite),
         panel_synthese(stats, cite),
         panel_detail(stats, cancer_table_html),
         panel_methodologie(stats),
