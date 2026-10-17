@@ -51,6 +51,15 @@ body {
   gap: 16px;
   flex-wrap: wrap;
 }
+/* Lien retour vers le sommaire du site biguhuh.github.io */
+.home-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #dcece2;
+  text-decoration: none;
+}
+.home-link:hover { color: #fff; text-decoration: underline; }
 .site-header h1 { margin: 0 0 6px; font-size: 1.5rem; }
 .site-header .subtitle {
   margin: 0;

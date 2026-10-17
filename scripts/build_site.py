@@ -962,6 +962,7 @@ def build_page(stats, panels):
 <header class="site-header">
   <div class="wrap header-inner">
     <div class="header-text">
+      <a class="home-link" href="https://biguhuh.github.io/">← Tous les projets</a>
       <h1>Cancers, pesticides et voies d'exposition</h1>
       <p class="subtitle">Étude réalisée à partir du registre des cancers de Poitou-Charentes,
         {y0}–{y1}, de la littérature scientifique et de sites institutionnels — Santé des Territoires Aigondigné</p>
