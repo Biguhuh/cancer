@@ -7,8 +7,8 @@ les enfants. Réalisé pour Santé des Territoires Aigondigné.
 
 ## Structure
 
-- `data/` — PDF sources (registre des cancers de Poitou-Charentes), tableaux Excel extraits et
-  résultats statistiques exportés.
+- `data/` — tableaux Excel extraits et résultats statistiques exportés. Les PDF sources du
+  registre ne sont pas versionnés : voir [Sources des données](#sources-des-données).
 - `notebooks/exploration_tous.ipynb` — ETL : extraction des tableaux des PDF via `tabula-py`,
   production de `data/table_*.xlsx` et `data/combined_tables.xlsx`.
 - `notebooks/exploration_tous_v2.ipynb` — étude statistique complète : régressions avec IC95 %,
@@ -27,7 +27,8 @@ les enfants. Réalisé pour Santé des Territoires Aigondigné.
 1. Figer la version publiée avant de toucher aux données : copier `data/site_stats.json` et
    `data/table_tous.xlsx` dans `data/v1/` (à renommer selon la version). L'onglet "Mise à jour"
    du site compare les nouveaux résultats à cette version figée.
-2. Télécharger **toutes** les années depuis la page "Les chiffres" du registre, pas seulement la
+2. Télécharger **toutes** les années depuis la page
+   [Les chiffres](https://www.registre-cancers-poitou-charentes.fr/les-chiffres_723.html) du registre, pas seulement la
    nouvelle : le registre republie les années passées avec des effectifs révisés. Les déposer dans
    `data/tous/`, `data/femmes/` et `data/hommes/`, et mettre à jour `REGISTRE_MAJ` dans
    `scripts/build_site.py`.
@@ -57,8 +58,17 @@ Actions". Le workflow se déclenche ensuite automatiquement à chaque push perti
 
 ## Sources des données
 
-- Registre des cancers de Poitou-Charentes (PDF de la page "Les chiffres"), déposés dans `data/`.
-  Licence d'origine : TODO, à vérifier auprès du registre.
+- [Registre des cancers de Poitou-Charentes](https://www.registre-cancers-poitou-charentes.fr/) :
+  PDF d'incidence par année, à télécharger sur la page
+  [Les chiffres](https://www.registre-cancers-poitou-charentes.fr/les-chiffres_723.html).
+  Trois séries, à déposer chacune dans son dossier :
+  - "Tous sexes confondus" → `data/tous/` (ex. `2023 Tous sexes confondus.pdf`)
+  - "Chez les femmes" → `data/femmes/` (ex. `2023 Chez les femmes.pdf`)
+  - "Chez les hommes" → `data/hommes/` (ex. `2023 Chez les hommes.pdf`)
+
+  Ces PDF ne sont pas redistribués dans ce dépôt : d'après les
+  [mentions légales](https://www.registre-cancers-poitou-charentes.fr/mentions-legales_266.html)
+  du registre, leur reproduction est soumise à son autorisation.
 - Bibliographie : voir `docs/SOURCES.md`.
 
 ## Licence
