@@ -54,3 +54,16 @@ PDF :
 
 Publication GitHub Pages : dans les paramètres du dépôt GitHub, Pages → Source → "GitHub
 Actions". Le workflow se déclenche ensuite automatiquement à chaque push pertinent sur `master`.
+
+## Sources des données
+
+- Registre des cancers de Poitou-Charentes (PDF de la page "Les chiffres"), déposés dans `data/`.
+  Licence d'origine : TODO, à vérifier auprès du registre.
+- Bibliographie : voir `docs/SOURCES.md`.
+
+## Licence
+
+Les textes et analyses (docs, contenus du site, résultats et graphiques) sont sous licence
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr) : réutilisation libre, en citant
+l'auteur. Le code est sous licence MIT. Détails et textes complets dans [LICENSE](LICENSE).
+Les données du registre n'en font pas partie et restent sous leur licence d'origine.
