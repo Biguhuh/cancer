@@ -302,29 +302,6 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   sur plusieurs cohortes, de la grossesse à l'âge adulte. Projet en cours : pas de résultats
   définitifs publiés à ce jour.
 
-## Alimentation biologique et réduction de l'exposition, focus enfants
-
-### Bradman et al., 2015 — intervention bio chez l'enfant {#bradman-2015}
-- Référence : Bradman et al., 2015. *Environmental Health Perspectives*.
-- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC4590750
-- Constat : une semaine d'alimentation biologique réduit mesurablement les résidus urinaires de
-  pesticides chez l'enfant ; les niveaux remontent dès le retour à une alimentation conventionnelle.
-  Étude d'intervention à court terme, sur un petit échantillon.
-
-### Cohorte PELAGIE (Irset) — enfants bretons de 6 ans {#pelagie-cohort}
-- Référence : cohorte PELAGIE, Irset, 245 enfants bretons de 6 ans.
-- Lien : https://espace-sciences.org/sciences-ouest/353/actualite/les-enfants-exposes-aux-insecticides
-- Constat : une consommation fréquente d'aliments biologiques est associée à des taux urinaires
-  plus bas de deux métabolites de pesticides chez l'enfant.
-
-### Loi EGalim — bio en restauration collective {#egalim}
-- Référence : loi EGalim de 2018 et ses décrets d'application.
-- Lien : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037547946
-- Constat : depuis 2022, la restauration collective publique doit atteindre 20 % de produits
-  biologiques et 50 % de produits durables ou sous signe de qualité ; l'obligation est étendue à
-  toute la restauration collective depuis 2024. En pratique, la part de bio observée en 2023 était
-  de 12,1 % en moyenne, en dessous de l'objectif légal.
-
 ## Proximité des cultures et cancers de l'enfant
 
 ### VanDeSteeg et al., 2026 — revue de portée, pesticides environnementaux et cancers de l'enfant {#vandesteeg-2026}
@@ -414,48 +391,6 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   diminue et quand la quantité de pesticides utilisée augmente. PestiRiv ne mesure pas les effets
   sur la santé : la synthèse précise qu'elle « ne donne pas d'information sur le lien entre
   l'exposition et le risque pour la santé ».
-
-## Labels alimentaires : ce qu'ils garantissent, ou non, sur les pesticides
-
-### ADEME — ce que garantit le label bio, AB ou Eurofeuille {#ademe-label-bio}
-- Référence : ADEME, Agence de la transition écologique, fiche « Agriculture biologique ».
-- Lien : https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/mieux-choisir/labels-environnementaux/alimentation/aliments-boissons-agriculture-biologique
-- Constat : le label bio européen, l'Eurofeuille, équivalent du label français AB depuis 2009, repose
-  sur un règlement européen qui interdit les engrais chimiques de synthèse, les pesticides et
-  herbicides de synthèse, ainsi que les OGM. C'est une interdiction de méthode, vérifiée par des
-  organismes certificateurs indépendants et des contrôles sur l'exploitation.
-
-### Agence Bio — les traitements naturels autorisés en bio ne sont pas nuls {#agence-bio-naturels}
-- Référence : Agence Bio, établissement public, FAQ « Les traitements naturels utilisés en
-  agriculture biologique sont-ils toxiques ? ».
-- Lien : https://www.agencebio.org/questions/les-traitements-naturels-utilises-en-agriculture-biologique-sont-ils-toxiques/
-- Constat : le bio autorise environ 35 substances actives d'origine naturelle ou des produits de
-  biocontrôle, comme le cuivre, le soufre, les extraits végétaux, les micro-organismes ou les
-  phéromones. La plupart se
-  dégradent plus vite dans l'environnement que les pesticides de synthèse, à l'exception notable du
-  cuivre et du soufre, plus rémanents. Le bio garantit donc l'absence de pesticides de synthèse,
-  pas une absence totale et absolue de tout traitement.
-
-### Que Choisir — le label HVE n'interdit pas les pesticides de synthèse {#que-choisir-hve}
-- Référence : UFC-Que Choisir, « Label Haute Valeur Environnementale — Greenwashing de l'agriculture
-  intensive ? ».
-- Lien : https://www.quechoisir.org/actualite-label-haute-valeur-environnementale-greenwashing-de-l-agriculture-intensive-n87083/
-- Constat : contrairement au bio, le label d'État HVE n'interdit pas les pesticides de synthèse. Il
-  repose sur un système de points répartis sur 4 thématiques : biodiversité, stratégie
-  phytosanitaire, fertilisation et irrigation. Un score faible sur les pesticides peut être
-  compensé par de bons scores ailleurs. France Nature Environnement, Agir pour l'environnement, la
-  Confédération paysanne et Synabio ont dénoncé un risque de confusion avec le bio pour les
-  consommateurs.
-
-### Générations Futures — le label privé « Zéro Résidu de Pesticides » {#generations-futures-zrp}
-- Référence : Générations Futures, FAQ « Qu'est-ce que le Zéro Résidu de Pesticides ? ».
-- Lien : https://www.generations-futures.fr/faq/quest-ce-que-le-zero-residus-de-pesticides/
-- Constat : label privé créé en 2018 par le Collectif Nouveaux Champs, non officiel, sans contrôle
-  indépendant obligatoire ni référentiel public. Il fixe une obligation de résultat, des résidus non
-  détectables au seuil de 0,01 mg/kg à la récolte, et non de méthode : les pesticides de synthèse
-  restent autorisés pendant la culture. Contrairement au bio, il ne protège donc pas les sols,
-  l'eau, l'air ni la biodiversité de l'exposition aux pesticides pendant la production — seul le
-  produit fini est concerné.
 
 ## Limites méthodologiques de l'étude statistique de ce site
 

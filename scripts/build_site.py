@@ -293,11 +293,11 @@ TAB_DESCRIPTIONS = {
     "methodologie": "comment lire les résultats, avec la p-value, l'intervalle de confiance et le R².",
     "versions": "ce qui change avec les données du registre consolidées en {registre_mois}.",
     "endocriniens": "ce que la littérature dit de ces substances, dont certains pesticides.",
-    "alimentation": "l'alimentation comme voie d'exposition dominante, et l'effet d'une "
-                    "alimentation biologique, notamment chez l'enfant.",
+    "alimentation": "l'alimentation comme voie d'exposition dominante aux pesticides. Le bio, les "
+                    "labels et les cantines sont sur la page "
+                    "<a href=\"https://biguhuh.github.io/bio-pesticides/\">Bio et pesticides</a>.",
     "riverains": "l'exposition des personnes vivant près des cultures, et les études sur les "
                  "cancers de l'enfant.",
-    "labels": "ce que garantissent, ou non, les labels alimentaires face aux pesticides.",
     "sources": "toutes les références citées, avec leurs liens.",
     "limites": "ce que l'étude ne permet pas de conclure.",
 }
@@ -328,7 +328,7 @@ def panel_accueil(stats, cite):
       les rivières par ruissellement et les nappes par infiltration {cite('ars-idf-2026')}. Or la
       quasi-totalité des captages d'eau potable puisent dans ces nappes {cite('sdes-2023')}, et des
       résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
-      onglets Alimentation, Riverains et Labels détaillent ces points.</p>
+      onglets Alimentation et Riverains détaillent ces points.</p>
 
     <div class="method-block">
       <h3>Sources et méthode</h3>
@@ -752,7 +752,7 @@ def panel_endocriniens(cite):
 def panel_alimentation(cite):
     return f"""
   <section id="panel-alimentation" class="tab-panel" role="tabpanel" aria-labelledby="tab-alimentation" data-tab="alimentation" hidden>
-    <h2>Alimentation, agriculture conventionnelle et bio : impacts, notamment pour les enfants</h2>
+    <h2>Alimentation : la voie d'exposition dominante aux pesticides</h2>
 
     <p>Plusieurs travaux convergents, sur des populations et des méthodes différentes,
       identifient <strong>l'alimentation comme la voie d'exposition dominante aux
@@ -765,21 +765,13 @@ def panel_alimentation(cite):
       de naissance de 643 enfants trouve le même résultat pour les néonicotinoïdes
       {cite('sheyang-cohort')}.</p>
 
-    <p>Réduire l'exposition alimentaire aux pesticides a un effet mesurable, y compris chez
-      l'enfant. Une étude d'intervention américaine {cite('bradman-2015')} montre qu'
-      <strong>une semaine d'alimentation strictement biologique fait baisser les résidus urinaires
-      de pesticides chez l'enfant</strong>, et que ces résidus remontent dès le retour à une
-      alimentation conventionnelle. En France, la cohorte bretonne PELAGIE
-      {cite('pelagie-cohort')}, portant sur 245 enfants de 6 ans, trouve qu'une consommation fréquente de produits biologiques est
-      associée à des taux urinaires plus bas de deux métabolites de pesticides.</p>
+    <p>Ces études mesurent une exposition, pas un effet sur la santé. Une revue de 2024 rappelle
+      que, même si l'alimentation domine comme voie d'exposition, les niveaux estimés restent sous
+      les seuils de sécurité dans la plupart des scénarios {cite('louie-roberts-2024')}.</p>
 
-    <p>Le levier le plus direct pour l'exposition alimentaire des enfants en dehors du foyer est
-      la restauration collective. La loi EGalim {cite('egalim')} impose, depuis 2022, 20&nbsp;% de
-      bio et 50&nbsp;% de produits durables dans la restauration collective publique, étendue à
-      l'ensemble de la restauration collective depuis 2024. En pratique, <strong>la part de bio
-      observée en 2023 était de 12,1&nbsp;% en moyenne — sous l'objectif légal</strong>, ce qui
-      laisse une marge de progression directement actionnable localement, notamment via les
-      cantines scolaires.</p>
+    <p class="see-also">L'effet d'une alimentation bio sur cette exposition, les labels
+      alimentaires et le bio dans les cantines (loi EGalim) sont traités sur une page dédiée&nbsp;:
+      <a href="https://biguhuh.github.io/bio-pesticides/">Bio et pesticides</a>.</p>
   </section>"""
 
 
@@ -856,52 +848,6 @@ def panel_riverains(cite):
   </section>"""
 
 
-def panel_labels(cite):
-    return f"""
-  <section id="panel-labels" class="tab-panel" role="tabpanel" aria-labelledby="tab-labels" data-tab="labels" hidden>
-    <h2>Labels alimentaires : pourquoi le bio est le seul qui compte face aux pesticides</h2>
-
-    <p>Plusieurs labels affichés en rayon parlent d'environnement ou de qualité, mais tous ne
-      disent pas la même chose sur les pesticides. Voici les trois que l'on croise le plus souvent,
-      et ce qu'ils garantissent réellement.</p>
-
-    <h3>Bio, AB ou Eurofeuille&nbsp;: une interdiction de méthode</h3>
-    <p>Le label bio européen {cite('ademe-label-bio')} repose sur un règlement qui
-      <strong>interdit les pesticides et engrais de synthèse ainsi que les OGM</strong>, vérifié
-      par des organismes certificateurs indépendants qui contrôlent l'exploitation elle-même — pas
-      seulement le produit fini. Nuance à ne pas perdre de vue&nbsp;: le bio autorise encore une
-      trentaine de substances naturelles ou de biocontrôle, comme le cuivre, le soufre, les
-      extraits végétaux et les micro-organismes {cite('agence-bio-naturels')}. <strong>Le bio garantit l'absence de
-      pesticides de synthèse, pas une absence totale et absolue de tout traitement</strong> — mais
-      c'est aujourd'hui le seul label à interdire la méthode elle-même plutôt qu'à mesurer un
-      résultat.</p>
-
-    <h3>HVE, Haute Valeur Environnementale&nbsp;: un score, pas une interdiction</h3>
-    <p>Le label d'État HVE {cite('que-choisir-hve')} <strong>n'interdit pas les pesticides de
-      synthèse</strong>. Il note l'exploitation sur quatre thématiques&nbsp;: biodiversité, stratégie
-      phytosanitaire, fertilisation et irrigation. Un score faible sur les pesticides peut être
-      compensé par de bons scores ailleurs. France Nature Environnement, Agir pour
-      l'environnement, la Confédération paysanne et Synabio alertent sur une confusion fréquente
-      avec le bio dans l'esprit des consommateurs, alors que les deux labels ne garantissent pas
-      la même chose.</p>
-
-    <h3>Zéro Résidu de Pesticides : un résultat, pas une méthode</h3>
-    <p>Ce label privé {cite('generations-futures-zrp')}, non officiel et sans contrôle indépendant
-      obligatoire, fonctionne à l'inverse du bio&nbsp;: <strong>les pesticides de synthèse restent
-      autorisés pendant la culture</strong>, à condition qu'il n'en reste pas de trace détectable
-      au moment de la récolte, avec un seuil de 0,01&nbsp;mg/kg. Concrètement, les sols, l'eau, l'air et la
-      biodiversité restent exposés pendant la production&nbsp;; seul le produit acheté est
-      concerné.</p>
-
-    <h3>Ce que ça change concrètement</h3>
-    <p>Sur les trois, <strong>seul le bio interdit l'usage de pesticides de synthèse par
-      construction</strong>, plutôt que de mesurer un résultat après coup ou de compenser un usage
-      par d'autres critères. C'est la raison pour laquelle nous le mentionnons comme le repère le
-      plus fiable pour un consommateur qui veut réduire son exposition alimentaire aux pesticides
-      — cf. l'onglet Alimentation pour l'effet mesuré de ce choix, y compris chez l'enfant.</p>
-  </section>"""
-
-
 def panel_sources(biblio_html):
     return f"""
   <section id="panel-sources" class="tab-panel" role="tabpanel" aria-labelledby="tab-sources" data-tab="sources" hidden>
@@ -929,7 +875,6 @@ TABS = [
     ("endocriniens", "Perturbateurs endocriniens"),
     ("alimentation", "Alimentation"),
     ("riverains", "Riverains"),
-    ("labels", "Labels"),
     ("sources", "Sources"),
     ("limites", "Limites méthodologiques"),
 ]
@@ -1038,7 +983,6 @@ def main():
         panel_endocriniens(cite),
         panel_alimentation(cite),
         panel_riverains(cite),
-        panel_labels(cite),
     ]
     biblio_html = build_bibliography(sections, citation_locations)
     panel_htmls.append(panel_sources(biblio_html))
