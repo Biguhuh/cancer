@@ -29,7 +29,7 @@ CHART_FILES = [
 
 # Date de publication du site (distincte de la période couverte par les données, {annees.min}-
 # {annees.max}) : à mettre à jour manuellement à chaque republication.
-PUB_DATE = "octobre 2026"
+PUB_DATE = "novembre 2026"
 
 # Date de la dernière mise en ligne des données par le registre (page "Les chiffres" de son site),
 # citée dans l'onglet de comparaison v1/v2 : à mettre à jour avec les données.
@@ -287,20 +287,26 @@ def build_limites(limites):
 
 # Une ligne de présentation par onglet, affichée sur l'Accueil ; le libellé du lien vient de TABS.
 TAB_DESCRIPTIONS = {
-    "synthese": "les deux groupes de cancers comparés depuis {y0}, en graphe, et la méthode de classement.",
-    "detail": "la liste des {n} cancers suivis, avec la tendance de chacun et son niveau de lien "
-              "présumé avec les pesticides.",
-    "methodologie": "comment lire les résultats, avec la p-value, l'intervalle de confiance et le R².",
-    "versions": "ce qui change avec les données du registre consolidées en {registre_mois}.",
-    "endocriniens": "ce que la littérature dit de ces substances, dont certains pesticides.",
-    "alimentation": "l'alimentation comme voie d'exposition dominante aux pesticides. Le bio, les "
-                    "labels et les cantines sont sur la page "
-                    "<a href=\"https://biguhuh.github.io/bio-pesticides/\">Bio et pesticides</a>.",
+    "registre": "l'étude statistique des {n} cancers suivis en Poitou-Charentes depuis {y0}&nbsp;: "
+                "synthèse, détail par cancer, méthode, et mise à jour des données de {registre_mois}.",
+    "enfants": "l'évolution des cancers de l'enfant et du jeune adulte, en Europe et en France.",
+    "exposition": "comment les pesticides nous atteignent&nbsp;: alimentation, air et eau.",
+    "melanges": "ce que l'on sait des effets de plusieurs pesticides à la fois.",
     "riverains": "l'exposition des personnes vivant près des cultures, et les études sur les "
                  "cancers de l'enfant.",
+    "endocriniens": "ce que la littérature dit de ces substances, dont certains pesticides.",
     "sources": "toutes les références citées, avec leurs liens.",
     "limites": "ce que l'étude ne permet pas de conclure.",
 }
+
+# Les quatre parties de l'onglet Registre. Leurs ancres reprennent les noms des anciens onglets,
+# pour que les liens déjà partagés (#synthese, #detail…) ouvrent toujours la bonne partie.
+REGISTRE_PARTIES = [
+    ("synthese", "Synthèse"),
+    ("detail", "Détail par cancer"),
+    ("methodologie", "Méthode statistique"),
+    ("versions", "Mise à jour des données"),
+]
 
 
 def panel_accueil(stats, cite):
@@ -317,18 +323,13 @@ def panel_accueil(stats, cite):
 
     return f"""
   <section id="panel-accueil" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-accueil" data-tab="accueil" tabindex="0">
-    <p class="site-intro">Ce site présente les résultats d'une étude statistique des données du
-      registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. Il liste les liens
-      entre pesticides, maladies et voies d'exposition, à partir de la littérature scientifique et
-      de sites institutionnels. L'alimentation est la voie dominante pour la population générale
-      {cite('li-2022', 'fantke-jolliet-2009', 'chamacos-nhanes')}. L'air est une autre voie
-      d'exposition, notamment près des parcelles traitées, par les résidus de pesticides qu'il
-      transporte {cite('pestiriv-2025')}. On en retrouve même dans l'eau des nuages
-      {cite('bianco-2025')}. Les pluies lessivent aussi les sols&nbsp;: les pesticides rejoignent
-      les rivières par ruissellement et les nappes par infiltration {cite('ars-idf-2026')}. Or la
-      quasi-totalité des captages d'eau potable puisent dans ces nappes {cite('sdes-2023')}, et des
-      résidus de pesticides sont retrouvés dans l'eau du robinet {cite('anses-eau-2023')}. Les
-      onglets Alimentation et Riverains détaillent ces points.</p>
+    <p class="site-intro">Ce site a deux parties. La première est une étude statistique des
+      données du registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. La seconde
+      rassemble ce que disent la littérature scientifique et les institutions sur les pesticides,
+      leurs voies d'exposition et leurs liens avec les maladies.</p>
+    <p class="site-intro">Le site s'en tient aux faits publiés. Chaque affirmation renvoie à sa
+      source. Les associations ne sont pas présentées comme des causes. Les limites de chaque étude
+      sont indiquées.</p>
 
     <div class="method-block">
       <h3>Sources et méthode</h3>
@@ -339,6 +340,9 @@ def panel_accueil(stats, cite):
         l'expertise collective Inserm 2021&nbsp;: {n_lies} cancers à présomption de lien forte ou
         moyenne avec les pesticides, et {n - n_lies} cancers sans lien documenté.</p>
     </div>
+
+    <p class="see-also">Le bio, les labels et les cantines sont traités sur une page dédiée&nbsp;:
+      <a href="https://biguhuh.github.io/bio-pesticides/">Bio et pesticides</a>.</p>
 
     <h3>Les onglets</h3>
     <ul>
@@ -364,12 +368,12 @@ def panel_synthese(stats, cite):
 
     return f"""
   <section id="panel-synthese" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-synthese" data-tab="synthese" hidden>
-    <h2 class="hero-headline">Les cancers liés aux pesticides progressent, les autres reculent</h2>
-    <p class="hero-lede">L'incidence des cancers liés aux pesticides croît de façon certaine sur la
-      période étudiée. Dans le même temps, l'incidence des cancers non liés aux pesticides
-      décroît. Ce constat est inquiétant&nbsp;: il justifie d'en informer la population, afin
-      d'agir par prévention plutôt que d'attendre une hypothétique démonstration causale
-      définitive.</p>
+    <h2 class="hero-headline">Les cancers à présomption de lien avec les pesticides progressent, les autres reculent</h2>
+    <p class="hero-lede">En Poitou-Charentes, l'incidence des cancers pour lesquels l'Inserm
+      présume un lien avec les pesticides augmente de façon significative sur la période étudiée.
+      Dans le même temps, l'incidence des autres cancers diminue. C'est une évolution parallèle
+      dans le temps&nbsp;: elle ne prouve pas que les pesticides en sont la cause. L'onglet Limites
+      méthodologiques détaille ce que l'étude ne permet pas de conclure.</p>
 
     <figure class="hero-figure">
       <img src="assets/img/comparaison_indice_base100.png" alt="Comparaison indexée base 100 des cancers à présomption forte/moyenne vs non liés, {y0}-{y1}" loading="lazy">
@@ -569,7 +573,7 @@ def panel_versions(stats, cite):
     constat_brut = ""
     if brut_changes:
         constat_brut = (f"<p>Sur le taux brut, non corrigé du vieillissement de la population, "
-                        f"{'&nbsp;; '.join(brut_changes)}. L'onglet Synthèse explique pourquoi taux brut et "
+                        f"{'&nbsp;; '.join(brut_changes)}. La partie Synthèse explique pourquoi taux brut et "
                         f"taux standardisé peuvent évoluer différemment.</p>")
 
     # --- cancers
@@ -682,8 +686,188 @@ def panel_versions(stats, cite):
       p&nbsp;=&nbsp;0,055 sont en pratique d'une solidité très proche, mais reçoivent des
       étiquettes différentes. Quand une p-value est proche du seuil, une petite révision des
       données ou une année de plus suffit à la faire passer d'un côté à l'autre. C'est pourquoi
-      l'onglet Détail par cancer donne la p-value de chaque tendance, et pas seulement son
+      la partie Détail par cancer donne la p-value de chaque tendance, et pas seulement son
       étiquette.</p>
+  </section>"""
+
+
+def strip_section(html):
+    """Retire la balise <section> qui entoure un ancien onglet, pour l'inclure comme partie."""
+    html = re.sub(r"^\s*<section[^>]*>", "", html, count=1)
+    return re.sub(r"</section>\s*$", "", html.rstrip())
+
+
+def panel_registre(stats, cite, cancer_table_html):
+    """Onglet Registre : les quatre anciens onglets de l'étude statistique, l'un sous l'autre."""
+    parties = {
+        "synthese": panel_synthese(stats, cite),
+        "detail": panel_detail(stats, cancer_table_html),
+        "methodologie": panel_methodologie(stats),
+        "versions": panel_versions(stats, cite),
+    }
+    nav = "\n      ".join(f'<a href="#{key}">{label}</a>' for key, label in REGISTRE_PARTIES)
+    body = "\n".join(
+        f'    <div class="registre-part" id="{key}">{strip_section(parties[key])}\n    </div>'
+        for key, _ in REGISTRE_PARTIES)
+    return f"""
+  <section id="panel-registre" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-registre" data-tab="registre" hidden>
+    <nav class="sub-nav" aria-label="Parties de l'étude du registre">
+      {nav}
+    </nav>
+{body}
+  </section>"""
+
+
+def panel_enfants(cite):
+    return f"""
+  <section id="panel-enfants" class="tab-panel" role="tabpanel" aria-labelledby="tab-enfants" data-tab="enfants" hidden>
+    <h2>Cancers de l'enfant et du jeune adulte</h2>
+
+    <p>Les données du registre de Poitou-Charentes utilisées dans cette étude portent sur tous les
+      âges. Elles ne permettent pas de suivre à part les cancers de l'enfant. Cet onglet s'appuie
+      donc sur des registres européens et nationaux.</p>
+
+    <h3>En Europe&nbsp;: une hausse lente de 1991 à 2010</h3>
+    <p>Une étude coordonnée par le Centre international de recherche sur le cancer a réuni 53
+      registres de 19 pays européens {cite('circ-oms-2018')}. Elle porte sur plus de 165&nbsp;000
+      cancers diagnostiqués entre 1991 et 2010.</p>
+    <ul class="text-list">
+      <li>Chez les enfants de 0 à 14 ans, l'incidence a augmenté de 0,5&nbsp;% par an en
+        moyenne.</li>
+      <li>Chez les adolescents de 15 à 19 ans, elle a augmenté d'environ 1&nbsp;% par an.</li>
+    </ul>
+    <p>Les auteurs estiment qu'un meilleur diagnostic et un meilleur enregistrement des cancers
+      peuvent expliquer une partie de cette hausse. Ils n'excluent pas des changements dans les
+      facteurs de risque.</p>
+
+    <h3>En France&nbsp;: une incidence stable chez l'enfant</h3>
+    <p>Le registre national des cancers de l'enfant {cite('registre-national-enfant')} recense
+      environ 1&nbsp;700 nouveaux cas par an avant 15 ans. Un enfant sur 440 est touché avant cet
+      âge. L'incidence est stable depuis 2000.</p>
+
+    <h3>Chez les 15-39 ans&nbsp;: une hausse, puis une baisse</h3>
+    <p>Santé publique France, l'Institut national du cancer et le réseau des registres Francim ont
+      publié en mars 2025 les tendances chez les adolescents et jeunes adultes
+      {cite('spf-inca-francim-2025')}. L'incidence a augmenté de 1,62&nbsp;% par an de 2000 à
+      2014. Elle a ensuite baissé de 0,79&nbsp;% par an de 2015 à 2020.</p>
+
+    <h3>Ce que l'Inserm dit du lien avec les pesticides</h3>
+    <p>L'expertise collective de l'Inserm de 2021 {cite('inserm-2021')} conclut à une
+      <strong>présomption forte</strong> de lien entre l'exposition aux pesticides et deux types
+      de cancers de l'enfant&nbsp;: les leucémies et les tumeurs du système nerveux central. Cela
+      concerne l'exposition de la mère pendant la grossesse, au travail ou par un usage
+      domestique, et l'exposition de l'enfant lui-même.</p>
+    <p>Une présomption forte n'est pas une preuve de cause. Elle signifie que plusieurs études de
+      bonne qualité vont dans le même sens. Les études sur les enfants vivant près des cultures
+      sont présentées dans l'onglet Riverains.</p>
+  </section>"""
+
+
+def panel_exposition(cite):
+    return f"""
+  <section id="panel-exposition" class="tab-panel" role="tabpanel" aria-labelledby="tab-exposition" data-tab="exposition" hidden>
+    <h2>Voies d'exposition aux pesticides</h2>
+    <p>Les pesticides peuvent nous atteindre par ce que nous mangeons, par l'air que nous
+      respirons et par l'eau que nous buvons. Cet onglet présente ce que l'on sait de chacune de
+      ces voies.</p>
+
+    <div id="alimentation">
+    <h3>L'alimentation, voie dominante</h3>
+    <p>Plusieurs travaux convergents, sur des populations et des méthodes différentes,
+      identifient <strong>l'alimentation comme la voie d'exposition dominante aux
+      pesticides</strong> pour la population générale&nbsp;: un modèle de simulation portant sur
+      les pesticides actuellement utilisés {cite('li-2022')}, une analyse de 62&nbsp;151
+      échantillons de résidus alimentaires {cite('fantke-jolliet-2009')}, une cohorte américaine de
+      4&nbsp;466 personnes suivie par biomarqueurs urinaires {cite('mesa-study', 'epa-2006')}, et
+      une comparaison entre une population résidant en zone agricole et un échantillon national
+      représentatif {cite('chamacos-nhanes')}. Chez l'enfant spécifiquement, une cohorte chinoise
+      de naissance de 643 enfants trouve le même résultat pour les néonicotinoïdes
+      {cite('sheyang-cohort')}.</p>
+    <p>Ces études mesurent une exposition, pas un effet sur la santé. Une revue de 2024 rappelle
+      que, même si l'alimentation domine comme voie d'exposition, les niveaux estimés restent sous
+      les seuils de sécurité dans la plupart des scénarios {cite('louie-roberts-2024')}.</p>
+    </div>
+
+    <div id="air">
+    <h3>L'air</h3>
+    <p>Atmo Nouvelle-Aquitaine, l'observatoire régional de l'air, mesure chaque année les
+      pesticides dans l'air {cite('atmo-na-2025')}. En 2025, il a suivi quatre sites&nbsp;: Bordeaux,
+      GrandAngoulême, Poitiers et Montroy, près de La Rochelle. Aucun site n'est en Deux-Sèvres.</p>
+    <ul class="text-list">
+      <li>Sur 114 molécules recherchées, 42 ont été détectées&nbsp;: 18 herbicides, 16 fongicides
+        et 8 insecticides.</li>
+      <li>Trois molécules sont présentes sur tous les sites&nbsp;: le prosulfocarbe et la
+        pendiméthaline, deux herbicides, et le folpel, un fongicide.</li>
+      <li>Près des grandes cultures, les herbicides sont les plus élevés pendant les traitements
+        d'automne et d'hiver.</li>
+      <li>Le lindane, un insecticide interdit, est encore retrouvé, à très faible
+        concentration.</li>
+    </ul>
+    <p>Il n'existe pas de seuil réglementaire pour les pesticides dans l'air. Ces mesures montrent
+      leur présence. Elles ne disent rien de leurs effets sur la santé. Les pesticides voyagent
+      aussi loin des champs&nbsp;: on en retrouve dans l'eau des nuages {cite('bianco-2025')}.
+      L'exposition des riverains par l'air est présentée dans l'onglet Riverains.</p>
+    </div>
+
+    <div id="eau">
+    <h3>L'eau</h3>
+    <p>La pluie lessive les sols. Les pesticides rejoignent les rivières par ruissellement, et
+      les nappes par infiltration {cite('ars-idf-2026')}. Or l'eau potable vient surtout des
+      nappes&nbsp;: 36&nbsp;000 des 37&nbsp;600 captages y puisent {cite('sdes-2023')}.</p>
+    <p>En 2023, près d'un quart de la population française a reçu, à un moment de l'année, une
+      eau qui dépassait les limites de qualité en pesticides {cite('plan-2025')}. Un métabolite
+      du chlorothalonil, un fongicide interdit depuis 2020, dépasse cette limite dans plus d'un
+      prélèvement sur trois d'une campagne nationale {cite('anses-eau-2023')}.</p>
+    <p>La limite de qualité de l'eau potable, 0,1&nbsp;µg/L par substance, est une valeur de
+      précaution. Ce n'est pas un seuil de toxicité. Son dépassement ne signifie pas à lui seul un
+      risque pour la santé.</p>
+    </div>
+
+    <p class="see-also">Ce que change une alimentation bio sur cette exposition, les labels
+      alimentaires et le bio dans les cantines sont traités sur une page dédiée&nbsp;:
+      <a href="https://biguhuh.github.io/bio-pesticides/">Bio et pesticides</a>.</p>
+  </section>"""
+
+
+def panel_melanges(cite):
+    return f"""
+  <section id="panel-melanges" class="tab-panel" role="tabpanel" aria-labelledby="tab-melanges" data-tab="melanges" hidden>
+    <h2>Effets de mélange</h2>
+    <p>Nous sommes rarement exposés à un seul pesticide. L'alimentation, l'air et l'eau en
+      apportent plusieurs à la fois. L'expertise de l'Inserm classe pourtant les liens par
+      substance ou par famille de pesticides {cite('inserm-2021')}. Les études sur les mélanges
+      sont plus récentes et encore peu nombreuses.</p>
+
+    <h3>Une étude à l'échelle d'un pays, au Pérou</h3>
+    <p>Une équipe de l'Institut Pasteur et de partenaires péruviens a publié cette étude en 2026
+      {cite('honles-2026', 'pasteur-2026')}.</p>
+    <ul class="text-list">
+      <li>Elle a modélisé la dispersion des 31 pesticides les plus utilisés au Pérou, de 2014 à
+        2019, sur une grille de 100&nbsp;m.</li>
+      <li>Elle a comparé cette carte aux plus de 150&nbsp;000 cancers enregistrés dans le pays de
+        2007 à 2020.</li>
+      <li>Les zones les plus exposées aux mélanges présentent un risque de cancer plus
+        élevé.</li>
+      <li>Aucune des 31 substances n'est classée cancérogène avéré pour l'humain.</li>
+      <li>Des analyses en laboratoire montrent des changements précoces dans les cellules, le foie
+        servant d'organe témoin.</li>
+    </ul>
+    <p><strong>Limites.</strong> C'est une étude écologique&nbsp;: elle compare des zones, pas des
+      personnes. L'exposition est calculée par un modèle, pas mesurée chez les patients. Elle
+      montre une association, pas une cause. Nous ne reprenons pas le chiffre de risque cité par la
+      presse, faute d'avoir pu le vérifier dans l'article.</p>
+
+    <h3>Les mélanges dans l'assiette</h3>
+    <p>Dans la cohorte française NutriNet-Santé, une équipe de l'Inserm, de l'INRAE et du Cnam a
+      étudié des profils d'exposition alimentaire à plusieurs pesticides {cite('rebouillat-2021-sein')}.
+      Chez les femmes ménopausées en surpoids ou obèses, un de ces profils est associé à un risque
+      accru de cancer du sein. L'étude porte sur 13&nbsp;149 femmes, dont 169 cas&nbsp;: c'est un
+      petit nombre de cas.</p>
+
+    <h3>Une recherche en cours</h3>
+    <p>Le projet européen ENDOMIX {cite('endomix')} étudie les mélanges de perturbateurs
+      endocriniens, dont certains pesticides. Ses résultats définitifs ne sont pas encore
+      publiés.</p>
   </section>"""
 
 
@@ -699,12 +883,12 @@ def panel_endocriniens(cite):
       comme le bisphénol A, les phtalates, les parabènes ou le triclosan, et n'ont rien à voir avec
       l'alimentation. Cette
       distinction compte&nbsp;: toutes les études sur les PE ne parlent pas de pesticides, et
-      toutes ne relèvent donc pas de l'onglet Alimentation.</p>
+      toutes ne relèvent donc pas de l'onglet Voies d'exposition.</p>
 
-    <p>L'expertise collective Inserm 2021 {cite('inserm-2021', 'natura-sciences-inserm')} établit
-      un lien entre <strong>l'exposition aux pesticides</strong> et des <strong>leucémies
+    <p>L'expertise collective Inserm 2021 {cite('inserm-2021', 'natura-sciences-inserm')} conclut à
+      une présomption de lien entre <strong>l'exposition aux pesticides</strong> et des <strong>leucémies
       aiguës</strong> et <strong>tumeurs cérébrales</strong> chez l'enfant en cas d'exposition
-      parentale avant la naissance. L'expertise Inserm 2021 établit aussi un lien entre
+      parentale avant la naissance. Elle conclut aussi à une présomption de lien entre
       l'exposition aux pesticides et six familles de troubles non cancéreux&nbsp;: <strong>maladie
       de Parkinson</strong> et autres <strong>troubles neurodégénératifs</strong>, <strong>troubles
       cognitifs</strong>, <strong>troubles digestifs</strong>, <strong>troubles respiratoires, dont
@@ -746,32 +930,6 @@ def panel_endocriniens(cite):
       spécifiquement l'effet de mélanges de perturbateurs endocriniens sur le système immunitaire,
       sur plusieurs cohortes de la grossesse à l'âge adulte. Nous suivrons ses résultats
       définitifs, qui ne sont pas encore publiés.</p>
-  </section>"""
-
-
-def panel_alimentation(cite):
-    return f"""
-  <section id="panel-alimentation" class="tab-panel" role="tabpanel" aria-labelledby="tab-alimentation" data-tab="alimentation" hidden>
-    <h2>Alimentation : la voie d'exposition dominante aux pesticides</h2>
-
-    <p>Plusieurs travaux convergents, sur des populations et des méthodes différentes,
-      identifient <strong>l'alimentation comme la voie d'exposition dominante aux
-      pesticides</strong> pour la population générale&nbsp;: un modèle de simulation portant sur
-      les pesticides actuellement utilisés {cite('li-2022')}, une analyse de 62&nbsp;151
-      échantillons de résidus alimentaires {cite('fantke-jolliet-2009')}, une cohorte américaine de
-      4&nbsp;466 personnes suivie par biomarqueurs urinaires {cite('mesa-study', 'epa-2006')}, et
-      une comparaison entre une population résidant en zone agricole et un échantillon national
-      représentatif {cite('chamacos-nhanes')}. Chez l'enfant spécifiquement, une cohorte chinoise
-      de naissance de 643 enfants trouve le même résultat pour les néonicotinoïdes
-      {cite('sheyang-cohort')}.</p>
-
-    <p>Ces études mesurent une exposition, pas un effet sur la santé. Une revue de 2024 rappelle
-      que, même si l'alimentation domine comme voie d'exposition, les niveaux estimés restent sous
-      les seuils de sécurité dans la plupart des scénarios {cite('louie-roberts-2024')}.</p>
-
-    <p class="see-also">L'effet d'une alimentation bio sur cette exposition, les labels
-      alimentaires et le bio dans les cantines (loi EGalim) sont traités sur une page dédiée&nbsp;:
-      <a href="https://biguhuh.github.io/bio-pesticides/">Bio et pesticides</a>.</p>
   </section>"""
 
 
@@ -833,6 +991,34 @@ def panel_riverains(cite):
       diminue et quand la quantité de pesticides utilisée augmente. PestiRiv mesure l'exposition,
       pas ses effets&nbsp;: elle ne dit rien du risque de cancer.</p>
 
+    <h3>Combien de personnes vivent près des cultures traitées&nbsp;?</h3>
+    <p>Le Centre commun de recherche de la Commission européenne a construit un indicateur pour
+      la France {cite('galimberti-2025')}. Il répartit les ventes de pesticides sur les parcelles,
+      puis les croise avec la population. En moyenne, 13&nbsp;% des personnes pourraient être
+      exposées du fait de la proximité de cultures traitées. Les auteurs retiennent le pire cas&nbsp;:
+      leur indicateur sert à comparer des régions, pas à mesurer un risque réel.</p>
+    <p>Une autre carte, à 100&nbsp;m près, estime que 25&nbsp;% des Français vivent là où a lieu au
+      moins un traitement par an, et 5&nbsp;% au moins dix {cite('nowak-marliac-2024')}.
+      L'exposition est plus forte dans l'ouest et le nord du pays. <strong>Ce travail est un
+      preprint&nbsp;: il n'a pas encore été relu par d'autres chercheurs.</strong></p>
+
+    <h3>Pourquoi l'enfant n'est pas un adulte en petit</h3>
+    <p>Chez le nourrisson, plusieurs enzymes qui transforment les substances étrangères ne sont pas
+      encore matures {cite('ginsberg-2017')}. Pour un insecticide organophosphoré, le chlorpyrifos,
+      les nourrissons pourraient être plus vulnérables. Mais l'effet dépend de la substance&nbsp;:
+      quand l'enzyme immature est celle qui rend un composé toxique, le nourrisson peut être moins
+      touché.</p>
+
+    <h3>Sur notre territoire</h3>
+    <p>Le projet Santé des territoires du Centre d'études biologiques de Chizé est mené dans 24
+      communes de la Zone Atelier Plaine &amp; Val de Sèvre, en Deux-Sèvres {cite('gaba-2026')}.
+      Il mesure les pesticides chez des habitants, des animaux et dans l'environnement, selon la
+      distance aux champs. Il prévoit aussi une étude des cancers à partir du registre de
+      Poitou-Charentes. L'article publié en 2026 décrit la méthode&nbsp;; il ne donne pas encore de
+      résultats. Les restitutions publiques du projet sont résumées sur la page
+      <a href="https://biguhuh.github.io/restitutions-exposition-pesticides.html">Restitutions
+      Exposition aux Pesticides</a>.</p>
+
     <h3>Comment lire ces résultats</h3>
 
     <p>Ces études mesurent la <strong>distance aux champs ou la densité de cultures</strong>, pas
@@ -841,7 +1027,7 @@ def panel_riverains(cite):
       signalent eux-mêmes l'absence de données individuelles, comme le métier des parents ou
       les usages domestiques de pesticides, et des effectifs parfois faibles.</p>
 
-    <p>Ces résultats ne contredisent pas l'onglet Alimentation. Pour la population générale,
+    <p>Ces résultats ne contredisent pas l'onglet Voies d'exposition. Pour la population générale,
       l'alimentation reste la voie d'exposition dominante aux pesticides. Pour les personnes qui
       vivent près des cultures, PestiRiv montre qu'une exposition par l'air et les poussières
       <strong>s'y ajoute</strong>.</p>
@@ -868,13 +1054,12 @@ def panel_limites(limites_html):
 
 TABS = [
     ("accueil", "Accueil"),
-    ("synthese", "Synthèse"),
-    ("detail", "Détail par cancer"),
-    ("methodologie", "Étude statistique"),
-    ("versions", "Mise à jour v1 → v2"),
-    ("endocriniens", "Perturbateurs endocriniens"),
-    ("alimentation", "Alimentation"),
+    ("registre", "Le registre"),
+    ("enfants", "Enfants et jeunes adultes"),
+    ("exposition", "Voies d'exposition"),
+    ("melanges", "Effets de mélange"),
     ("riverains", "Riverains"),
+    ("endocriniens", "Perturbateurs endocriniens"),
     ("sources", "Sources"),
     ("limites", "Limites méthodologiques"),
 ]
@@ -976,13 +1161,12 @@ def main():
 
     panel_htmls = [
         panel_accueil(stats, cite),
-        panel_synthese(stats, cite),
-        panel_detail(stats, cancer_table_html),
-        panel_methodologie(stats),
-        panel_versions(stats, cite),
-        panel_endocriniens(cite),
-        panel_alimentation(cite),
+        panel_registre(stats, cite, cancer_table_html),
+        panel_enfants(cite),
+        panel_exposition(cite),
+        panel_melanges(cite),
         panel_riverains(cite),
+        panel_endocriniens(cite),
     ]
     biblio_html = build_bibliography(sections, citation_locations)
     panel_htmls.append(panel_sources(biblio_html))

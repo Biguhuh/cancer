@@ -126,6 +126,39 @@ body {
 .method-block h3 { margin: 0 0 10px; color: var(--accent); font-size: 1.02rem; }
 .method-block p { margin: 0 0 12px; max-width: none; }
 
+/* ---------- Onglet Registre : sommaire interne et parties ---------- */
+
+.sub-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 28px;
+  max-width: var(--max-w);
+}
+.sub-nav a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--accent);
+  text-decoration: none;
+}
+.sub-nav a:hover { border-color: var(--accent); }
+.registre-part + .registre-part {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 2px solid var(--line);
+}
+.registre-part { scroll-margin-top: 16px; }
+.see-also {
+  max-width: var(--max-w);
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  color: var(--ink-soft);
+}
+
 /* ---------- Tabs ---------- */
 
 .tabs {

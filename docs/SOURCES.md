@@ -40,7 +40,10 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
   Information System). *Lancet Oncology*.
 - Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC6120055/
 - Constat : sur 165 173 cas issus de 53 registres dans 19 pays, incidence en hausse de +0,54 %/an
-  chez les 0–14 ans sur la période étudiée, arrondie à +0,5 %/an dans ce site.
+  chez les 0–14 ans, IC95 % 0,44–0,65, arrondie à +0,5 %/an dans ce site, et de +0,96 %/an chez les
+  15–19 ans, IC95 % 0,73–1,19. Les auteurs estiment que l'amélioration du diagnostic et de
+  l'enregistrement pourrait expliquer une partie de cette hausse, sans exclure des changements de
+  facteurs de risque.
 
 ### Registre national des cancers de l'enfant (France) {#registre-national-enfant}
 - Référence : Registre national des cancers de l'enfant, RNCE, Inserm.
@@ -166,6 +169,30 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   le thiabendazole, est associée à un risque accru de cancer du sein chez les femmes en surpoids ou obèses ; une
   faible exposition aux pesticides de synthèse est associée à un risque réduit de 43 %.
 
+## Effets de mélange
+
+### Honles et al., 2026 — mélanges de pesticides et risque de cancer à l'échelle d'un pays, Pérou {#honles-2026}
+- Référence : Honles, J., Cerapio, J. P., Monge, C. et al., 2026. Mapping pesticide mixtures to
+  cancer risk at the country scale with spatial exposomics. *Nature Health*, 1, 520–531. Institut
+  Pasteur et partenaires péruviens.
+- Lien : https://doi.org/10.1038/s44360-026-00087-0
+- Constat : étude écologique. La dispersion des 31 pesticides les plus utilisés au Pérou est
+  modélisée de 2014 à 2019 sur une grille de 100 m, puis comparée aux plus de 150 000 cancers
+  enregistrés par l'Institut national des maladies néoplasiques de 2007 à 2020. Les zones les plus
+  exposées aux mélanges présentent un risque de cancer plus élevé. Aucune des 31 substances n'est
+  classée cancérogène avéré pour l'humain. Limites : l'exposition est modélisée, pas mesurée chez les
+  personnes, et l'étude compare des zones, pas des individus. Article lu à partir de son résumé et du
+  communiqué de l'Institut Pasteur ; les chiffres de risque ne sont pas repris ici.
+
+### Institut Pasteur, 1er avril 2026 — communiqué sur l'étude péruvienne {#pasteur-2026}
+- Référence : Institut Pasteur, communiqué de presse, 1er avril 2026, « Pesticides et cancer :
+  une étude révèle les mécanismes biologiques d'un risque environnemental ».
+- Lien : https://www.pasteur.fr/en/press-area/press-documents/pesticides-and-cancer-study-reveals-biological-mechanisms-behind-environmental-health-risk
+- Constat : présente l'étude de Honles et al. Des analyses moléculaires montrent que les pesticides
+  perturbent des processus qui maintiennent le fonctionnement et l'identité des cellules, le foie
+  servant d'organe sentinelle. Ces changements précoces « pourraient » rendre les tissus plus
+  vulnérables à d'autres facteurs de risque.
+
 ## Alimentation : voie d'exposition dominante aux pesticides
 
 ### Li, 2022 — modèle d'allocation des voies d'exposition aux pesticides {#li-2022}
@@ -259,6 +286,29 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   en France depuis 2020, est retrouvé dans plus d'un prélèvement sur deux et dépasse la limite de
   qualité de 0,1 µg/L dans plus d'un sur trois. La campagne ne conclut pas sur un risque pour la
   santé.
+
+### Haut-commissariat à la Stratégie et au Plan, octobre 2025 — pesticides à usage agricole {#plan-2025}
+- Référence : Haut-commissariat à la Stratégie et au Plan, octobre 2025. *Les politiques publiques
+  de santé environnementale. Les pesticides à usage agricole*. Rapport pour l'Assemblée nationale,
+  coordonné par Hélène Arambourou.
+- Lien : https://www.vie-publique.fr/files/rapport/pdf/300670.pdf
+- Constat : « près d'un quart de la population française avait reçu une eau qui avait dépassé, à un
+  moment de l'année 2023, les limites de qualité en pesticides ». La limite de qualité de l'eau
+  potable est une valeur réglementaire de précaution, pas un seuil de toxicité. Le rapport rappelle
+  aussi que l'enquête Esteban de Santé publique France ne mesure que cinq familles de pesticides.
+
+### Atmo Nouvelle-Aquitaine, septembre 2026 — pesticides dans l'air, résultats 2025 {#atmo-na-2025}
+- Référence : Atmo Nouvelle-Aquitaine, observatoire régional de l'air agréé par l'État, 18 septembre
+  2026. *Pesticides dans l'air : les résultats 2025 en Nouvelle-Aquitaine*, et rapport complet.
+- Lien : https://www.atmo-nouvelleaquitaine.org/actualite/pesticides-dans-lair-les-resultats-2025-en-nouvelle-aquitaine
+- Lien : https://www.atmo-nouvelleaquitaine.org/sites/nouvelleaquitaine/files/medias/documents/2026-09/RapportAtmoNA_PEST_EXT_24_066_Pesticides_2025_VersionFinale_20260904.pdf
+- Constat : mesures en 2025 sur quatre sites, Bordeaux, GrandAngoulême, Poitiers et Montroy. Sur
+  114 molécules recherchées, 42 sont détectées : 18 herbicides, 16 fongicides, 8 insecticides. Le
+  prosulfocarbe, la pendiméthaline et le folpel sont retrouvés sur tous les sites. Sur les sites de
+  grandes cultures, les herbicides culminent pendant les traitements d'automne et d'hiver. Le
+  lindane, interdit, persiste à très faible concentration. Aucun site n'est en Deux-Sèvres. « Il
+  n'existe actuellement pas de seuil réglementaire spécifique concernant les pesticides dans
+  l'air » : Atmo mesure la présence, pas les effets sur la santé.
 
 ## Perturbateurs endocriniens
 
@@ -392,6 +442,49 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   sur la santé : la synthèse précise qu'elle « ne donne pas d'information sur le lien entre
   l'exposition et le risque pour la santé ».
 
+### Galimberti et al., 2025 — indicateur de risque pour les riverains en France {#galimberti-2025}
+- Référence : Galimberti, F., d'Andrimont, R. et al., 2025. Development of a spatial risk indicator
+  for monitoring residential pesticide exposure in agricultural areas. *Scientific Reports*, 15,
+  16785. Centre commun de recherche de la Commission européenne, avec l'EFSA et l'ECHA.
+- Lien : https://doi.org/10.1038/s41598-025-96928-1
+- Constat : les ventes de pesticides sont réparties sur les parcelles selon les cultures autorisées,
+  puis croisées avec la population. En moyenne, 13 % des personnes en France pourraient être
+  exposées à des pesticides du fait de la proximité de cultures traitées. Les auteurs précisent que
+  le calcul retient le pire cas et sert à comparer des régions, pas à mesurer un risque réel.
+
+### Nowak & Marliac, 2024 — carte de l'intensité d'usage des pesticides en France, preprint {#nowak-marliac-2024}
+- Référence : Nowak, B., Marliac, G., 2024. Assessment of population exposure to pesticide
+  applications with a high-resolution map of pesticide use intensity for mainland France. Preprint
+  *bioRxiv*, INRAE et Université Clermont Auvergne.
+- Lien : https://doi.org/10.1101/2024.11.25.624818
+- Constat : preprint, non relu par des pairs à la date de consultation. Carte à 100 m du nombre moyen
+  de traitements par parcelle, 2019–2021. 25 % de la population vit là où a lieu au moins un
+  traitement par an, 5 % au moins dix. L'exposition est plus forte dans l'ouest et le nord du pays.
+  Le nombre de traitements est une moyenne régionale par culture, pas une mesure par parcelle.
+
+### Ginsberg et al., 2017 — maturation des enzymes et vulnérabilité de l'enfant {#ginsberg-2017}
+- Référence : Ginsberg, G., Vulimiri, S. V., Lin, Y.-S., Kancherla, J., Foos, B., Sonawane, B.,
+  2017. A Framework and Case Studies for Evaluation of Enzyme Ontogeny in Children's Health Risk
+  Evaluation. *Journal of Toxicology and Environmental Health, Part A*, 80(10–12), 569–593.
+- Lien : https://doi.org/10.1080/15287394.2017.1369915
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC8018602/
+- Constat : synthèse méthodologique. Plusieurs enzymes qui transforment les substances étrangères
+  sont immatures chez le nourrisson, comme la paraoxonase PON1, 3 à 4 fois plus basse qu'à l'âge
+  adulte. Pour l'insecticide chlorpyrifos, les nourrissons pourraient être plus vulnérables. Mais
+  l'effet dépend de la substance : quand l'enzyme immature est celle qui rend un composé toxique,
+  le nourrisson peut être moins touché, comme pour le paracétamol.
+
+### Gaba et al., 2026 — projet Santé des territoires, Zone Atelier Plaine & Val de Sèvre {#gaba-2026}
+- Référence : Gaba, S., Lefeuvre, S., Ouédraogo, F. et al., 2026. Territory health: a
+  transdisciplinary approach of environmental, plant, animal, and human health interdependencies in
+  a rural landscape in France. *iScience*, 29, 114956. CEBC de Chizé, CNRS, INRAE, Inserm,
+  universités de Poitiers et de Bordeaux.
+- Lien : https://doi.org/10.1016/j.isci.2026.114956
+- Constat : article de perspective, sans résultats chiffrés. Il présente le projet mené dans les 24
+  communes de la Zone Atelier Plaine & Val de Sèvre, en Deux-Sèvres : mesures de pesticides chez des
+  habitants, des animaux et dans l'environnement, selon la distance aux champs, et étude des cancers
+  à partir du registre de Poitou-Charentes.
+
 ## Limites méthodologiques de l'étude statistique de ce site
 
 - Le registre des cancers ne permet pas de contrôler des facteurs de confusion majeurs : évolution
@@ -410,3 +503,6 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
 - Le registre publie des chiffres agrégés à l'échelle de l'ex-région Poitou-Charentes, sans lieu
   de résidence des malades. L'étude ne peut donc pas tester elle-même un lien entre proximité des
   cultures et cancers : l'onglet Riverains s'appuie uniquement sur la littérature publiée.
+- Les données du registre utilisées ici portent sur tous les âges. L'étude ne peut donc pas suivre
+  à part les cancers de l'enfant : l'onglet Enfants et jeunes adultes s'appuie sur des registres
+  nationaux et européens.
