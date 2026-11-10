@@ -325,6 +325,15 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   dans la plupart des scénarios étudiés, sous les seuils sanitaires de référence, dits HBGV pour Health
   Based Guidance Values. Nuance importante : voie dominante ne veut pas dire dose dangereuse.
 
+### EFSA, 2020 — évaluation cumulative des risques des pesticides {#efsa-cumulatif-2020}
+- Référence : Autorité européenne de sécurité des aliments, EFSA, 29 avril 2020. *Cumulative risk
+  assessment of pesticides: FAQ*.
+- Lien : https://www.efsa.europa.eu/en/news/cumulative-risk-assessment-pesticides-faq
+- Constat : « Risks to consumers from the presence of pesticide residues in food are currently
+  estimated substance by substance. » L'EFSA ajoute que plusieurs pesticides ont des effets
+  semblables et que leur impact pourrait être plus grand combinés que séparément ; elle développe
+  des méthodes d'évaluation cumulative.
+
 ## Air, pluie et eau : autres voies d'exposition
 
 ### Atmo Nouvelle-Aquitaine, septembre 2026 — pesticides dans l'air, résultats 2025 {#atmo-na-2025}
@@ -389,6 +398,15 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   en France depuis 2020, est retrouvé dans plus d'un prélèvement sur deux et dépasse la limite de
   qualité de 0,1 µg/L dans plus d'un sur trois. La campagne ne conclut pas sur un risque pour la
   santé.
+
+### ARS Île-de-France, 2026 — valeurs sanitaires maximales des pesticides dans l'eau {#ars-idf-vmax-2026}
+- Référence : Agence régionale de santé Île-de-France, page mise à jour le 3 juillet 2026.
+  *Surveillance des pesticides et métabolites en Île-de-France dans les eaux destinées à la
+  consommation humaine*.
+- Lien : https://www.iledefrance.ars.sante.fr/surveillance-des-pesticides-et-metabolites-en-ile-de-france-dans-les-eaux-destinees-la-consommation
+- Constat : « tout dépassement de la limite de qualité de 0,1 µg/l est comparé à une valeur
+  sanitaire maximale (Vmax), propre à chaque molécule et établie par l'ANSES, en deçà de laquelle
+  l'eau peut être consommée sans entraîner d'effet néfaste pour la santé ».
 
 ## Perturbateurs endocriniens
 

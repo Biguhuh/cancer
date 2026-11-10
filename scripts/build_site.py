@@ -334,8 +334,8 @@ def panel_accueil(stats, cite):
       rassemble ce que disent la littérature scientifique et les institutions sur les pesticides,
       leurs voies d'exposition et leurs liens avec les maladies.</p>
     <p class="site-intro">Le site s'en tient aux faits publiés. Chaque affirmation renvoie à sa
-      source. Les associations ne sont pas présentées comme des causes. Les limites de chaque étude
-      sont indiquées.</p>
+      source. Le site distingue ce que les études observent de ce qu'elles démontrent, et indique
+      les limites de chacune.</p>
 
     <div class="method-block">
       <h3>Sources et méthode</h3>
@@ -377,9 +377,10 @@ def panel_synthese(stats, cite):
     <h2 class="hero-headline">Les cancers à présomption de lien avec les pesticides progressent, les autres reculent</h2>
     <p class="hero-lede">En Poitou-Charentes, l'incidence des cancers pour lesquels l'Inserm
       présume un lien avec les pesticides augmente de façon significative sur la période étudiée.
-      Dans le même temps, l'incidence des autres cancers diminue. C'est une évolution parallèle
-      dans le temps&nbsp;: elle ne prouve pas que les pesticides en sont la cause. L'onglet Limites
-      méthodologiques détaille ce que l'étude ne permet pas de conclure.</p>
+      Dans le même temps, l'incidence des autres cancers diminue. Ce constat rejoint la
+      classification de l'Inserm. Une tendance dans le temps ne suffit pas, seule, à en identifier
+      la cause&nbsp;: d'autres facteurs évoluent aussi, comme le dépistage ou le tabagisme. L'onglet
+      Limites méthodologiques détaille ces points.</p>
 
     <figure class="hero-figure">
       <img src="assets/img/comparaison_indice_base100.png" alt="Comparaison indexée base 100 des cancers à présomption forte/moyenne vs non liés, {y0}-{y1}" loading="lazy">
@@ -494,9 +495,11 @@ def panel_methodologie(stats):
       nette, comme un changement à grande échelle des dépistages, par exemple.</p>
 
     <h3>La p-value : la tendance est-elle réelle, ou due au hasard ?</h3>
-    <p>La p-value est la probabilité d'observer une pente au moins aussi forte que celle mesurée si,
-      en réalité, le taux ne changeait pas. Plus elle est petite, moins le hasard seul explique bien
-      la tendance observée. Le seuil retenu ici est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la
+    <p>Même si le taux d'un cancer ne changeait pas du tout, il varierait un peu d'une année à
+      l'autre, par hasard. La p-value répond à une question&nbsp;: dans ce cas, quelle serait la
+      probabilité de voir, par simple hasard, une tendance aussi nette que celle mesurée&nbsp;? Une
+      p-value de 0,01 veut dire 1 chance sur 100. Plus elle est petite, moins le hasard seul est une
+      explication crédible. Le seuil retenu ici est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la
       tendance est dite significative</strong>. Si p&nbsp;≥&nbsp;0,05, les données ne permettent pas
       d'affirmer qu'une évolution réelle existe.</p>
 
@@ -848,9 +851,11 @@ def panel_exposition(cite):
       représentatif {cite('chamacos-nhanes')}. Chez l'enfant spécifiquement, une cohorte chinoise
       de naissance de 643 enfants trouve le même résultat pour les néonicotinoïdes
       {cite('sheyang-cohort')}.</p>
-    <p>Ces études mesurent une exposition, pas un effet sur la santé. Une revue de 2024 rappelle
-      que, même si l'alimentation domine comme voie d'exposition, les niveaux estimés restent sous
-      les seuils de sécurité dans la plupart des scénarios {cite('louie-roberts-2024')}.</p>
+    <p>Ces études mesurent une exposition, pas un effet sur la santé. Une revue de 2024 note que les
+      niveaux estimés restent le plus souvent sous les valeurs sanitaires de référence
+      {cite('louie-roberts-2024')}. Or le risque est évalué pour chaque substance prise séparément
+      {cite('efsa-cumulatif-2020')}&nbsp;: les effets de plusieurs pesticides à la fois sont
+      présentés dans l'onglet <a href="#melanges">Effets de mélange</a>.</p>
     </div>
 
     <div id="air">
@@ -884,8 +889,10 @@ def panel_exposition(cite):
       du chlorothalonil, un fongicide interdit depuis 2020, dépasse cette limite dans plus d'un
       prélèvement sur trois d'une campagne nationale {cite('anses-eau-2023')}.</p>
     <p>La limite de qualité de l'eau potable, 0,1&nbsp;µg/L par substance, est une valeur de
-      précaution. Ce n'est pas un seuil de toxicité. Son dépassement ne signifie pas à lui seul un
-      risque pour la santé.</p>
+      précaution&nbsp;: elle vise à limiter la présence de pesticides dans l'eau, et n'est pas un
+      seuil de toxicité. Son dépassement signale une pollution de la ressource. Le risque pour la
+      santé est ensuite évalué molécule par molécule, en comparant la concentration à une valeur
+      sanitaire maximale établie par l'Anses {cite('ars-idf-vmax-2026')}.</p>
     </div>
 
     <p class="see-also">Ce que change une alimentation bio sur cette exposition, les labels
@@ -918,8 +925,9 @@ def panel_melanges(cite):
         servant d'organe témoin.</li>
     </ul>
     <p><strong>Limites.</strong> C'est une étude écologique&nbsp;: elle compare des zones, pas des
-      personnes. L'exposition est calculée par un modèle, pas mesurée chez les patients. Elle
-      montre une association, pas une cause. Nous ne reprenons pas le chiffre de risque cité par la
+      personnes. L'exposition est calculée par un modèle, pas mesurée chez les patients. Les
+      analyses en laboratoire, qui montrent des changements précoces dans les cellules, apportent un
+      argument biologique. Nous ne reprenons pas le chiffre de risque cité par la
       presse, faute d'avoir pu le vérifier dans l'article.</p>
 
     <h3>Les mélanges dans l'assiette</h3>
