@@ -236,7 +236,10 @@ def build_bibliography(sections, citation_locations):
         parts.append(f'    <h3>{escape(title)}</h3>\n    <ul class="biblio-list">')
         for e in entries:
             f = e["fields"]
-            ref = md_inline(f.get("Référence", ""))
+            # Type de source affiché en étiquette, comme sur la page Bio et pesticides.
+            type_html = (f'<span class="type">{escape(f["Type"])}</span> '
+                         if f.get("Type") else "")
+            ref = type_html + md_inline(f.get("Référence", ""))
             liens = f.get("Lien", [])
             constat = md_inline(f.get("Constat", ""))
             lien_htmls = []
@@ -1173,7 +1176,7 @@ def build_page(stats, panels):
       <p class="subtitle">Étude réalisée à partir du registre des cancers de Poitou-Charentes,
         {y0}–{y1}, de la littérature scientifique et de sites institutionnels — Santé des Territoires Aigondigné</p>
     </div>
-    <p class="pub-date">Publié en {PUB_DATE}</p>
+    <p class="pub-date">Mis à jour en {PUB_DATE}</p>
   </div>
 </header>
 
