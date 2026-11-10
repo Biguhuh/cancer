@@ -188,6 +188,11 @@ def fmt_p(p):
     return "&lt;&nbsp;0,001" if p < 0.001 else fr_num(p, 3)
 
 
+def p_eq(p):
+    """« p = 0,007 », ou « p < 0,001 » sans le signe = en trop."""
+    return "p&nbsp;&lt;&nbsp;0,001" if p < 0.001 else f"p&nbsp;=&nbsp;{fr_num(p, 3)}"
+
+
 def sig_badge(label):
     cls = SIG_LABELS.get(label, "sig-none")
     return f'<span class="badge {cls}">{escape(label)}</span>'
@@ -197,7 +202,7 @@ def fmt_trend(st, unit="points/an"):
     return (
         f"pente {fr_num(st['pente'])} {unit}, "
         f"IC95&nbsp;% [{fr_num(st['IC95_bas'])}&nbsp;; {fr_num(st['IC95_haut'])}], "
-        f"p&nbsp;=&nbsp;{fmt_p(st['p_value'])}, R²&nbsp;=&nbsp;{fr_num(st['r2'])} — {sig_badge(st['significativite'])}"
+        f"{p_eq(st['p_value'])}, R²&nbsp;=&nbsp;{fr_num(st['r2'])} — {sig_badge(st['significativite'])}"
     )
 
 
@@ -288,8 +293,9 @@ def build_limites(limites):
 # Une ligne de présentation par onglet, affichée sur l'Accueil ; le libellé du lien vient de TABS.
 TAB_DESCRIPTIONS = {
     "registre": "l'étude statistique des {n} cancers suivis en Poitou-Charentes depuis {y0}&nbsp;: "
-                "synthèse, détail par cancer, méthode, et mise à jour des données de {registre_mois}.",
-    "enfants": "l'évolution des cancers de l'enfant et du jeune adulte, en Europe et en France.",
+                "synthèse, détail par cancer, méthode, et mise à jour des données ({registre_mois}).",
+    "enfants": "ce que l'on sait du lien entre pesticides et cancers de l'enfant, et de leur "
+               "évolution.",
     "exposition": "comment les pesticides nous atteignent&nbsp;: alimentation, air et eau.",
     "melanges": "ce que l'on sait des effets de plusieurs pesticides à la fois.",
     "riverains": "l'exposition des personnes vivant près des cultures, et les études sur les "
@@ -488,10 +494,11 @@ def panel_methodologie(stats):
       nette, comme un changement à grande échelle des dépistages, par exemple.</p>
 
     <h3>La p-value : la tendance est-elle réelle, ou due au hasard ?</h3>
-    <p>La p-value mesure le risque de conclure à tort qu'une tendance existe. Le seuil retenu ici
-      est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la tendance est dite significative</strong>.
-      Elle a moins de 5&nbsp;% de chances d'être due au hasard. Si p&nbsp;≥&nbsp;0,05, les données ne
-      permettent pas d'affirmer qu'une évolution réelle existe.</p>
+    <p>La p-value est la probabilité d'observer une pente au moins aussi forte que celle mesurée si,
+      en réalité, le taux ne changeait pas. Plus elle est petite, moins le hasard seul explique bien
+      la tendance observée. Le seuil retenu ici est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la
+      tendance est dite significative</strong>. Si p&nbsp;≥&nbsp;0,05, les données ne permettent pas
+      d'affirmer qu'une évolution réelle existe.</p>
 
     <h3>L'intervalle de confiance à 95&nbsp;%</h3>
     <p>Cet intervalle donne une fourchette de valeurs plausibles pour la pente réelle.
@@ -520,7 +527,7 @@ def fr_int(n):
 
 def fmt_trend_cell(st):
     return (f"{sig_badge(st['significativite'])}<br>"
-            f"<span class=\"src-note\">pente {fr_num(st['pente'], 3)}, p&nbsp;=&nbsp;{fmt_p(st['p_value'])}</span>")
+            f"<span class=\"src-note\">pente {fr_num(st['pente'], 3)}, {p_eq(st['p_value'])}</span>")
 
 
 def panel_versions(stats, cite):
@@ -721,45 +728,103 @@ def panel_registre(stats, cite, cancer_table_html):
 def panel_enfants(cite):
     return f"""
   <section id="panel-enfants" class="tab-panel" role="tabpanel" aria-labelledby="tab-enfants" data-tab="enfants" hidden>
-    <h2>Cancers de l'enfant et du jeune adulte</h2>
+    <h2>Pesticides et cancers de l'enfant</h2>
 
-    <p>Les données du registre de Poitou-Charentes utilisées dans cette étude portent sur tous les
-      âges. Elles ne permettent pas de suivre à part les cancers de l'enfant. Cet onglet s'appuie
-      donc sur des registres européens et nationaux.</p>
+    <p>Chez l'enfant, deux cancers dominent&nbsp;: les leucémies et les tumeurs du cerveau.
+      Ensemble, ils représentent plus de la moitié des quelque 1&nbsp;800 cancers diagnostiqués
+      chaque année avant 15 ans en France {cite('registre-national-enfant')}. Ce sont aussi les deux
+      cancers de l'enfant pour lesquels l'Inserm retient une <strong>présomption forte</strong> de
+      lien avec les pesticides. Elle concerne l'exposition de la mère pendant la grossesse, au
+      travail ou à la maison, et celle de l'enfant lui-même {cite('inserm-2021')}.</p>
+    <p>Le registre de Poitou-Charentes utilisé dans cette étude ne permet pas de suivre à part les
+      cancers de l'enfant. Cet onglet s'appuie donc sur les registres nationaux et européens, et sur
+      la littérature scientifique publiée.</p>
 
-    <h3>En Europe&nbsp;: une hausse lente de 1991 à 2010</h3>
-    <p>Une étude coordonnée par le Centre international de recherche sur le cancer a réuni 53
-      registres de 19 pays européens {cite('circ-oms-2018')}. Elle porte sur plus de 165&nbsp;000
-      cancers diagnostiqués entre 1991 et 2010.</p>
-    <ul class="text-list">
-      <li>Chez les enfants de 0 à 14 ans, l'incidence a augmenté de 0,5&nbsp;% par an en
-        moyenne.</li>
-      <li>Chez les adolescents de 15 à 19 ans, elle a augmenté d'environ 1&nbsp;% par an.</li>
-    </ul>
-    <p>Les auteurs estiment qu'un meilleur diagnostic et un meilleur enregistrement des cancers
-      peuvent expliquer une partie de cette hausse. Ils n'excluent pas des changements dans les
-      facteurs de risque.</p>
+    <h3>Les pesticides utilisés à la maison</h3>
+    <p>Un consortium international a regroupé 12 études menées dans plusieurs pays. Quand la mère
+      avait utilisé des pesticides à la maison pendant la grossesse, le risque de leucémie
+      lymphoblastique de l'enfant augmentait d'environ 40&nbsp;%. Ce résultat porte sur plus de
+      5&nbsp;000 enfants malades {cite('bailey-2015')}. Une méta-analyse trouve un risque de leucémie
+      57&nbsp;% plus élevé en cas d'exposition domestique, surtout aux insecticides utilisés à
+      l'intérieur pendant la grossesse {cite('vanmaelefabry-2019')}. Pour les tumeurs du cerveau, la
+      même équipe trouve un risque 26&nbsp;% plus élevé {cite('vanmaelefabry-2017')}.</p>
+    <p>En France, les études ESCALE et ESTELLE ont interrogé les mères de 437 enfants atteints d'une
+      tumeur du cerveau et de 3&nbsp;102 enfants en bonne santé. L'usage de pesticides à la maison
+      pendant la grossesse, surtout d'insecticides, augmentait le risque de 40&nbsp;%
+      {cite('escale-estelle-2018')}.</p>
 
-    <h3>En France&nbsp;: une incidence stable chez l'enfant</h3>
-    <p>Le registre national des cancers de l'enfant {cite('registre-national-enfant')} recense
-      environ 1&nbsp;700 nouveaux cas par an avant 15 ans. Un enfant sur 440 est touché avant cet
-      âge. L'incidence est stable depuis 2000.</p>
+    <h3>Le métier des parents</h3>
+    <p>Dans 13 études regroupées, l'exposition du père à son travail autour de la conception était
+      liée à un risque de leucémie lymphoblastique 20&nbsp;% plus élevé. L'exposition de la mère à
+      son travail pendant la grossesse était liée à un risque de leucémie myéloïde qui augmentait de
+      94&nbsp;%, soit presque doublé {cite('bailey-2014')}. Depuis 2020, le Fonds d'indemnisation des
+      victimes de pesticides indemnise les enfants exposés avant leur naissance par le métier d'un
+      parent {cite('fivp-prenatal')}.</p>
 
-    <h3>Chez les 15-39 ans&nbsp;: une hausse, puis une baisse</h3>
-    <p>Santé publique France, l'Institut national du cancer et le réseau des registres Francim ont
-      publié en mars 2025 les tendances chez les adolescents et jeunes adultes
-      {cite('spf-inca-francim-2025')}. L'incidence a augmenté de 1,62&nbsp;% par an de 2000 à
-      2014. Elle a ensuite baissé de 0,79&nbsp;% par an de 2015 à 2020.</p>
+    <h3>Près des cultures</h3>
+    <p>En France comme à l'étranger, le risque de leucémie de l'enfant augmente avec la surface
+      cultivée autour du domicile. Les études sont présentées dans l'onglet
+      <a href="#riverains">Riverains</a>.</p>
 
-    <h3>Ce que l'Inserm dit du lien avec les pesticides</h3>
-    <p>L'expertise collective de l'Inserm de 2021 {cite('inserm-2021')} conclut à une
-      <strong>présomption forte</strong> de lien entre l'exposition aux pesticides et deux types
-      de cancers de l'enfant&nbsp;: les leucémies et les tumeurs du système nerveux central. Cela
-      concerne l'exposition de la mère pendant la grossesse, au travail ou par un usage
-      domestique, et l'exposition de l'enfant lui-même.</p>
-    <p>Une présomption forte n'est pas une preuve de cause. Elle signifie que plusieurs études de
-      bonne qualité vont dans le même sens. Les études sur les enfants vivant près des cultures
-      sont présentées dans l'onglet Riverains.</p>
+    <h3>L'alimentation</h3>
+    <p>Pour la population générale, l'alimentation est la principale voie d'exposition aux
+      pesticides (voir <a href="#alimentation">Voies d'exposition</a>). Chez l'enfant, manger bio
+      fait baisser en quelques jours certains pesticides mesurés dans les urines. En Bretagne, plus
+      les enfants de 6 ans ont de traces d'insecticides dans les urines, plus leurs scores de langage
+      et de mémoire sont bas. Ces études sont présentées dans la page
+      <a href="https://biguhuh.github.io/bio-pesticides/#enfants">Bio et pesticides</a>, section
+      «&nbsp;Et les enfants&nbsp;?&nbsp;».</p>
+
+    <h3>Pourquoi les enfants sont plus exposés</h3>
+    <p>Les enfants mangent davantage que les adultes par rapport à leur masse, et beaucoup plus de
+      certains aliments {cite('nrc-1993')}. Chez le nourrisson, certaines enzymes qui éliminent les
+      substances étrangères sont encore immatures (voir
+      <a href="#enfant-pas-adulte-en-petit">Riverains</a>).</p>
+
+    <div class="method-block">
+      <h3>Ce qu'on retient</h3>
+      <ul class="text-list">
+        <li>Les études montrent que les enfants exposés aux pesticides ont plus souvent une leucémie
+          ou une tumeur du cerveau, quelle que soit la voie d'exposition&nbsp;: l'usage à la maison,
+          le métier des parents et surtout la proximité des cultures. La grossesse est la période la
+          plus sensible.</li>
+        <li>En France, les tumeurs du cerveau de l'enfant ont augmenté d'environ 20&nbsp;% entre 2000
+          et 2016 {cite('registre-national-enfant')}.</li>
+        <li>Pour réduire l'exposition des enfants, il est recommandé de limiter les pesticides à la
+          maison pendant la grossesse et la petite enfance {cite('vanmaelefabry-2019')}. L'alimentation
+          compte aussi&nbsp;: manger bio fait baisser les pesticides mesurés dans les urines des
+          enfants (voir la page
+          <a href="https://biguhuh.github.io/bio-pesticides/#enfants">Bio et pesticides</a>).</li>
+        <li>Par ailleurs, l'État indemnise déjà des enfants exposés avant leur naissance par le
+          métier d'un parent {cite('fivp-prenatal')}.</li>
+      </ul>
+    </div>
+
+    <p class="note-line"><strong>À noter.</strong> Le cancer de l'enfant reste rare&nbsp;: il touche
+      un enfant sur 440 avant 15 ans. Une hausse de 40&nbsp;% s'applique à ce risque de départ, qui
+      est faible. Ces études interrogent les parents après le diagnostic, ce qui peut influencer
+      leurs souvenirs. Pour en savoir plus, voir l'onglet
+      <a href="https://biguhuh.github.io/bio-pesticides/#preuve">Établir la preuve</a> de la page
+      Bio et pesticides.</p>
+
+    <div class="bonus">
+      <h3>En complément&nbsp;: l'évolution du nombre de cancers</h3>
+      <p>En France, de 2000 à 2016, l'incidence de l'ensemble des cancers de l'enfant a augmenté de
+        0,3&nbsp;% par an. Celle des tumeurs du système nerveux central a augmenté de 1,2&nbsp;% par
+        an, soit environ 20&nbsp;% sur la période. Celle des leucémies est restée stable
+        {cite('registre-national-enfant')}.</p>
+      <p>En Europe, une étude coordonnée par le Centre international de recherche sur le cancer a
+        réuni 165&nbsp;000 cancers diagnostiqués de 1991 à 2010 dans 53 registres de 19 pays
+        {cite('circ-oms-2018')}. L'incidence a augmenté de 0,5&nbsp;% par an chez les enfants de 0 à
+        14 ans, et d'environ 1&nbsp;% par an chez les adolescents de 15 à 19 ans. Les auteurs
+        estiment qu'un meilleur diagnostic et un meilleur enregistrement peuvent expliquer une partie
+        de cette hausse, sans exclure des changements dans les facteurs de risque.</p>
+      <p>Chez les 15-39 ans, l'incidence a augmenté de 1,62&nbsp;% par an de 2000 à 2014, puis baissé
+        de 0,79&nbsp;% par an de 2015 à 2020. Six cancers sont en hausse&nbsp;: le lymphome de
+        Hodgkin, le glioblastome, une tumeur du cerveau, le liposarcome, et les cancers colorectal,
+        du sein et du rein. Ces tendances viennent de 11 départements couvrant 18&nbsp;% de la
+        population {cite('spf-inca-francim-2025')}.</p>
+    </div>
   </section>"""
 
 
@@ -880,8 +945,7 @@ def panel_endocriniens(cite):
       hormonal</strong>. Toutes les substances de ce type présentes dans notre environnement ne
       proviennent pas des pesticides&nbsp;: certaines viennent des pesticides, comme les organophosphates,
       les pyréthrinoïdes, le 2,4-D ou le métolachlore, d'autres des plastiques ou des cosmétiques,
-      comme le bisphénol A, les phtalates, les parabènes ou le triclosan, et n'ont rien à voir avec
-      l'alimentation. Cette
+      comme le bisphénol A, les phtalates, les parabènes ou le triclosan. Cette
       distinction compte&nbsp;: toutes les études sur les PE ne parlent pas de pesticides, et
       toutes ne relèvent donc pas de l'onglet Voies d'exposition.</p>
 
@@ -954,7 +1018,7 @@ def panel_riverains(cite):
 
     <ul class="text-list">
       <li><strong>Espagne</strong> {cite('gomez-barroso-2016')}&nbsp;: sur 3&nbsp;350 enfants
-        malades et 20&nbsp;365 témoins, les enfants du quart le plus exposé, mesuré par la part de surface
+        malades et 20&nbsp;365 témoins, dans les régions du nord du pays, les enfants du quart le plus exposé, mesuré par la part de surface
         cultivée dans un rayon de 1&nbsp;km, ont un risque de leucémie environ 2,5 fois plus élevé que ceux
         sans culture à proximité, et un risque de tumeur cérébrale environ 3,7 fois plus
         élevé.</li>
@@ -1002,7 +1066,7 @@ def panel_riverains(cite):
       L'exposition est plus forte dans l'ouest et le nord du pays. <strong>Ce travail est un
       preprint&nbsp;: il n'a pas encore été relu par d'autres chercheurs.</strong></p>
 
-    <h3>Pourquoi l'enfant n'est pas un adulte en petit</h3>
+    <h3 id="enfant-pas-adulte-en-petit">Pourquoi l'enfant n'est pas un adulte en petit</h3>
     <p>Chez le nourrisson, plusieurs enzymes qui transforment les substances étrangères ne sont pas
       encore matures {cite('ginsberg-2017')}. Pour un insecticide organophosphoré, le chlorpyrifos,
       les nourrissons pourraient être plus vulnérables. Mais l'effet dépend de la substance&nbsp;:
@@ -1022,10 +1086,14 @@ def panel_riverains(cite):
     <h3>Comment lire ces résultats</h3>
 
     <p>Ces études mesurent la <strong>distance aux champs ou la densité de cultures</strong>, pas
-      la quantité de pesticides reçue par chaque enfant. Ce sont des études d'observation&nbsp;:
-      elles mettent en évidence des associations, pas une preuve de causalité. Leurs auteurs
-      signalent eux-mêmes l'absence de données individuelles, comme le métier des parents ou
-      les usages domestiques de pesticides, et des effectifs parfois faibles.</p>
+      la quantité de pesticides reçue par chaque enfant. Ce sont des études d'observation, menées
+      dans plusieurs pays avec des méthodes différentes&nbsp;: c'est leur convergence qui fait leur
+      force. Leurs auteurs signalent eux-mêmes l'absence de données individuelles, comme le métier
+      des parents ou les usages domestiques de pesticides, et des effectifs parfois faibles. Ces
+      deux autres voies d'exposition sont présentées dans l'onglet <a href="#enfants">Enfants</a>.
+      Pour en savoir plus sur la façon dont la recherche établit la preuve, voir l'onglet
+      <a href="https://biguhuh.github.io/bio-pesticides/#preuve">Établir la preuve</a> de la page
+      Bio et pesticides.</p>
 
     <p>Ces résultats ne contredisent pas l'onglet Voies d'exposition. Pour la population générale,
       l'alimentation reste la voie d'exposition dominante aux pesticides. Pour les personnes qui
@@ -1055,7 +1123,7 @@ def panel_limites(limites_html):
 TABS = [
     ("accueil", "Accueil"),
     ("registre", "Le registre"),
-    ("enfants", "Enfants et jeunes adultes"),
+    ("enfants", "Enfants"),
     ("exposition", "Voies d'exposition"),
     ("melanges", "Effets de mélange"),
     ("riverains", "Riverains"),

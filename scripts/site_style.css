@@ -125,6 +125,20 @@ body {
 }
 .method-block h3 { margin: 0 0 10px; color: var(--accent); font-size: 1.02rem; }
 .method-block p { margin: 0 0 12px; max-width: none; }
+.method-block .text-list { margin: 0; }
+.method-block .text-list li:last-child { margin-bottom: 0; }
+
+/* Onglet Enfants : remarque courte et complément en petit, en bas de page. */
+.note-line { color: var(--ink-soft); font-size: 0.95rem; margin-top: 18px; }
+.bonus {
+  max-width: var(--max-w);
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.tab-panel .bonus h3 { font-size: 0.98rem; color: var(--ink-soft); margin-top: 0; }
 
 /* ---------- Onglet Registre : sommaire interne et parties ---------- */
 

@@ -48,14 +48,93 @@ Ce document est généré à la main et relu à chaque ajout de source — contr
 ### Registre national des cancers de l'enfant (France) {#registre-national-enfant}
 - Référence : Registre national des cancers de l'enfant, RNCE, Inserm.
 - Lien : https://rnce.inserm.fr/statistics/
-- Constat : incidence stable depuis 2000, environ 1 700 cas par an, soit 1 enfant sur 440 touché
-  avant l'âge de 15 ans.
+- Constat : environ 1 800 cas par an avant 15 ans en France métropolitaine, soit 1 enfant sur 440
+  touché avant cet âge. Sur 2014–2020, environ 510 leucémies et 490 tumeurs du système nerveux
+  central par an avant 15 ans, soit plus de la moitié des cas. Évolution 2000–2016, variation
+  annuelle moyenne : tous cancers +0,3 %/an, IC95 % 0,0–0,5, p = 0,03 ; leucémies +0,1 %/an,
+  IC95 % −0,3–0,6, p = 0,51 ; tumeurs du système nerveux central +1,2 %/an, IC95 % 0,7–1,7,
+  p < 0,01. Sur 16 ans, +1,2 %/an représente environ +20 %.
 
 ### Santé publique France, INCa, Francim — cancers des 15–39 ans, mars 2025 {#spf-inca-francim-2025}
 - Référence : Santé publique France, Institut national du cancer, INCa, Francim, mars 2025.
 - Lien : https://www.santepubliquefrance.fr/en/press/incidence-cancer-among-adolescents-and-young-adults-aged-15-39-and-trends-between-2000-and
 - Constat : chez les 15–39 ans, incidence en hausse de +1,62 %/an entre 2000 et 2014, puis en
-  baisse de -0,79 %/an entre 2015 et 2020.
+  baisse de -0,79 %/an entre 2015 et 2020. Six cancers sont en hausse : lymphome de Hodgkin,
+  glioblastome, liposarcome, cancers colorectal, du sein et du rein. Tendances calculées sur 11
+  départements couvrant 18 % de la population métropolitaine.
+
+## Pesticides et cancers de l'enfant : maison, métier des parents
+
+### Bailey et al., 2015 — pesticides à la maison et leucémie de l'enfant, consortium CLIC {#bailey-2015}
+- Référence : Bailey, H. D., Infante-Rivard, C., Metayer, C. et al., 2015. Home pesticide exposures
+  and risk of childhood leukemia: findings from the Childhood Leukemia International Consortium.
+  *International Journal of Cancer*, 137(11), 2644–2663.
+- Lien : https://doi.org/10.1002/ijc.29631
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC4572913/
+- Constat : analyse groupée de 12 études cas-témoins de plusieurs pays. Usage de pesticides à la
+  maison pendant la grossesse et leucémie aiguë lymphoblastique de l'enfant : OR 1,43, IC95 %
+  1,32–1,54, sur 5 055 cas et 7 370 témoins. Avant la conception : OR 1,39 ; après la naissance :
+  OR 1,36. Leucémie aiguë myéloïde, exposition pendant la grossesse : OR 1,55, IC95 % 1,21–1,99.
+
+### Van Maele-Fabry et al., 2019 — pesticides domestiques et leucémie, méta-analyse {#vanmaelefabry-2019}
+- Référence : Van Maele-Fabry, G., Gamet-Payrastre, L., Lison, D., 2019. Household exposure to
+  pesticides and risk of leukemia in children and adolescents: updated systematic review and
+  meta-analysis. *International Journal of Hygiene and Environmental Health*, 222(1), 49–67.
+- Lien : https://doi.org/10.1016/j.ijheh.2018.08.004
+- Constat : exposition domestique aux pesticides et leucémie de l'enfant, toutes études réunies :
+  risque plus élevé de 57 %, OR 1,57, IC95 % 1,27–1,95, sans biais de publication mis en évidence.
+  Risques accrus en particulier pour l'exposition pendant la grossesse, à l'intérieur, et aux
+  insecticides. Les auteurs jugent la qualité des preuves modérée à faible et recommandent de
+  limiter les pesticides domestiques pendant la grossesse et l'enfance.
+
+### Van Maele-Fabry et al., 2017 — pesticides à la maison et tumeurs du cerveau, méta-analyse {#vanmaelefabry-2017}
+- Référence : Van Maele-Fabry, G., Gamet-Payrastre, L., Lison, D., 2017. Residential exposure to
+  pesticides as risk factor for childhood and young adult brain tumors: a systematic review and
+  meta-analysis. *Environment International*, 106, 69–90.
+- Lien : https://doi.org/10.1016/j.envint.2017.05.018
+- Constat : exposition résidentielle aux pesticides et tumeurs du cerveau de l'enfant : risque plus
+  élevé de 26 %, OR 1,26, IC95 % 1,13–1,40, sans incohérence entre études ni biais de
+  publication. Effet plus marqué pour les gliomes et les insecticides, notamment pendant la
+  grossesse. Les auteurs recommandent de limiter l'usage résidentiel des pesticides.
+
+### Vidart d'Egurbide Bagazgoïtia et al., 2018 — études ESCALE et ESTELLE, tumeurs du cerveau {#escale-estelle-2018}
+- Référence : Vidart d'Egurbide Bagazgoïtia, N., Bailey, H. D., Orsi, L. et al., 2018. Maternal
+  residential pesticide use during pregnancy and risk of malignant childhood brain tumors: a pooled
+  analysis of the ESCALE and ESTELLE studies (SFCE). *International Journal of Cancer*, 142(3),
+  489–497. Inserm.
+- Lien : https://doi.org/10.1002/ijc.31073
+- Constat : deux études nationales françaises, 437 enfants atteints d'une tumeur du cerveau et 3 102
+  témoins de moins de 15 ans. Usage de pesticides à la maison par la mère pendant la grossesse :
+  OR 1,4, IC95 % 1,2–1,8 ; insecticides : OR 1,4, IC95 % 1,2–1,8. Les auteurs n'excluent pas un
+  biais de mémoire.
+
+### Bailey et al., 2014 — métier des parents et leucémie de l'enfant, consortium CLIC {#bailey-2014}
+- Référence : Bailey, H. D., Fritschi, L., Infante-Rivard, C. et al., 2014. Parental occupational
+  pesticide exposure and the risk of childhood leukemia in the offspring: findings from the
+  Childhood Leukemia International Consortium. *International Journal of Cancer*, 135(9),
+  2157–2172.
+- Lien : https://doi.org/10.1002/ijc.28854
+- Lien : https://pmc.ncbi.nlm.nih.gov/articles/PMC4845098/
+- Constat : analyse groupée de 13 études cas-témoins. Exposition du père à son travail autour de la
+  conception et leucémie aiguë lymphoblastique : OR 1,20, IC95 % 1,06–1,38. Exposition de la mère
+  à son travail pendant la grossesse et leucémie aiguë myéloïde : OR 1,94, IC95 % 1,19–3,18. Pas
+  d'association entre l'exposition de la mère et la leucémie lymphoblastique : OR 1,01.
+
+### Fonds d'indemnisation des victimes de pesticides — exposition prénatale {#fivp-prenatal}
+- Référence : Fonds d'indemnisation des victimes de pesticides, FIVP, géré par la MSA. Page
+  « Exposition prénatale ».
+- Lien : https://fonds-indemnisation-pesticides.fr/vous-etes-concerne/exposition-prenatale/
+- Constat : depuis 2020, le fonds indemnise les enfants exposés aux pesticides avant leur naissance
+  du fait de l'activité professionnelle d'un ou des deux parents, quel que soit leur régime, dans
+  les conditions de l'arrêté du 27 juillet 2022. Une commission se prononce sur chaque dossier.
+
+### National Research Council, 1993 — pesticides dans l'alimentation des enfants {#nrc-1993}
+- Référence : National Research Council, Académies nationales des sciences des États-Unis, 1993.
+  *Pesticides in the Diets of Infants and Children*. National Academy Press, Washington.
+- Lien : https://doi.org/10.17226/2126
+- Lien : https://www.nationalacademies.org/read/2126/chapter/2
+- Constat : « Children consume more calories of food per unit of body weight than do adults. »
+  Les enfants mangent aussi beaucoup plus de certains aliments que les adultes.
 
 ## Cancers spécifiques : littérature complémentaire par localisation
 
@@ -248,6 +327,19 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
 
 ## Air, pluie et eau : autres voies d'exposition
 
+### Atmo Nouvelle-Aquitaine, septembre 2026 — pesticides dans l'air, résultats 2025 {#atmo-na-2025}
+- Référence : Atmo Nouvelle-Aquitaine, observatoire régional de l'air agréé par l'État, 18 septembre
+  2026. *Pesticides dans l'air : les résultats 2025 en Nouvelle-Aquitaine*, et rapport complet.
+- Lien : https://www.atmo-nouvelleaquitaine.org/actualite/pesticides-dans-lair-les-resultats-2025-en-nouvelle-aquitaine
+- Lien : https://www.atmo-nouvelleaquitaine.org/sites/nouvelleaquitaine/files/medias/documents/2026-09/RapportAtmoNA_PEST_EXT_24_066_Pesticides_2025_VersionFinale_20260904.pdf
+- Constat : mesures en 2025 sur quatre sites, Bordeaux, GrandAngoulême, Poitiers et Montroy. Sur
+  114 molécules recherchées, 42 sont détectées : 18 herbicides, 16 fongicides, 8 insecticides. Le
+  prosulfocarbe, la pendiméthaline et le folpel sont retrouvés sur tous les sites. Sur les sites de
+  grandes cultures, les herbicides culminent pendant les traitements d'automne et d'hiver. Le
+  lindane, interdit, persiste à très faible concentration. Aucun site n'est en Deux-Sèvres. « Il
+  n'existe actuellement pas de seuil réglementaire spécifique concernant les pesticides dans
+  l'air » : Atmo mesure la présence, pas les effets sur la santé.
+
 ### Bianco et al., 2025 — pesticides dans l'eau des nuages {#bianco-2025}
 - Référence : Bianco, A., Nibert, P., Wu, Y., Baray, J.-L., Brigante, M., Mailhot, G.,
   Deguillaume, L., Vione, D., Cabanes, D. J. E., Méjean, M., Besse-Hoggan, P., 2025. Are Clouds a
@@ -276,17 +368,6 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   une fois dans les eaux souterraines, surtout des herbicides et leurs métabolites. L'eau potable
   provient d'environ 37 600 captages, dont 36 000 prélèvent dans les eaux souterraines.
 
-### Anses, 2023 — pesticides et métabolites dans l'eau potable {#anses-eau-2023}
-- Référence : Anses, 6 avril 2023. *Polluants émergents dans l'eau potable : le point sur les
-  principaux résultats de la dernière campagne nationale*. Campagne lancée en 2019 avec les ARS
-  et la DGS.
-- Lien : https://www.anses.fr/en/content/emerging-pollutants-drinking-water-review-main-findings-latest-national-campaign
-- Constat : 157 pesticides et métabolites recherchés dans des points de captage représentant
-  environ 20 % de l'eau distribuée. Le métabolite R471811 du chlorothalonil, un fongicide interdit
-  en France depuis 2020, est retrouvé dans plus d'un prélèvement sur deux et dépasse la limite de
-  qualité de 0,1 µg/L dans plus d'un sur trois. La campagne ne conclut pas sur un risque pour la
-  santé.
-
 ### Haut-commissariat à la Stratégie et au Plan, octobre 2025 — pesticides à usage agricole {#plan-2025}
 - Référence : Haut-commissariat à la Stratégie et au Plan, octobre 2025. *Les politiques publiques
   de santé environnementale. Les pesticides à usage agricole*. Rapport pour l'Assemblée nationale,
@@ -297,18 +378,17 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   potable est une valeur réglementaire de précaution, pas un seuil de toxicité. Le rapport rappelle
   aussi que l'enquête Esteban de Santé publique France ne mesure que cinq familles de pesticides.
 
-### Atmo Nouvelle-Aquitaine, septembre 2026 — pesticides dans l'air, résultats 2025 {#atmo-na-2025}
-- Référence : Atmo Nouvelle-Aquitaine, observatoire régional de l'air agréé par l'État, 18 septembre
-  2026. *Pesticides dans l'air : les résultats 2025 en Nouvelle-Aquitaine*, et rapport complet.
-- Lien : https://www.atmo-nouvelleaquitaine.org/actualite/pesticides-dans-lair-les-resultats-2025-en-nouvelle-aquitaine
-- Lien : https://www.atmo-nouvelleaquitaine.org/sites/nouvelleaquitaine/files/medias/documents/2026-09/RapportAtmoNA_PEST_EXT_24_066_Pesticides_2025_VersionFinale_20260904.pdf
-- Constat : mesures en 2025 sur quatre sites, Bordeaux, GrandAngoulême, Poitiers et Montroy. Sur
-  114 molécules recherchées, 42 sont détectées : 18 herbicides, 16 fongicides, 8 insecticides. Le
-  prosulfocarbe, la pendiméthaline et le folpel sont retrouvés sur tous les sites. Sur les sites de
-  grandes cultures, les herbicides culminent pendant les traitements d'automne et d'hiver. Le
-  lindane, interdit, persiste à très faible concentration. Aucun site n'est en Deux-Sèvres. « Il
-  n'existe actuellement pas de seuil réglementaire spécifique concernant les pesticides dans
-  l'air » : Atmo mesure la présence, pas les effets sur la santé.
+
+### Anses, 2023 — pesticides et métabolites dans l'eau potable {#anses-eau-2023}
+- Référence : Anses, 6 avril 2023. *Polluants émergents dans l'eau potable : le point sur les
+  principaux résultats de la dernière campagne nationale*. Campagne lancée en 2019 avec les ARS
+  et la DGS.
+- Lien : https://www.anses.fr/en/content/emerging-pollutants-drinking-water-review-main-findings-latest-national-campaign
+- Constat : 157 pesticides et métabolites recherchés dans des points de captage représentant
+  environ 20 % de l'eau distribuée. Le métabolite R471811 du chlorothalonil, un fongicide interdit
+  en France depuis 2020, est retrouvé dans plus d'un prélèvement sur deux et dépasse la limite de
+  qualité de 0,1 µg/L dans plus d'un sur trois. La campagne ne conclut pas sur un risque pour la
+  santé.
 
 ## Perturbateurs endocriniens
 
@@ -504,5 +584,5 @@ en complément de la classification générale de l'expertise Inserm 2021 ci-des
   de résidence des malades. L'étude ne peut donc pas tester elle-même un lien entre proximité des
   cultures et cancers : l'onglet Riverains s'appuie uniquement sur la littérature publiée.
 - Les données du registre utilisées ici portent sur tous les âges. L'étude ne peut donc pas suivre
-  à part les cancers de l'enfant : l'onglet Enfants et jeunes adultes s'appuie sur des registres
-  nationaux et européens.
+  à part les cancers de l'enfant : l'onglet Enfants s'appuie sur des registres nationaux et
+  européens et sur la littérature publiée.
