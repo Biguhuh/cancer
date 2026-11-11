@@ -498,8 +498,9 @@ def panel_methodologie(stats):
       nette, comme un changement à grande échelle des dépistages, par exemple.</p>
 
     <h3>La p-value : la tendance est-elle réelle, ou due au hasard ?</h3>
-    <p>Même si le taux d'un cancer ne changeait pas du tout, il varierait un peu d'une année à
-      l'autre, par hasard. La p-value répond à une question&nbsp;: dans ce cas, quelle serait la
+    <p>Même si la tendance de fond d'un cancer ne change pas du tout, le taux observé varie un peu
+      d'une année à l'autre, par pur hasard statistique. Ce sont de petites fluctuations, comme un dé
+      qui ne tombe jamais pile sur la moyenne. La p-value répond à une question&nbsp;: dans ce cas, quelle serait la
       probabilité de voir, par simple hasard, une tendance aussi nette que celle mesurée&nbsp;? Une
       p-value de 0,01 veut dire 1 chance sur 100. Plus elle est petite, moins le hasard seul est une
       explication crédible. Le seuil retenu ici est de {alpha}. <strong>Si p&nbsp;&lt;&nbsp;0,05, la
