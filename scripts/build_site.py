@@ -324,6 +324,11 @@ def panel_accueil(stats, cite):
     n_lies = sum(1 for c in stats["cancers"] if c["presomption"] != "Non liée")
     alpha = fr_num(stats["alpha"], 2)
     registre_mois = REGISTRE_MAJ.split(" ", 1)[1]
+    # Décompte des tendances parmi les cancers reliés aux pesticides, pour l'« À retenir ».
+    lies = [c for c in stats["cancers"] if c["presomption"] != "Non liée"]
+    n_hausse = sum(1 for c in lies if c["significativite"] == "hausse significative")
+    n_baisse = sum(1 for c in lies if c["significativite"] == "baisse significative")
+    n_stable = len(lies) - n_hausse - n_baisse
     onglets = "\n".join(
         f'        <li><a href="#{key}"><strong>{label}</strong></a>&nbsp;: '
         f'{TAB_DESCRIPTIONS[key].format(y0=y0, n=n, registre_mois=registre_mois)}</li>'
@@ -332,6 +337,22 @@ def panel_accueil(stats, cite):
 
     return f"""
   <section id="panel-accueil" class="tab-panel panel-synthese" role="tabpanel" aria-labelledby="tab-accueil" data-tab="accueil" tabindex="0">
+    <div class="method-block a-retenir">
+      <h3>À retenir</h3>
+      <ul class="text-list">
+        <li>En Poitou-Charentes, de {y0} à {y1}, les cancers que l'Inserm relie aux pesticides sont
+          en hausse, tandis que les autres cancers sont en baisse.</li>
+        <li>Parmi les {n} cancers suivis par le registre, l'Inserm en relie {n_lies} aux
+          pesticides&nbsp;: {n_hausse} d'entre eux sont nettement en hausse, {n_baisse} nettement en
+          baisse, et {n_stable} sans évolution nette.</li>
+        <li>Chez l'enfant, les tumeurs du cerveau, l'un des deux cancers pour lesquels l'Inserm
+          retient une présomption forte de lien avec les pesticides, ont augmenté d'environ
+          20&nbsp;% en France entre 2000 et 2016.</li>
+        <li>Pour la population générale, l'alimentation est la principale voie d'exposition aux
+          pesticides, et près des cultures s'ajoutent l'air et les poussières.</li>
+      </ul>
+    </div>
+
     <p class="site-intro">Ce site a deux parties. La première est une étude statistique des
       données du registre des cancers de Poitou-Charentes {cite('registre-cancers-pc')}. La seconde
       rassemble ce que disent la littérature scientifique et les institutions sur les pesticides,

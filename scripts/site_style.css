@@ -146,6 +146,8 @@ body {
 .method-block h3 { margin: 0 0 10px; color: var(--accent); font-size: 1.02rem; }
 .method-block p { margin: 0 0 12px; max-width: none; }
 .method-block .text-list { margin: 0; }
+/* « À retenir » en tête de l'Accueil : même encadré que la méthode, espacé du texte qui suit. */
+.method-block.a-retenir { margin: 0 0 24px; }
 .method-block .text-list li:last-child { margin-bottom: 0; }
 
 /* Onglet Enfants : remarque courte et complément en petit, en bas de page. */
